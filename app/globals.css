@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0f1f31;
+  --slate: #34506b;
+  --seafoam: #c1d9db;
+  --gold: #c9a468;
+  --cream: #faf9f6;
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-drama: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  @apply bg-cream text-ink font-body;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-heading text-navy;
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ---- Scroll-reveal system (IntersectionObserver adds .revealed) ---- */
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.8s var(--ease-smooth),
+    transform 0.8s var(--ease-smooth);
+  will-change: opacity, transform;
+}
+[data-reveal="fade-up"] {
+  transform: translateY(28px);
+}
+[data-reveal="fade-left"] {
+  transform: translateX(-32px);
+}
+[data-reveal="fade-right"] {
+  transform: translateX(32px);
+}
+[data-reveal="scale"] {
+  transform: scale(0.94);
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Hero entrance (staggered, plays once on load) ---- */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-stagger > * {
+  opacity: 0;
+  animation: heroReveal 0.7s var(--ease-smooth) forwards;
+}
+.hero-stagger > *:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.hero-stagger > *:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.hero-stagger > *:nth-child(3) {
+  animation-delay: 0.45s;
+}
+.hero-stagger > *:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.hero-stagger > *:nth-child(5) {
+  animation-delay: 0.75s;
+}
+
+/* ---- Preloader ---- */
+@keyframes preloaderFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes preloaderLineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+.preloader {
+  @apply fixed inset-0 z-[100] flex flex-col items-center justify-center bg-navy;
+  transition: transform 0.8s var(--ease-drama);
+}
+.preloader.dismissed {
+  transform: translateY(-100%);
+}
+.preloader-text {
+  opacity: 0;
+  animation: preloaderFadeIn 0.9s 0.2s forwards;
+}
+.preloader-line {
+  width: 160px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: preloaderLineGrow 1s 0.6s var(--ease-smooth) forwards;
+}
+
+/* ---- Shared component classes ---- */
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+  .section-label {
+    @apply mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-ink;
+  }
+  .section-label::before {
+    content: "";
+    @apply block h-px w-10 bg-gold;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-semibold tracking-wide text-navy transition-all duration-300 ease-smooth hover:bg-gold-strong hover:shadow-lift;
+  }
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 ease-smooth hover:border-gold hover:text-gold;
+  }
+  .btn-navy {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 ease-smooth hover:bg-navy-700 hover:shadow-lift;
+  }
+}
+
+/* ---- Subtle film grain for depth (luxury texture, ~2% opacity) ---- */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Accessibility ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal],
+  .hero-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .preloader {
+    display: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
