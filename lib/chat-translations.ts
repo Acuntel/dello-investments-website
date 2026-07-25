@@ -1,5 +1,5 @@
 // All chat-widget UI strings, three locales. Record<ChatLocale, ChatStrings>
-// is exhaustive — adding a locale is a compile error until every key exists.
+// is exhaustive, adding a locale is a compile error until every key exists.
 export type ChatLocale = "en" | "es" | "pl";
 
 export const CHAT_LOCALES: { code: ChatLocale; label: string }[] = [
@@ -23,6 +23,7 @@ export const LANGUAGE_INSTRUCTION: Record<ChatLocale, string> = {
 
 type ChatStrings = {
   headerTitle: string;
+  launcherLabel: string;
   headerSubtitle: string;
   closeChat: string;
   leadFormIntro: string;
@@ -48,8 +49,9 @@ type ChatStrings = {
 
 export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
   en: {
-    headerTitle: "Dello Investments",
-    headerSubtitle: "Ask us anything — we reply instantly",
+    headerTitle: "Dello Concierge",
+    launcherLabel: "Chat with us",
+    headerSubtitle: "Ask us anything, we reply instantly",
     closeChat: "Close chat",
     leadFormIntro:
       "Hi! Tell us who you are and we'll answer any question about selling your home.",
@@ -62,7 +64,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     emailRequired: "Please enter your email.",
     emailInvalid: "Please enter a valid email.",
     greeting: (firstName) =>
-      `Hi ${firstName}! I'm the Dello Investments assistant. Whether it's an inherited house, a foreclosure timeline, or just "what's my place worth to you?" — ask away. How can I help?`,
+      `Hi ${firstName}! I'm the Dello Investments assistant. Whether it's an inherited house, a foreclosure timeline, or just "what's my place worth to you?" Ask away. How can I help?`,
     callNow: "Call Now",
     inputPlaceholder: "Type your question…",
     sendMessage: "Send message",
@@ -76,8 +78,9 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     languageAriaLabel: "Chat language",
   },
   es: {
-    headerTitle: "Dello Investments",
-    headerSubtitle: "Pregúntenos lo que sea — respondemos al instante",
+    headerTitle: "Concierge de Dello",
+    launcherLabel: "Chatee con nosotros",
+    headerSubtitle: "Pregúntenos lo que sea, respondemos al instante",
     closeChat: "Cerrar chat",
     leadFormIntro:
       "¡Hola! Díganos quién es y responderemos cualquier pregunta sobre la venta de su casa.",
@@ -91,7 +94,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     emailRequired: "Por favor escriba su correo.",
     emailInvalid: "Por favor escriba un correo válido.",
     greeting: (firstName) =>
-      `¡Hola ${firstName}! Soy el asistente de Dello Investments. Ya sea una casa heredada, una ejecución hipotecaria o simplemente "¿cuánto vale mi casa para ustedes?" — pregunte con confianza. ¿En qué puedo ayudarle?`,
+      `¡Hola ${firstName}! Soy el asistente de Dello Investments. Ya sea una casa heredada, una ejecución hipotecaria o simplemente "¿cuánto vale mi casa para ustedes?" Pregunte con confianza. ¿En qué puedo ayudarle?`,
     callNow: "Llamar Ahora",
     inputPlaceholder: "Escriba su pregunta…",
     sendMessage: "Enviar mensaje",
@@ -105,8 +108,9 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     languageAriaLabel: "Idioma del chat",
   },
   pl: {
-    headerTitle: "Dello Investments",
-    headerSubtitle: "Zapytaj o cokolwiek — odpowiadamy od razu",
+    headerTitle: "Concierge Dello",
+    launcherLabel: "Porozmawiaj z nami",
+    headerSubtitle: "Zapytaj o cokolwiek, odpowiadamy od razu",
     closeChat: "Zamknij czat",
     leadFormIntro:
       "Cześć! Powiedz nam, kim jesteś, a odpowiemy na każde pytanie o sprzedaż Twojego domu.",
@@ -119,7 +123,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     emailRequired: "Podaj swój e-mail.",
     emailInvalid: "Podaj prawidłowy e-mail.",
     greeting: (firstName) =>
-      `Cześć ${firstName}! Jestem asystentem Dello Investments. Dom ze spadku, egzekucja, albo po prostu "ile mój dom jest dla was wart?" — pytaj śmiało. W czym mogę pomóc?`,
+      `Cześć ${firstName}! Jestem asystentem Dello Investments. Dom ze spadku, egzekucja, albo po prostu "ile mój dom jest dla was wart?" Pytaj śmiało. W czym mogę pomóc?`,
     callNow: "Zadzwoń Teraz",
     inputPlaceholder: "Wpisz swoje pytanie…",
     sendMessage: "Wyślij wiadomość",

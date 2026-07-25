@@ -1,11 +1,11 @@
-// Daily usage counters backed by Upstash Redis REST — shared across every
+// Daily usage counters backed by Upstash Redis REST, shared across every
 // serverless instance, unlike the in-memory limiter. OPTIONAL: when Upstash
 // isn't configured these are no-ops and the other layers (origin check,
 // per-instance rate limit, Turnstile, max_tokens cap, Anthropic spend cap)
 // still bound cost. When configured they add per-session, per-IP, and a
 // global daily ceiling that auto-disables the endpoint for the day.
 //
-// Raw fetch to the Upstash REST API — no npm dependency needed.
+// Raw fetch to the Upstash REST API, no npm dependency needed.
 
 function kvConfig(): { url: string; token: string } | null {
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
@@ -20,8 +20,8 @@ function today(): string {
 }
 
 // INCR a per-day key with a 36h TTL so counters self-clean. Returns the new
-// count, or null if KV is unconfigured/unreachable (fail-open on infra error
-// — the other defense layers remain).
+// count, or null if KV is unconfigured/unreachable (fail-open on infra
+// error; the other defense layers remain).
 async function incrDaily(
   cfg: { url: string; token: string },
   suffix: string,

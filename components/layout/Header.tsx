@@ -45,7 +45,7 @@ export default function Header() {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-smooth ${
           scrolled
-            ? "bg-navy/95 py-3 shadow-lift backdrop-blur"
+            ? "bg-emerald/95 py-3 shadow-lift backdrop-blur"
             : "bg-transparent py-5"
         }`}
       >
@@ -70,7 +70,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-white/85 transition-colors hover:text-gold"
+                className="text-sm font-medium text-white/85 transition-colors hover:text-champagne"
               >
                 {link.label}
               </Link>
@@ -78,7 +78,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            {/* Language switcher — maps the CURRENT path into each locale */}
+            {/* Language switcher, maps the CURRENT path into each locale */}
             <div
               className="relative hidden md:block"
               onMouseEnter={() => setLangOpen(true)}
@@ -90,7 +90,7 @@ export default function Header() {
                 aria-expanded={langOpen}
                 onFocus={() => setLangOpen(true)}
                 onKeyDown={(e) => e.key === "Escape" && setLangOpen(false)}
-                className="flex items-center gap-1.5 px-2 py-2 text-sm font-semibold text-white/85 transition-colors hover:text-gold"
+                className="flex items-center gap-1.5 px-2 py-2 text-sm font-semibold text-white/85 transition-colors hover:text-champagne"
               >
                 <Globe className="h-4 w-4" />
                 <span>{locale.toUpperCase()}</span>
@@ -103,9 +103,9 @@ export default function Header() {
                       <Link
                         key={code}
                         href={pathInLocale(pathname, code)}
-                        className={`block px-5 py-2 text-sm transition-colors hover:bg-seafoam-faint hover:text-navy ${
+                        className={`block px-5 py-2 text-sm transition-colors hover:bg-sage-faint hover:text-emerald ${
                           code === locale
-                            ? "font-semibold text-gold-ink"
+                            ? "font-semibold text-champagne-ink"
                             : "text-ink"
                         }`}
                       >
@@ -119,15 +119,15 @@ export default function Header() {
 
             <a
               href={CONTACT.phoneHref}
-              className="hidden items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-gold md:flex"
+              className="hidden items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-champagne md:flex"
             >
-              <Phone className="h-4 w-4 text-gold" />
+              <Phone className="h-4 w-4 text-champagne" />
               {CONTACT.phone}
             </a>
 
             <Link
               href={`${prefix}/contact`}
-              className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-navy transition-all duration-300 ease-smooth hover:bg-gold-strong lg:block"
+              className="hidden rounded-full bg-champagne px-5 py-2.5 text-sm font-semibold text-emerald transition-all duration-300 ease-smooth hover:bg-champagne-strong lg:block"
             >
               {t.nav.getOffer}
             </Link>

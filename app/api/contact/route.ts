@@ -109,7 +109,7 @@ export async function POST(req: NextRequest) {
 
     const key = process.env.RESEND_API_KEY;
     if (!key) {
-      console.log("[contact form — RESEND_API_KEY not set]", {
+      console.log("[contact form, RESEND_API_KEY not set]", {
         name,
         phone,
         address,
@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
         from: "Dello Website <onboarding@resend.dev>",
         to: ["connect@delloinvestments.com"],
         ...(email && { reply_to: email }),
-        subject: `Cash offer request — ${name} (${address})`,
+        subject: `Cash offer request, ${name} (${address})`,
         html,
       }),
     });

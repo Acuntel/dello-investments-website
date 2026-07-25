@@ -22,7 +22,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-navy text-white/80">
+    <footer className="bg-emerald text-white/80">
       <div className="container-custom grid gap-12 py-16 md:grid-cols-3">
         <div>
           <Image
@@ -38,7 +38,7 @@ export default function Footer() {
               href={SOCIAL.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-gold"
+              className="transition-colors hover:text-champagne"
             >
               Facebook
             </a>
@@ -46,7 +46,7 @@ export default function Footer() {
               href={SOCIAL.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-gold"
+              className="transition-colors hover:text-champagne"
             >
               Instagram
             </a>
@@ -54,7 +54,7 @@ export default function Footer() {
               href={SOCIAL.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-gold"
+              className="transition-colors hover:text-champagne"
             >
               YouTube
             </a>
@@ -70,7 +70,7 @@ export default function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="transition-colors hover:text-gold"
+                  className="transition-colors hover:text-champagne"
                 >
                   {link.label}
                 </Link>
@@ -87,27 +87,27 @@ export default function Footer() {
             <li>
               <a
                 href={CONTACT.phoneHref}
-                className="flex items-center gap-3 transition-colors hover:text-gold"
+                className="flex items-center gap-3 transition-colors hover:text-champagne"
               >
-                <Phone className="h-4 w-4 shrink-0 text-gold" />
+                <Phone className="h-4 w-4 shrink-0 text-champagne" />
                 {CONTACT.phone}
               </a>
             </li>
             <li>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-3 transition-colors hover:text-gold"
+                className="flex items-center gap-3 transition-colors hover:text-champagne"
               >
-                <Mail className="h-4 w-4 shrink-0 text-gold" />
+                <Mail className="h-4 w-4 shrink-0 text-champagne" />
                 {CONTACT.email}
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 shrink-0 text-gold" />
+              <MapPin className="h-4 w-4 shrink-0 text-champagne" />
               {CONTACT.address}
             </li>
             <li className="flex items-center gap-3">
-              <Clock className="h-4 w-4 shrink-0 text-gold" />
+              <Clock className="h-4 w-4 shrink-0 text-champagne" />
               {t.footer.hours}
             </li>
           </ul>

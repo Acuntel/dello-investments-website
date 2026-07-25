@@ -57,7 +57,7 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
   if (status === "done") {
     return (
       <div className="rounded-2xl bg-white p-10 text-center shadow-card">
-        <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-gold" />
+        <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-champagne" />
         <h3 className="mb-2 text-2xl">{t.successTitle}</h3>
         <p className="text-muted">{t.successBody}</p>
       </div>
@@ -65,13 +65,13 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
   }
 
   const inputCls = (field: string) =>
-    `w-full rounded-lg border px-4 py-3.5 text-base outline-none transition-colors focus:border-gold ${
-      errors[field] ? "border-red-400" : "border-seafoam"
+    `w-full rounded-lg border px-4 py-3.5 text-base outline-none transition-colors focus:border-champagne ${
+      errors[field] ? "border-red-400" : "border-sage"
     }`;
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
-      {/* Honeypot — visually hidden, tab-skipped, ignored by real users */}
+      {/* Honeypot, visually hidden, tab-skipped, ignored by real users */}
       <div
         className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden"
         aria-hidden="true"
@@ -161,7 +161,7 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
         rows={4}
         value={values.message}
         onChange={set("message")}
-        className="w-full resize-y rounded-lg border border-seafoam px-4 py-3.5 text-base outline-none transition-colors focus:border-gold"
+        className="w-full resize-y rounded-lg border border-sage px-4 py-3.5 text-base outline-none transition-colors focus:border-champagne"
       />
       {status === "error" && (
         <p role="alert" className="text-sm text-red-600">
@@ -171,7 +171,7 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="btn-gold w-full disabled:opacity-60 sm:w-auto"
+        className="btn-champagne w-full disabled:opacity-60 sm:w-auto"
       >
         {status === "sending" ? (
           <>

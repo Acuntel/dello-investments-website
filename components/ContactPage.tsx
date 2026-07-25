@@ -29,9 +29,9 @@ export default function ContactPage({ locale }: { locale: Locale }) {
         }}
       />
       {/* Navy hero band keeps the fixed header legible */}
-      <section className="bg-navy pb-24 pt-40">
+      <section className="bg-emerald pb-24 pt-40">
         <div className="container-custom hero-stagger">
-          <p className="section-label !text-gold">{c.label}</p>
+          <p className="section-label !text-champagne">{c.label}</p>
           <h1 className="max-w-2xl text-4xl !text-white sm:text-5xl">
             {c.title}
           </h1>
@@ -50,7 +50,7 @@ export default function ContactPage({ locale }: { locale: Locale }) {
         <Reveal
           variant="fade-up"
           delay={120}
-          className="h-fit rounded-2xl bg-seafoam-light p-7 sm:p-10 lg:col-span-2"
+          className="h-fit rounded-2xl bg-sage-light p-7 sm:p-10 lg:col-span-2"
         >
           <h2 className="text-2xl">{c.directLabel}</h2>
           <p className="mt-2 text-sm text-muted">{c.orCall}</p>
@@ -58,10 +58,10 @@ export default function ContactPage({ locale }: { locale: Locale }) {
             <li>
               <a
                 href={CONTACT.phoneHref}
-                className="flex items-center gap-3 font-semibold text-navy transition-colors hover:text-gold-ink"
+                className="flex items-center gap-3 font-semibold text-emerald transition-colors hover:text-champagne-ink"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
-                  <Phone className="h-4 w-4 text-gold-ink" />
+                  <Phone className="h-4 w-4 text-champagne-ink" />
                 </span>
                 {CONTACT.phone}
               </a>
@@ -69,23 +69,23 @@ export default function ContactPage({ locale }: { locale: Locale }) {
             <li>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-3 font-medium text-ink transition-colors hover:text-gold-ink"
+                className="flex items-center gap-3 font-medium text-ink transition-colors hover:text-champagne-ink"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
-                  <Mail className="h-4 w-4 text-gold-ink" />
+                  <Mail className="h-4 w-4 text-champagne-ink" />
                 </span>
                 {CONTACT.email}
               </a>
             </li>
             <li className="flex items-center gap-3 text-ink">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white">
-                <MapPin className="h-4 w-4 text-gold-ink" />
+                <MapPin className="h-4 w-4 text-champagne-ink" />
               </span>
               {CONTACT.address}
             </li>
             <li className="flex items-center gap-3 text-ink">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white">
-                <Clock className="h-4 w-4 text-gold-ink" />
+                <Clock className="h-4 w-4 text-champagne-ink" />
               </span>
               {hours}
             </li>

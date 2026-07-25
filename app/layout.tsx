@@ -29,16 +29,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "We Buy Houses Chicago for Cash | Offer in 24 Hours — Dello Investments",
+      "We Buy Houses Chicago for Cash | Offer in 24 Hours | Dello Investments",
     template: "%s | Dello Investments",
   },
   description:
-    "Woman-owned Chicago cash home buyer. Fair offers in 24 hours, close in 7–14 days. Any condition, all 77 neighborhoods. No repairs, no commissions, no closing costs.",
+    "Woman-owned Chicago cash home buyer. Fair offers in 24 hours, close in 7-14 days. Any condition, all 77 neighborhoods. No repairs, no commissions, no closing costs.",
   icons: { icon: "/favicon.png" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0F1F31",
+  themeColor: "#0C2F25",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",

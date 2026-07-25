@@ -14,13 +14,13 @@ export default function CTASection({
 }) {
   const prefix = localePrefix(locale);
   return (
-    <section className="relative overflow-hidden bg-navy">
+    <section className="relative overflow-hidden bg-emerald">
       <div
-        className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-slate/40 blur-3xl"
+        className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-jade/40 blur-3xl"
         aria-hidden
       />
       <div
-        className="absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-gold/10 blur-3xl"
+        className="absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-champagne/10 blur-3xl"
         aria-hidden
       />
       <div className="container-custom relative section-padding text-center">
@@ -32,7 +32,7 @@ export default function CTASection({
         </Reveal>
         <Reveal variant="fade-up" delay={150}>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a href={CONTACT.phoneHref} className="btn-gold">
+            <a href={CONTACT.phoneHref} className="btn-champagne">
               <Phone className="h-4 w-4" />
               {t.cta.call}
             </a>

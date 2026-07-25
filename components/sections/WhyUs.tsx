@@ -14,7 +14,7 @@ export default function WhyUs({ t }: { t: SiteDict }) {
           <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2">
             {t.why.items.map((item, i) => (
               <Reveal key={item.title} variant="fade-up" delay={(i % 2) * 100}>
-                <div className="border-l border-gold/40 pl-6">
+                <div className="border-l border-champagne/40 pl-6">
                   <h3 className="text-lg">{item.title}</h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-muted">
                     {item.body}
@@ -29,7 +29,7 @@ export default function WhyUs({ t }: { t: SiteDict }) {
           className="relative mx-auto w-full max-w-md lg:col-span-2"
         >
           <div
-            className="absolute -left-4 -top-4 h-full w-full rounded-2xl bg-seafoam-light"
+            className="absolute -left-4 -top-4 h-full w-full rounded-2xl bg-sage-light"
             aria-hidden
           />
           <Image

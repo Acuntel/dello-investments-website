@@ -3,10 +3,10 @@ import Reveal from "@/components/ui/Reveal";
 
 export default function Process({ t }: { t: SiteDict }) {
   return (
-    <section id="process" className="section-padding scroll-mt-24 bg-navy">
+    <section id="process" className="section-padding scroll-mt-24 bg-emerald">
       <div className="container-custom">
         <Reveal variant="fade-up" className="max-w-2xl">
-          <p className="section-label !text-gold">{t.process.label}</p>
+          <p className="section-label !text-champagne">{t.process.label}</p>
           <h2 className="text-3xl !text-white sm:text-4xl">
             {t.process.title}
           </h2>
@@ -17,10 +17,10 @@ export default function Process({ t }: { t: SiteDict }) {
             <Reveal key={i} variant="fade-up" delay={i * 120}>
               <div className="group relative border-t border-white/15 pt-8 transition-colors duration-500">
                 <span
-                  className="absolute -top-px left-0 h-px w-12 bg-gold transition-all duration-500 ease-smooth group-hover:w-full"
+                  className="absolute -top-px left-0 h-px w-12 bg-champagne transition-all duration-500 ease-smooth group-hover:w-full"
                   aria-hidden
                 />
-                <p className="font-heading text-5xl italic text-gold/70">
+                <p className="font-heading text-5xl italic text-champagne/70">
                   0{i + 1}
                 </p>
                 <h3 className="mt-4 text-xl !text-white">{step.title}</h3>

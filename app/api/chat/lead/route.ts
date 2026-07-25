@@ -60,10 +60,10 @@ export async function POST(req: NextRequest) {
       : "";
 
     const subject = isClose
-      ? `Chat transcript — ${name}`
-      : `New chat lead — ${name}`;
+      ? `Chat transcript, ${name}`
+      : `New chat lead, ${name}`;
     const html = `
-      <h2>${isClose ? "Chat ended — transcript" : "New chatbot lead"}</h2>
+      <h2>${isClose ? "Chat ended, transcript" : "New chatbot lead"}</h2>
       <p><strong>Name:</strong> ${esc(name)}</p>
       <p><strong>Email:</strong> ${esc(email)}</p>
       ${phone ? `<p><strong>Phone:</strong> ${esc(String(phone))}</p>` : ""}
@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
 
     const key = process.env.RESEND_API_KEY;
     if (!key) {
-      console.log("[chat lead — RESEND_API_KEY not set]", {
+      console.log("[chat lead, RESEND_API_KEY not set]", {
         name,
         email,
         phone,

@@ -44,7 +44,7 @@ export function generatePageMetadata({
           url: "/images/team-alexa-karen.webp",
           width: 1200,
           height: 900,
-          alt: "Dello Investments — Alexa and Karen",
+          alt: "Dello Investments, Alexa and Karen",
         },
       ],
     },

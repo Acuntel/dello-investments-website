@@ -10,7 +10,7 @@ import Neighborhoods from "@/components/sections/Neighborhoods";
 import FAQSection from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
 
-// One assembly for all three locales — the dictionary is the only variable,
+// One assembly for all three locales, the dictionary is the only variable,
 // so es/pl can never drift structurally from the English home.
 export default function HomePage({ locale }: { locale: Locale }) {
   const t = getDict(locale);

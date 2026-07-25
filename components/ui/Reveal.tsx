@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, ReactNode } from "react";
 
-// Scroll-reveal driven by the [data-reveal] CSS in globals.css — the same
+// Scroll-reveal driven by the [data-reveal] CSS in globals.css, the same
 // easing/stagger system as the Alliance site. Wrap any block; the element
 // animates once when ~15% enters the viewport.
 interface RevealProps {

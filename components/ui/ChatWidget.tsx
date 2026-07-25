@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, FormEvent } from "react";
 import { usePathname } from "next/navigation";
-import { MessageCircle, X, Send, Phone, Loader2 } from "lucide-react";
+import { MessageCircle, X, ArrowUp, Phone, Loader2 } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 import {
   CHAT_LOCALES,
@@ -56,7 +56,7 @@ export default function ChatWidget() {
   const messagesRef = useRef<Message[]>([]);
   messagesRef.current = messages;
 
-  // Follow the page's language; the user can still override with the pills.
+  // Follow the page's language; the user can still override with the tabs.
   useEffect(() => {
     setLocale(detectChatLocale(pathname));
   }, [pathname]);
@@ -275,13 +275,16 @@ export default function ChatWidget() {
     setState(messages.length > 0 ? "chatting" : "lead-form");
   }
 
+  const fieldCls =
+    "rounded-xl bg-sage-faint px-4 py-3 text-base outline-none ring-1 ring-transparent transition-shadow focus:ring-champagne";
+
   return (
-    <div className="fixed bottom-6 right-4 z-50 sm:right-6">
+    <div className="fixed bottom-5 right-4 z-50 sm:right-6">
       <div ref={turnstileContainer} className="hidden" />
 
       {/* Proactive bubble */}
       {showBubble && state === "closed" && (
-        <div className="absolute bottom-20 right-0 w-64 rounded-2xl rounded-br-md bg-white p-4 shadow-lift">
+        <div className="absolute bottom-16 right-0 w-64 rounded-2xl border border-sage bg-white p-4 shadow-lift">
           <button
             type="button"
             aria-label={t.dismiss}
@@ -289,7 +292,7 @@ export default function ChatWidget() {
               setShowBubble(false);
               sessionStorage.setItem("dello-chat-dismissed", "1");
             }}
-            className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-navy text-white"
+            className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-emerald text-white"
           >
             <X className="h-3.5 w-3.5" />
           </button>
@@ -303,37 +306,27 @@ export default function ChatWidget() {
           role="dialog"
           aria-modal="true"
           aria-label={t.headerTitle}
-          className="absolute bottom-20 right-0 flex max-h-[min(560px,calc(100vh-140px))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl bg-white shadow-lift sm:w-[380px]"
+          className="absolute bottom-16 right-0 flex max-h-[min(580px,calc(100vh-120px))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border border-sage bg-white shadow-lift sm:w-[390px]"
         >
-          {/* Header */}
-          <div className="flex shrink-0 items-center justify-between gap-3 bg-navy px-5 py-4">
-            <div>
-              <p className="font-heading text-base text-white">
-                {t.headerTitle}
-              </p>
-              <p className="text-xs text-seafoam">{t.headerSubtitle}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div
-                role="group"
-                aria-label={t.languageAriaLabel}
-                className="flex gap-1"
-              >
-                {CHAT_LOCALES.map(({ code, label }) => (
-                  <button
-                    key={code}
-                    type="button"
-                    aria-pressed={locale === code}
-                    onClick={() => setLocale(code)}
-                    className={`rounded px-1.5 py-0.5 text-[10px] font-semibold transition-colors ${
-                      locale === code
-                        ? "bg-gold text-navy"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    {label}
-                  </button>
-                ))}
+          {/* Header: gradient + monogram avatar */}
+          <div className="shrink-0 bg-gradient-to-br from-emerald via-emerald-800 to-emerald-700 px-5 pb-4 pt-5">
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-champagne font-heading text-lg text-emerald">
+                  D
+                </span>
+                <div>
+                  <p className="font-heading text-lg leading-tight text-white">
+                    {t.headerTitle}
+                  </p>
+                  <p className="mt-0.5 flex items-center gap-1.5 text-xs text-sage">
+                    <span
+                      className="inline-block h-1.5 w-1.5 rounded-full bg-champagne"
+                      aria-hidden
+                    />
+                    {t.headerSubtitle}
+                  </p>
+                </div>
               </div>
               <button
                 type="button"
@@ -344,6 +337,29 @@ export default function ChatWidget() {
                 <X className="h-4 w-4" />
               </button>
             </div>
+          </div>
+
+          {/* Language tabs (segmented strip under the header) */}
+          <div
+            role="group"
+            aria-label={t.languageAriaLabel}
+            className="flex shrink-0 border-b border-sage-light bg-sage-faint"
+          >
+            {CHAT_LOCALES.map(({ code, label }) => (
+              <button
+                key={code}
+                type="button"
+                aria-pressed={locale === code}
+                onClick={() => setLocale(code)}
+                className={`flex-1 border-b-2 py-2 text-xs font-semibold tracking-wide transition-colors ${
+                  locale === code
+                    ? "border-champagne text-emerald"
+                    : "border-transparent text-muted hover:text-emerald"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
 
           {/* Lead form */}
@@ -362,7 +378,7 @@ export default function ChatWidget() {
                 placeholder={t.namePlaceholder}
                 aria-label={t.namePlaceholder}
                 maxLength={200}
-                className="rounded-lg border border-seafoam px-4 py-3 text-base outline-none transition-colors focus:border-gold"
+                className={fieldCls}
               />
               <input
                 type="email"
@@ -373,7 +389,7 @@ export default function ChatWidget() {
                 placeholder={t.emailPlaceholder}
                 aria-label={t.emailPlaceholder}
                 maxLength={200}
-                className="rounded-lg border border-seafoam px-4 py-3 text-base outline-none transition-colors focus:border-gold"
+                className={fieldCls}
               />
               <input
                 type="tel"
@@ -384,19 +400,19 @@ export default function ChatWidget() {
                 placeholder={t.phonePlaceholder}
                 aria-label={t.phonePlaceholder}
                 maxLength={50}
-                className="rounded-lg border border-seafoam px-4 py-3 text-base outline-none transition-colors focus:border-gold"
+                className={fieldCls}
               />
               {formError && (
                 <p role="alert" className="text-sm text-red-600">
                   {formError}
                 </p>
               )}
-              <button type="submit" className="btn-gold w-full">
+              <button type="submit" className="btn-emerald w-full">
                 {t.startChat}
               </button>
               <a
                 href={CONTACT.phoneHref}
-                className="flex items-center justify-center gap-2 text-sm text-slate transition-colors hover:text-navy"
+                className="flex items-center justify-center gap-2 text-sm text-jade transition-colors hover:text-emerald"
               >
                 <Phone className="h-3.5 w-3.5" />
                 {t.preferToCall(CONTACT.phone)}
@@ -409,19 +425,19 @@ export default function ChatWidget() {
             <>
               <div
                 aria-live="polite"
-                className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto bg-seafoam-faint p-4"
+                className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto bg-white p-4"
               >
                 {messages.map((m, i) => (
                   <div
                     key={i}
-                    className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                    className={`max-w-[85%] px-4 py-2.5 text-sm leading-relaxed ${
                       m.role === "user"
-                        ? "self-end rounded-br-md bg-navy text-white"
-                        : "self-start rounded-bl-md bg-white text-ink shadow-card"
+                        ? "self-end rounded-xl bg-emerald-700 text-white"
+                        : "self-start rounded-xl border-l-2 border-champagne bg-sage-faint text-ink"
                     }`}
                   >
                     {m.content === "" && isStreaming ? (
-                      <Loader2 className="h-4 w-4 animate-spin text-gold-ink" />
+                      <Loader2 className="h-4 w-4 animate-spin text-champagne-ink" />
                     ) : (
                       m.content
                     )}
@@ -431,7 +447,7 @@ export default function ChatWidget() {
               </div>
               <form
                 onSubmit={handleSendMessage}
-                className="flex shrink-0 items-center gap-2 border-t border-seafoam-light bg-white p-3"
+                className="flex shrink-0 items-center gap-2 border-t border-sage-light bg-sage-faint p-3"
               >
                 <input
                   ref={inputRef}
@@ -441,15 +457,15 @@ export default function ChatWidget() {
                   placeholder={t.inputPlaceholder}
                   aria-label={t.inputPlaceholder}
                   maxLength={5000}
-                  className="min-w-0 flex-1 rounded-full border border-seafoam px-4 py-2.5 text-base outline-none transition-colors focus:border-gold"
+                  className="min-w-0 flex-1 rounded-xl bg-white px-4 py-2.5 text-base outline-none ring-1 ring-sage transition-shadow focus:ring-champagne"
                 />
                 <button
                   type="submit"
                   aria-label={t.sendMessage}
                   disabled={isStreaming || !input.trim()}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold text-navy transition-all hover:bg-gold-strong disabled:opacity-40"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald text-champagne transition-colors hover:bg-emerald-700 disabled:opacity-40"
                 >
-                  <Send className="h-4 w-4" />
+                  <ArrowUp className="h-4 w-4" />
                 </button>
               </form>
             </>
@@ -457,17 +473,23 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* Floating button */}
+      {/* Launcher: labeled pill, not an icon bubble */}
       <button
         type="button"
         aria-label={state === "closed" ? t.openChat : t.closeChat}
         onClick={() => (state === "closed" ? openWidget() : handleClose())}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-navy text-gold shadow-lift transition-transform duration-300 ease-smooth hover:scale-105"
+        className="group flex items-center gap-2.5 rounded-full border border-champagne/40 bg-emerald py-3 pl-4 pr-5 text-white shadow-lift transition-all duration-300 ease-smooth hover:border-champagne hover:bg-emerald-700"
       >
         {state === "closed" ? (
-          <MessageCircle className="h-6 w-6" />
+          <>
+            <MessageCircle className="h-5 w-5 text-champagne" />
+            <span className="text-sm font-semibold">{t.launcherLabel}</span>
+          </>
         ) : (
-          <X className="h-6 w-6" />
+          <>
+            <X className="h-5 w-5 text-champagne" />
+            <span className="text-sm font-semibold">{t.closeChat}</span>
+          </>
         )}
       </button>
     </div>

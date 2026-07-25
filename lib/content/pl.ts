@@ -12,12 +12,12 @@ export const pl: SiteDict = {
     languageLabel: "Język",
   },
   hero: {
-    eyebrow: "Skup domów w Chicago — firma prowadzona przez kobiety",
+    eyebrow: "Skup domów w Chicago, firma prowadzona przez kobiety",
     titleLead: "Sprzedaj swój dom w Chicago",
     titleAccent: "z godnością,",
     titleTail: "w swoim tempie.",
     subtitle:
-      "Dello Investments kupuje domy za gotówkę we wszystkich 77 dzielnicach Chicago — w każdym stanie, w każdej sytuacji. Uczciwa oferta w 24 godziny, finalizacja nawet w 7 dni. Bez remontów, bez prowizji, bez kosztów zamknięcia.",
+      "Dello Investments kupuje domy za gotówkę we wszystkich 77 dzielnicach Chicago, w każdym stanie, w każdej sytuacji. Uczciwa oferta w 24 godziny, finalizacja nawet w 7 dni. Bez remontów, bez prowizji, bez kosztów zamknięcia.",
     ctaPrimary: "Otrzymaj Ofertę Gotówkową",
     ctaSecondary: "Zobacz Jak To Działa",
     trustLine: "5.0 w Google · A+ BBB · Licencjonowany broker stanu Illinois",
@@ -25,7 +25,7 @@ export const pl: SiteDict = {
   stats: [
     { value: 77, suffix: "", label: "obsługiwanych dzielnic Chicago" },
     { value: 24, suffix: "h", label: "na otrzymanie oferty gotówkowej" },
-    { value: 7, suffix: "+", label: "dni do finalizacji — Ty decydujesz" },
+    { value: 7, suffix: "+", label: "dni do finalizacji, Ty decydujesz" },
     { value: 0, suffix: "", label: "opłat, prowizji i remontów" },
   ],
   certs: {
@@ -52,13 +52,13 @@ export const pl: SiteDict = {
     label: "Nasza Historia",
     title: "Najpierw sąsiedzi. Potem inwestorzy.",
     body1:
-      "Dello Investments założyły w 2021 roku Karen Rodriguez i Alexa — dwie chicagowianki przekonane, że sprzedaż domu w trudnym momencie życia nie powinna być kolejnym ciężarem. Karen jest licencjonowanym brokerem nieruchomości stanu Illinois, a nasz zespół posiada licencję generalnego wykonawcy Miasta Chicago — osoby składające Ci ofertę to te same osoby, które dokładnie rozumieją, czego potrzebuje Twoja nieruchomość.",
+      "Dello Investments założyły w 2021 roku Karen Rodriguez i Alexa, dwie chicagowianki przekonane, że sprzedaż domu w trudnym momencie życia nie powinna być kolejnym ciężarem. Karen jest licencjonowanym brokerem nieruchomości stanu Illinois, a nasz zespół posiada licencję generalnego wykonawcy Miasta Chicago, osoby składające Ci ofertę to te same osoby, które dokładnie rozumieją, czego potrzebuje Twoja nieruchomość.",
     body2:
       "Z dumą posiadamy certyfikaty Miasta Chicago jako firma prowadzona przez kobiety, weteranów i osoby z niepełnosprawnościami. Siadając przy Twoim stole, wyjaśniamy każdą liczbę w ofercie, a Ty ustalasz harmonogram. To wszystko. Bez presji, bez gierek.",
     points: [
       "Licencjonowany broker nieruchomości stanu Illinois",
       "Licencjonowany generalny wykonawca Miasta Chicago",
-      "Przejrzysta oferta — liczba po liczbie",
+      "Przejrzysta oferta, liczba po liczbie",
       "Obsługa po polsku, angielsku i hiszpańsku",
     ],
     imageAlt: "Alexa i Karen z Dello Investments",
@@ -67,29 +67,29 @@ export const pl: SiteDict = {
     label: "Jak To Działa",
     title: "Cztery kroki. Zero stresu.",
     subtitle:
-      "Od pierwszego telefonu do czeku — większość transakcji trwa niecałe dwa tygodnie, ale harmonogram zawsze ustalasz Ty.",
+      "Od pierwszego telefonu do czeku, większość transakcji trwa niecałe dwa tygodnie, ale harmonogram zawsze ustalasz Ty.",
     steps: [
       {
         title: "Opowiedz nam o nieruchomości",
         body: "Zadzwoń, napisz SMS lub wyślij formularz. Wystarczy kilka podstawowych informacji o domu i Twojej sytuacji.",
       },
       {
-        title: "Obejrzymy dom — albo nie",
+        title: "Obejrzymy dom, albo nie",
         body: "Szybkie oględziny w dogodnym terminie, albo zdjęcia, jeśli wolisz, żebyśmy nie przyjeżdżali. W obecnym stanie znaczy w obecnym stanie: nie sprzątaj, nie remontuj.",
       },
       {
         title: "Otrzymaj ofertę gotówkową w 24 godziny",
-        body: "Pisemna, niezobowiązująca oferta z wyliczeniami wyjaśnionymi linijka po linijce. Nie spiesz się — oferta nie wygasa z dnia na dzień.",
+        body: "Pisemna, niezobowiązująca oferta z wyliczeniami wyjaśnionymi linijka po linijce. Nie spiesz się, oferta nie wygasa z dnia na dzień.",
       },
       {
         title: "Finalizacja w Twoim terminie",
-        body: "Siedem dni czy siedem miesięcy — Ty wybierasz datę. My pokrywamy koszty zamknięcia, a Ty odchodzisz z gotówką i spokojem.",
+        body: "Siedem dni czy siedem miesięcy. Ty wybierasz datę. My pokrywamy koszty zamknięcia, a Ty odchodzisz z gotówką i spokojem.",
       },
     ],
   },
   situations: {
     label: "Sytuacje, Które Rozwiązujemy",
-    title: "Niezależnie od sytuacji — jest wyjście.",
+    title: "Niezależnie od sytuacji, jest wyjście.",
     subtitle:
       "Pomogliśmy właścicielom domów w Chicago w niemal każdej sytuacji, jaka może dotknąć nieruchomość.",
     items: [
@@ -99,23 +99,23 @@ export const pl: SiteDict = {
       },
       {
         title: "Egzekucja i Zaległości w Spłatach",
-        body: "W Illinois egzekucja z nieruchomości trwa 12–18 miesięcy — masz więcej czasu, niż myślisz. Sprzedaż przed licytacją może uratować Twój kapitał i historię kredytową.",
+        body: "W Illinois egzekucja z nieruchomości trwa 12-18 miesięcy. Masz więcej czasu, niż myślisz. Sprzedaż przed licytacją może uratować Twój kapitał i historię kredytową.",
       },
       {
         title: "Domy Puste lub Uszkodzone",
-        body: "Pożar, zalanie, fundamenty czy lata pustostanu — oko wykonawcy sprawia, że szkody obniżają koszt napraw, a nie szacunek, z jakim jesteś traktowany.",
+        body: "Pożar, zalanie, fundamenty czy lata pustostanu, oko wykonawcy sprawia, że szkody obniżają koszt napraw, a nie szacunek, z jakim jesteś traktowany.",
       },
       {
         title: "Zmęczeni Właściciele i Kamienice",
-        body: "Trudni lokatorzy, puste mieszkania, zaległe naprawy. Kupujemy budynki 2–4 rodzinne i portfele najmu razem z lokatorami.",
+        body: "Trudni lokatorzy, puste mieszkania, zaległe naprawy. Kupujemy budynki 2-4 rodzinne i portfele najmu razem z lokatorami.",
       },
       {
         title: "Naruszenia Przepisów i Zastawy",
-        body: "Sprawy w sądzie budowlanym, rachunki za wodę, zaległe podatki, zastawy HOA — wszystko rozwiązujemy przy zamknięciu transakcji, nie Ty wcześniej.",
+        body: "Sprawy w sądzie budowlanym, rachunki za wodę, zaległe podatki, zastawy HOA, wszystko rozwiązujemy przy zamknięciu transakcji, nie Ty wcześniej.",
       },
       {
         title: "Rozwód i Zmiany Życiowe",
-        body: "Szybka, dyskretna i uczciwa sprzedaż pozwala obu stronom iść dalej — z neutralną kwotą, którą każdy może zweryfikować.",
+        body: "Szybka, dyskretna i uczciwa sprzedaż pozwala obu stronom iść dalej, z neutralną kwotą, którą każdy może zweryfikować.",
       },
     ],
   },
@@ -125,7 +125,7 @@ export const pl: SiteDict = {
     items: [
       {
         title: "Jasne liczby",
-        body: "Każda oferta zawiera wyliczenia czarno na białym — ile szacujemy na naprawy, ile płacimy i dlaczego.",
+        body: "Każda oferta zawiera wyliczenia czarno na białym: ile szacujemy na naprawy, ile płacimy i dlaczego.",
       },
       {
         title: "Licencje po obu stronach",
@@ -137,14 +137,14 @@ export const pl: SiteDict = {
       },
       {
         title: "Zakorzenieni w Chicago",
-        body: "Z siedzibą w Little Village, z certyfikatami Miasta, działamy w każdej dzielnicy — od Beverly po Rogers Park i Jefferson Park.",
+        body: "Z siedzibą w Little Village, z certyfikatami Miasta, działamy w każdej dzielnicy, od Beverly po Rogers Park i Jefferson Park.",
       },
     ],
   },
   neighborhoods: {
     label: "Gdzie Kupujemy",
     title: "Wszystkie 77 dzielnic. Każde przedmieście powiatu Cook.",
-    body: "Od bungalowów po two-flaty, od greystone'ów po parterówki — jeśli to Chicagoland, złożymy ofertę.",
+    body: "Od bungalowów po two-flaty, od greystone'ów po parterówki. Jeśli to Chicagoland, złożymy ofertę.",
     areas: [
       "Jefferson Park",
       "Portage Park",
@@ -170,15 +170,15 @@ export const pl: SiteDict = {
     items: [
       {
         q: "Czy oferta jest naprawdę niezobowiązująca?",
-        a: "Całkowicie. Pisemna oferta jest bezpłatna, a rezygnacja nic nie kosztuje. Wielu właścicieli decyduje się tygodniami — to normalne i mile widziane.",
+        a: "Całkowicie. Pisemna oferta jest bezpłatna, a rezygnacja nic nie kosztuje. Wielu właścicieli decyduje się tygodniami. To normalne i mile widziane.",
       },
       {
-        q: "Jak możecie sfinalizować w 7–14 dni?",
-        a: "Kupujemy za gotówkę — nie ma banku, wyceny pod kredyt ani decyzji kredytowej. Jedynym zegarem jest praca nad tytułem własności, którą zaczynamy od razu.",
+        q: "Jak możecie sfinalizować w 7-14 dni?",
+        a: "Kupujemy za gotówkę, nie ma banku, wyceny pod kredyt ani decyzji kredytowej. Jedynym zegarem jest praca nad tytułem własności, którą zaczynamy od razu.",
       },
       {
         q: "Czy muszę coś sprzątać albo naprawiać?",
-        a: "Nie. Zabierz, co chcesz, resztę zostaw — meble, rupiecie, cokolwiek. W obecnym stanie znaczy dokładnie to.",
+        a: "Nie. Zabierz, co chcesz, resztę zostaw, meble, rupiecie, cokolwiek. W obecnym stanie znaczy dokładnie to.",
       },
       {
         q: "A jeśli dom ma naruszenia przepisów lub zastawy?",
@@ -186,17 +186,17 @@ export const pl: SiteDict = {
       },
       {
         q: "Czym Dello różni się od innych firm 'skupujących domy'?",
-        a: "Karen jest licencjonowanym brokerem Illinois, a nasz zespół ma licencję generalnego wykonawcy Chicago — nasze oferty opierają się na prawdziwych kosztach napraw, które pokazujemy otwarcie, a nie na formule zaniżania ceny.",
+        a: "Karen jest licencjonowanym brokerem Illinois, a nasz zespół ma licencję generalnego wykonawcy Chicago, nasze oferty opierają się na prawdziwych kosztach napraw, które pokazujemy otwarcie, a nie na formule zaniżania ceny.",
       },
       {
         q: "Czy pomożecie, jeśli grozi mi egzekucja?",
-        a: "Często tak — w Illinois proces trwa 12–18 miesięcy, więc zwykle jest czas, by sprzedać, ochronić kredyt i zachować kapitał. Jeśli chcesz zatrzymać dom, wskażemy Ci doradztwo zatwierdzone przez HUD. Każda sytuacja jest inna — odezwij się wcześnie.",
+        a: "Często tak, w Illinois proces trwa 12-18 miesięcy, więc zwykle jest czas, by sprzedać, ochronić kredyt i zachować kapitał. Jeśli chcesz zatrzymać dom, wskażemy Ci doradztwo zatwierdzone przez HUD. Każda sytuacja jest inna, odezwij się wcześnie.",
       },
     ],
   },
   cta: {
     title: "Otrzymaj dziś uczciwą ofertę gotówkową.",
-    body: "Start zajmuje pięć minut, a poznanie kwoty nic nie kosztuje. Zadzwoń, napisz SMS lub wyślij formularz — zespół Karen odpowiada siedem dni w tygodniu.",
+    body: "Start zajmuje pięć minut, a poznanie kwoty nic nie kosztuje. Zadzwoń, napisz SMS lub wyślij formularz, zespół Karen odpowiada siedem dni w tygodniu.",
     call: "Zadzwoń lub Napisz: (312) 975-5557",
     form: "Poproś o Ofertę Online",
   },
@@ -204,17 +204,17 @@ export const pl: SiteDict = {
     label: "Kontakt",
     title: "Opowiedz nam o swojej nieruchomości.",
     subtitle:
-      "Wystarczy kilka informacji. Odpowiemy w ciągu 24 godzin — zwykle znacznie szybciej.",
+      "Wystarczy kilka informacji. Odpowiemy w ciągu 24 godzin, zwykle znacznie szybciej.",
     name: "Imię i nazwisko",
     phone: "Numer telefonu",
     email: "Adres e-mail",
     addressField: "Adres nieruchomości",
     message: "Opisz swoją sytuację (opcjonalnie)",
     messagePlaceholder:
-      "Stan domu, terminy, lokatorzy — wszystko, co powinniśmy wiedzieć…",
+      "Stan domu, terminy, lokatorzy, wszystko, co powinniśmy wiedzieć…",
     submit: "Otrzymaj Ofertę",
     submitting: "Wysyłanie…",
-    successTitle: "Dziękujemy — działamy.",
+    successTitle: "Dziękujemy, działamy.",
     successBody:
       "Twoje dane trafiły do naszego zespołu. Spodziewaj się telefonu lub SMS-a w ciągu 24 godzin, zwykle szybciej.",
     errorGeneric:
@@ -222,14 +222,14 @@ export const pl: SiteDict = {
     required: "To pole jest wymagane.",
     invalidEmail: "Podaj prawidłowy adres e-mail.",
     directLabel: "Wolisz porozmawiać?",
-    orCall: "Zadzwoń lub napisz w dowolny dzień, 9:00–17:00.",
+    orCall: "Zadzwoń lub napisz w dowolny dzień, 9:00-17:00.",
   },
   footer: {
     tagline:
-      "Skup domów w Chicago — firma kobiet i weteranów. Uczciwe oferty, jasne wyliczenia, Twój harmonogram.",
+      "Skup domów w Chicago, firma kobiet i weteranów. Uczciwe oferty, jasne wyliczenia, Twój harmonogram.",
     quickLinks: "Nawigacja",
     contactLabel: "Kontakt",
-    hours: "Otwarte 7 dni w tygodniu · 9:00–17:00",
+    hours: "Otwarte 7 dni w tygodniu · 9:00-17:00",
     certsLine:
       "Certyfikaty Miasta Chicago: WBE · VBE · BEPD. Licencjonowany broker nieruchomości Illinois. Licencjonowany generalny wykonawca #TGC137744.",
     rights: "Wszelkie prawa zastrzeżone.",

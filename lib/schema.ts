@@ -4,7 +4,7 @@ import { SITE_URL } from "./constants";
 //   <script type="application/ld+json"
 //     dangerouslySetInnerHTML={{ __html: JSON.stringify(builder()) }} />
 // All figures here are real (Google 5.0 across 4 reviews, founded 2021,
-// licenses from delloinvestments.com) — never inflate structured data.
+// licenses from delloinvestments.com), never inflate structured data.
 
 export function generateLocalBusinessSchema() {
   return {
@@ -13,7 +13,7 @@ export function generateLocalBusinessSchema() {
     "@id": SITE_URL,
     name: "Dello Investments",
     description:
-      "Woman-owned, veteran-owned cash home buyer serving all 77 Chicago neighborhoods and Cook County suburbs. Fair cash offers in 24 hours, closings in as little as 7 days — any condition, no repairs, no commissions, no closing costs.",
+      "Woman-owned, veteran-owned cash home buyer serving all 77 Chicago neighborhoods and Cook County suburbs. Fair cash offers in 24 hours, closings in as little as 7 days, any condition, no repairs, no commissions, no closing costs.",
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo.png`,
     image: `${SITE_URL}/images/team-alexa-karen.webp`,

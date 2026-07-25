@@ -1,5 +1,5 @@
 // Cloudflare Turnstile verification. Fails CLOSED: with no secret configured,
-// every call is rejected — the session endpoint cannot mint tokens without it.
+// every call is rejected, the session endpoint cannot mint tokens without it.
 // This is the gate a scripted attacker cannot cheaply pass (unlike the Origin
 // header, which the caller controls).
 export async function verifyTurnstile(

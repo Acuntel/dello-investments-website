@@ -11,7 +11,7 @@ export default function FAQAccordion({
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-seafoam-light rounded-2xl bg-white shadow-card">
+    <div className="divide-y divide-sage-light rounded-2xl bg-white shadow-card">
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
@@ -20,11 +20,11 @@ export default function FAQAccordion({
               type="button"
               aria-expanded={isOpen}
               onClick={() => setOpen(isOpen ? null : i)}
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-seafoam-faint"
+              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-sage-faint"
             >
-              <span className="font-heading text-lg text-navy">{item.q}</span>
+              <span className="font-heading text-lg text-emerald">{item.q}</span>
               <ChevronDown
-                className={`h-5 w-5 shrink-0 text-gold-ink transition-transform duration-300 ease-smooth ${
+                className={`h-5 w-5 shrink-0 text-champagne-ink transition-transform duration-300 ease-smooth ${
                   isOpen ? "rotate-180" : ""
                 }`}
               />

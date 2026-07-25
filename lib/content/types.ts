@@ -1,5 +1,5 @@
 // One exhaustive dictionary per locale. Record<Locale, SiteDict> makes a
-// missing translation a compile error — the fix for the copy drift that
+// missing translation a compile error, the fix for the copy drift that
 // happens when each locale is a hand-edited page tree.
 export type Locale = "en" | "es" | "pl";
 

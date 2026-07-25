@@ -4,7 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 
 export default function Neighborhoods({ t }: { t: SiteDict }) {
   return (
-    <section className="section-padding bg-seafoam-faint">
+    <section className="section-padding bg-sage-faint">
       <div className="container-custom grid items-center gap-14 lg:grid-cols-2">
         <Reveal variant="fade-right" className="order-2 lg:order-1">
           <Image
@@ -26,7 +26,7 @@ export default function Neighborhoods({ t }: { t: SiteDict }) {
               {t.neighborhoods.areas.map((area) => (
                 <span
                   key={area}
-                  className="rounded-full border border-seafoam bg-white px-4 py-1.5 text-sm text-ink transition-colors duration-300 hover:border-gold"
+                  className="rounded-full border border-sage bg-white px-4 py-1.5 text-sm text-ink transition-colors duration-300 hover:border-champagne"
                 >
                   {area}
                 </span>
