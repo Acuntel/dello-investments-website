@@ -41,10 +41,10 @@ export function generatePageMetadata({
       locale: locale === "en" ? "en_US" : locale === "es" ? "es_US" : "pl_PL",
       images: [
         {
-          url: "/images/team-alexa-karen.webp",
+          url: "/images/og-card.jpg",
           width: 1200,
-          height: 900,
-          alt: "Dello Investments, Alexa and Karen",
+          height: 630,
+          alt: "Dello Investments, we buy houses Chicago for cash",
         },
       ],
     },
@@ -52,7 +52,7 @@ export function generatePageMetadata({
       card: "summary_large_image",
       title: `${title} | Dello Investments`,
       description,
-      images: ["/images/team-alexa-karen.webp"],
+      images: ["/images/og-card.jpg"],
     },
   };
 }

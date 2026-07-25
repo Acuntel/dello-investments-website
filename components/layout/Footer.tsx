@@ -118,6 +118,18 @@ export default function Footer() {
         <div className="container-custom flex flex-col gap-2 py-6 text-xs text-white/50">
           <p>{t.footer.certsLine}</p>
           <p>
+            Bungalow photography by{" "}
+            <a
+              href="https://www.flickr.com/photos/48922763@N04/34087296956"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors hover:text-champagne"
+            >
+              Cragin Spring
+            </a>{" "}
+            (CC BY 2.0).
+          </p>
+          <p>
             © {new Date().getFullYear()} Dello Investments. {t.footer.rights}
           </p>
         </div>

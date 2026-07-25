@@ -9,15 +9,15 @@ export default function Hero({ t, locale }: { t: SiteDict; locale: Locale }) {
   return (
     <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-emerald">
       <Image
-        src="/images/home-offer.webp"
+        src="/images/hero-home.webp"
         alt=""
         fill
         priority
-        className="object-cover opacity-25"
+        className="object-cover object-right opacity-40"
         sizes="100vw"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-r from-emerald via-emerald/90 to-emerald/50"
+        className="absolute inset-0 bg-gradient-to-r from-emerald via-emerald/85 to-emerald/30"
         aria-hidden
       />
       <div className="container-custom relative pb-32 pt-36">
