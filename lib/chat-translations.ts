@@ -54,7 +54,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     headerSubtitle: "Ask us anything, we reply instantly",
     closeChat: "Close chat",
     leadFormIntro:
-      "Hi! Tell us who you are and we'll answer any question about selling your home.",
+      "Tell us who you are and we'll answer any question about selling your home.",
     namePlaceholder: "Your name",
     emailPlaceholder: "Email address",
     phonePlaceholder: "Phone (optional)",
@@ -64,7 +64,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     emailRequired: "Please enter your email.",
     emailInvalid: "Please enter a valid email.",
     greeting: (firstName) =>
-      `Hi ${firstName}! I'm the Dello Investments assistant. Whether it's an inherited house, a foreclosure timeline, or just "what's my place worth to you?" Ask away. How can I help?`,
+      `Hi ${firstName}! I'm the Dello Investments assistant, here for anything from an inherited house to a foreclosure timeline to "what's my place worth to you?" How can I help today?`,
     callNow: "Call Now",
     inputPlaceholder: "Type your question…",
     sendMessage: "Send message",
@@ -72,7 +72,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
       "Sorry, something went wrong. Please try again or call (312) 975-5557.",
     unavailableMessage:
       "Chat is temporarily unavailable. Please call or text (312) 975-5557.",
-    proactiveBubble: "Questions about selling your house? Ask me anything.",
+    proactiveBubble: "Ask me anything about selling your Chicago home.",
     dismiss: "Dismiss",
     openChat: "Open chat",
     languageAriaLabel: "Chat language",
@@ -83,7 +83,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     headerSubtitle: "Pregúntenos lo que sea, respondemos al instante",
     closeChat: "Cerrar chat",
     leadFormIntro:
-      "¡Hola! Díganos quién es y responderemos cualquier pregunta sobre la venta de su casa.",
+      "Díganos quién es y responderemos cualquier pregunta sobre la venta de su casa.",
     namePlaceholder: "Su nombre",
     emailPlaceholder: "Correo electrónico",
     phonePlaceholder: "Teléfono (opcional)",
@@ -94,7 +94,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     emailRequired: "Por favor escriba su correo.",
     emailInvalid: "Por favor escriba un correo válido.",
     greeting: (firstName) =>
-      `¡Hola ${firstName}! Soy el asistente de Dello Investments. Ya sea una casa heredada, una ejecución hipotecaria o simplemente "¿cuánto vale mi casa para ustedes?" Pregunte con confianza. ¿En qué puedo ayudarle?`,
+      `¡Hola ${firstName}! Soy el asistente de Dello Investments y puedo ayudarle con todo, desde una casa heredada hasta una ejecución hipotecaria o un simple "¿cuánto vale mi casa para ustedes?" ¿En qué puedo ayudarle hoy?`,
     callNow: "Llamar Ahora",
     inputPlaceholder: "Escriba su pregunta…",
     sendMessage: "Enviar mensaje",
@@ -102,7 +102,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
       "Lo sentimos, algo salió mal. Intente de nuevo o llame al (312) 975-5557.",
     unavailableMessage:
       "El chat no está disponible por el momento. Llame o envíe texto al (312) 975-5557.",
-    proactiveBubble: "¿Preguntas sobre vender su casa? Pregúnteme lo que sea.",
+    proactiveBubble: "Pregúnteme lo que quiera sobre la venta de su casa.",
     dismiss: "Cerrar",
     openChat: "Abrir chat",
     languageAriaLabel: "Idioma del chat",
@@ -113,7 +113,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     headerSubtitle: "Zapytaj o cokolwiek, odpowiadamy od razu",
     closeChat: "Zamknij czat",
     leadFormIntro:
-      "Cześć! Powiedz nam, kim jesteś, a odpowiemy na każde pytanie o sprzedaż Twojego domu.",
+      "Powiedz nam, kim jesteś, a odpowiemy na każde pytanie o sprzedaż Twojego domu.",
     namePlaceholder: "Twoje imię",
     emailPlaceholder: "Adres e-mail",
     phonePlaceholder: "Telefon (opcjonalnie)",
@@ -123,7 +123,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     emailRequired: "Podaj swój e-mail.",
     emailInvalid: "Podaj prawidłowy e-mail.",
     greeting: (firstName) =>
-      `Cześć ${firstName}! Jestem asystentem Dello Investments. Dom ze spadku, egzekucja, albo po prostu "ile mój dom jest dla was wart?" Pytaj śmiało. W czym mogę pomóc?`,
+      `Cześć ${firstName}! Jestem asystentem Dello Investments i pomogę Ci we wszystkim, od domu ze spadku po egzekucję albo zwykłe "ile mój dom jest dla was wart?" W czym mogę dziś pomóc?`,
     callNow: "Zadzwoń Teraz",
     inputPlaceholder: "Wpisz swoje pytanie…",
     sendMessage: "Wyślij wiadomość",
@@ -131,7 +131,7 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
       "Przepraszamy, coś poszło nie tak. Spróbuj ponownie lub zadzwoń: (312) 975-5557.",
     unavailableMessage:
       "Czat jest chwilowo niedostępny. Zadzwoń lub napisz: (312) 975-5557.",
-    proactiveBubble: "Pytania o sprzedaż domu? Zapytaj o cokolwiek.",
+    proactiveBubble: "Zapytaj mnie o cokolwiek w sprawie sprzedaży domu.",
     dismiss: "Zamknij",
     openChat: "Otwórz czat",
     languageAriaLabel: "Język czatu",

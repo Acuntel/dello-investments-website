@@ -17,7 +17,7 @@ export const es: SiteDict = {
     titleAccent: "con dignidad,",
     titleTail: "a su ritmo.",
     subtitle:
-      "Dello Investments compra casas en los 77 vecindarios de Chicago al contado, en cualquier condición y en cualquier situación. Una oferta justa en 24 horas y cierre en tan solo 7 días. Sin reparaciones, sin comisiones, sin costos de cierre.",
+      "Dello Investments compra casas en los 77 vecindarios de Chicago al contado, en cualquier condición y en cualquier situación. Recibirá una oferta justa en 24 horas y podrá cerrar en tan solo 7 días, sin reparaciones, sin comisiones y sin costos de cierre.",
     ctaPrimary: "Obtener Mi Oferta en Efectivo",
     ctaSecondary: "Ver Cómo Funciona",
     trustLine: "5.0 en Google · A+ BBB · Corredora con licencia de Illinois",
@@ -50,11 +50,11 @@ export const es: SiteDict = {
   },
   story: {
     label: "Nuestra Historia",
-    title: "Primero vecinos. Después inversionistas.",
+    title: "Primero vecinos, después inversionistas.",
     body1:
       "Dello Investments fue fundada en 2021 por Karen Rodriguez y Alexa, dos chicagüenses convencidas de que vender una casa en un momento difícil no debería ser una carga más. Karen es corredora de bienes raíces con licencia de Illinois, y nuestro equipo tiene licencia de contratista general de la Ciudad de Chicago: las personas que hacen su oferta son las mismas que entienden exactamente lo que su propiedad necesita.",
     body2:
-      "Estamos orgullosamente certificadas por la Ciudad de Chicago como empresa propiedad de mujeres, de veteranos y de personas con discapacidad. Cuando nos sentamos en su mesa, le explicamos cada número de la oferta, en español o en inglés, y usted decide el calendario. Así de simple. Sin presión, sin juegos.",
+      "Estamos orgullosamente certificadas por la Ciudad de Chicago como empresa propiedad de mujeres, de veteranos y de personas con discapacidad. Cuando nos sentamos en su mesa, le explicamos cada número de la oferta, en español o en inglés, y usted decide el calendario, sin presión y sin juegos.",
     points: [
       "Corredora de bienes raíces con licencia de Illinois",
       "Contratista general con licencia de la Ciudad de Chicago",
@@ -65,25 +65,25 @@ export const es: SiteDict = {
   },
   process: {
     label: "Cómo Funciona",
-    title: "Cuatro pasos. Cero estrés.",
+    title: "Cuatro pasos y cero estrés.",
     subtitle:
       "De la primera llamada al cheque de cierre, la mayoría de las ventas toman menos de dos semanas, pero el calendario siempre lo pone usted.",
     steps: [
       {
         title: "Cuéntenos sobre la propiedad",
-        body: "Llame, envíe un texto o llene el formulario. Solo necesitamos algunos datos básicos de la casa y de su situación.",
+        body: "Llame, envíe un texto o llene el formulario, pues con algunos datos básicos de la casa y de su situación es suficiente para empezar.",
       },
       {
         title: "La visitamos, o no",
-        body: "Un recorrido rápido cuando le convenga, o fotos si prefiere que no vayamos. Tal como está significa tal como está: no limpie, no repare.",
+        body: "Hacemos un recorrido rápido cuando le convenga, o trabajamos con fotos si prefiere que no vayamos, porque tal como está significa exactamente eso: sin limpiar y sin reparar.",
       },
       {
         title: "Reciba su oferta en 24 horas",
-        body: "Una oferta por escrito y sin compromiso, con las cuentas explicadas línea por línea. Tómese su tiempo, no vence de un día para otro.",
+        body: "Recibirá una oferta por escrito y sin compromiso, con las cuentas explicadas línea por línea, y puede tomarse su tiempo porque no vence de un día para otro.",
       },
       {
         title: "Cierre cuando usted decida",
-        body: "Siete días o siete meses. Usted elige la fecha. Nosotros cubrimos los costos de cierre y usted se va con su dinero y su tranquilidad.",
+        body: "Ya sean siete días o siete meses, usted elige la fecha, nosotros cubrimos los costos de cierre y usted se va con su dinero y su tranquilidad.",
       },
     ],
   },
@@ -99,19 +99,19 @@ export const es: SiteDict = {
       },
       {
         title: "Ejecución Hipotecaria y Pagos Atrasados",
-        body: "En Illinois una ejecución toma de 12 a 18 meses. Hay más tiempo del que cree. Vender antes de la subasta puede proteger su plusvalía y su crédito.",
+        body: "En Illinois una ejecución toma de 12 a 18 meses, así que hay más tiempo del que cree, y vender antes de la subasta puede proteger su plusvalía y su crédito.",
       },
       {
         title: "Casas Vacías o Dañadas",
-        body: "Fuego, agua, cimientos o años de abandono, nuestro ojo de contratista hace que el daño baje la línea de reparaciones, no el respeto que usted recibe.",
+        body: "Ya sea fuego, agua, cimientos o años de abandono, nuestro ojo de contratista hace que el daño baje la línea de reparaciones, no el respeto que usted recibe.",
       },
       {
         title: "Propietarios Cansados y Multifamiliares",
-        body: "Inquilinos problemáticos, unidades vacías, mantenimiento pendiente. Compramos edificios de 2 a 4 unidades y portafolios de renta con inquilinos incluidos.",
+        body: "Desde inquilinos problemáticos hasta unidades vacías y mantenimiento pendiente, compramos edificios de 2 a 4 unidades y portafolios de renta con inquilinos incluidos.",
       },
       {
         title: "Violaciones de Código y Gravámenes",
-        body: "Citas en la corte de edificios, cuentas de agua, impuestos atrasados, gravámenes de HOA, todo se resuelve en el cierre, no antes y no por usted.",
+        body: "Desde citas en la corte de edificios hasta cuentas de agua, impuestos atrasados y gravámenes de HOA, todo se resuelve en el cierre, no antes y no por usted.",
       },
       {
         title: "Divorcio y Cambios de Vida",
@@ -137,14 +137,14 @@ export const es: SiteDict = {
       },
       {
         title: "Raíces en Chicago",
-        body: "Con base en La Villita, certificadas por la Ciudad y trabajando en cada vecindario, de Beverly a Rogers Park.",
+        body: "Estamos en La Villita, certificadas por la Ciudad y trabajando en cada vecindario, de Beverly a Rogers Park.",
       },
     ],
   },
   neighborhoods: {
     label: "Dónde Compramos",
-    title: "Los 77 vecindarios. Todos los suburbios del condado de Cook.",
-    body: "De bungalows a two-flats, de greystones a ranches. Si está en Chicagoland, le hacemos una oferta.",
+    title: "Los 77 vecindarios y todos los suburbios del condado de Cook.",
+    body: "De bungalows a two-flats y de greystones a ranches, si está en Chicagoland le hacemos una oferta.",
     areas: [
       "La Villita",
       "Pilsen",
@@ -171,7 +171,7 @@ export const es: SiteDict = {
     items: [
       {
         q: "¿Su oferta es realmente sin compromiso?",
-        a: "Totalmente. La oferta por escrito es gratis y retirarse no cuesta nada. Muchos propietarios se toman semanas para decidir. Es normal y bienvenido.",
+        a: "Totalmente, la oferta por escrito es gratis y retirarse no cuesta nada, y muchos propietarios se toman semanas para decidir, lo cual es normal y bienvenido.",
       },
       {
         q: "¿Cómo pueden cerrar en 7 a 14 días?",
@@ -179,7 +179,7 @@ export const es: SiteDict = {
       },
       {
         q: "¿Tengo que limpiar o reparar algo?",
-        a: "No. Llévese lo que quiera y deje el resto, muebles, cosas acumuladas, lo que sea. Tal como está significa exactamente eso.",
+        a: "No hace falta limpiar ni reparar nada: llévese lo que quiera y deje el resto, incluidos muebles o cosas acumuladas, porque tal como está significa exactamente eso.",
       },
       {
         q: "¿Y si la casa tiene violaciones de código o gravámenes?",
@@ -197,7 +197,7 @@ export const es: SiteDict = {
   },
   cta: {
     title: "Obtenga hoy su oferta justa en efectivo.",
-    body: "Empezar toma cinco minutos y escuchar el número no cuesta nada. Llame, envíe un texto o llene el formulario, el equipo de Karen responde los siete días de la semana.",
+    body: "Empezar toma cinco minutos y escuchar el número no cuesta nada, y cuando llame, envíe un texto o llene el formulario, el equipo de Karen le responderá cualquier día de la semana.",
     call: "Llame o Envíe Texto al (312) 975-5557",
     form: "Solicitar Mi Oferta en Línea",
   },
@@ -205,7 +205,7 @@ export const es: SiteDict = {
     label: "Contacto",
     title: "Cuéntenos sobre su propiedad.",
     subtitle:
-      "Solo se necesitan unos datos. Le responderemos dentro de 24 horas, normalmente mucho antes.",
+      "Solo se necesitan unos datos, y le responderemos dentro de 24 horas, normalmente mucho antes.",
     name: "Nombre completo",
     phone: "Teléfono",
     email: "Correo electrónico",
@@ -217,7 +217,7 @@ export const es: SiteDict = {
     submitting: "Enviando…",
     successTitle: "Gracias, ya estamos en ello.",
     successBody:
-      "Sus datos están con nuestro equipo. Espere una llamada o un texto dentro de 24 horas, normalmente antes.",
+      "Sus datos están con nuestro equipo, así que espere una llamada o un texto dentro de 24 horas, normalmente antes.",
     errorGeneric: "Algo salió mal. Intente de nuevo o llámenos directamente.",
     required: "Este campo es obligatorio.",
     invalidEmail: "Ingrese un correo electrónico válido.",
@@ -226,7 +226,7 @@ export const es: SiteDict = {
   },
   footer: {
     tagline:
-      "Compradores de casas de Chicago, empresa de mujeres y veteranos. Ofertas justas, cuentas claras, su calendario.",
+      "Compradores de casas de Chicago, empresa de mujeres y veteranos, con ofertas justas, cuentas claras y su calendario.",
     quickLinks: "Explorar",
     contactLabel: "Contacto",
     hours: "Abierto los 7 días · 9 AM - 5 PM",
