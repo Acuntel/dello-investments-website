@@ -3,14 +3,24 @@ import Link from "next/link";
 import { Star } from "lucide-react";
 import type { SiteDict } from "@/lib/content/types";
 import { localePrefix, type Locale } from "@/lib/content";
+import type { ImageMeta } from "@/lib/admin/types";
 
-export default function Hero({ t, locale }: { t: SiteDict; locale: Locale }) {
+export default function Hero({
+  t,
+  locale,
+  image,
+}: {
+  t: SiteDict;
+  locale: Locale;
+  image: ImageMeta;
+}) {
   const prefix = localePrefix(locale);
   return (
     <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-emerald">
       <Image
         src="/images/hero-home.webp"
-        alt=""
+        alt={image.alt}
+        title={image.title}
         fill
         priority
         className="object-cover object-right opacity-40"

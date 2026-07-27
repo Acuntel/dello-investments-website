@@ -6,8 +6,10 @@ import { usePathname } from "next/navigation";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { detectLocaleFromPath, getDict, localePrefix } from "@/lib/content";
 import { CONTACT, SOCIAL } from "@/lib/constants";
+import type { Locale } from "@/lib/content";
+import type { ImageMeta } from "@/lib/admin/types";
 
-export default function Footer() {
+export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
   const pathname = usePathname() || "/";
   const locale = detectLocaleFromPath(pathname);
   const t = getDict(locale);
@@ -27,7 +29,8 @@ export default function Footer() {
         <div>
           <Image
             src="/images/logo-white.png"
-            alt="Dello Investments"
+            alt={logo[locale].alt}
+            title={logo[locale].title}
             width={190}
             height={67}
             className="mb-5 h-12 w-auto"

@@ -1,15 +1,13 @@
-import { generatePageMetadata } from "@/lib/metadata";
+import { pageMetadata } from "@/lib/metadata";
+import { loadOverrides } from "@/lib/admin/store";
 import HomePage from "@/components/HomePage";
 
-export const metadata = generatePageMetadata({
-  title:
-    "Compramos Casas en Chicago al Contado | Oferta en 24 Horas | Dello Investments",
-  description:
-    "Compradores de casas en Chicago, empresa de mujeres. Ofertas justas en 24 horas, cierre en 7-14 días. Cualquier condición, los 77 vecindarios. Sin reparaciones, sin comisiones, sin costos de cierre.",
-  path: "",
-  locale: "es",
-});
+export const dynamic = "force-dynamic";
 
-export default function Page() {
-  return <HomePage locale="es" />;
+export async function generateMetadata() {
+  return pageMetadata("home", "es");
+}
+
+export default async function Page() {
+  return <HomePage locale="es" overrides={await loadOverrides()} />;
 }

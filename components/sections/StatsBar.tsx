@@ -2,10 +2,17 @@ import Image from "next/image";
 import type { SiteDict } from "@/lib/content/types";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import Reveal from "@/components/ui/Reveal";
+import type { ImageMeta } from "@/lib/admin/types";
 
 // Overlapping card pulled up over the hero's bottom edge, layered depth
 // instead of stacked color bands.
-export default function StatsBar({ t }: { t: SiteDict }) {
+export default function StatsBar({
+  t,
+  certImages,
+}: {
+  t: SiteDict;
+  certImages: ImageMeta[];
+}) {
   return (
     <section className="container-custom relative z-10 -mt-20">
       <Reveal variant="fade-up">
@@ -30,11 +37,12 @@ export default function StatsBar({ t }: { t: SiteDict }) {
               {t.certs.label}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8">
-              {t.certs.items.map((cert) => (
+              {t.certs.items.map((cert, i) => (
                 <div key={cert.name} className="flex items-center gap-3">
                   <Image
                     src={cert.img}
-                    alt={cert.alt}
+                    alt={certImages[i]?.alt ?? cert.alt}
+                    title={certImages[i]?.title}
                     width={56}
                     height={56}
                     className="h-14 w-14 object-contain"

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import type { SiteDict } from "@/lib/content/types";
 import Reveal from "@/components/ui/Reveal";
+import type { ImageMeta } from "@/lib/admin/types";
 
-export default function WhyUs({ t }: { t: SiteDict }) {
+export default function WhyUs({ t, image }: { t: SiteDict; image: ImageMeta }) {
   return (
     <section className="section-padding">
       <div className="container-custom grid items-center gap-14 lg:grid-cols-5">
@@ -34,7 +35,8 @@ export default function WhyUs({ t }: { t: SiteDict }) {
           />
           <Image
             src="/images/home-sell.webp"
-            alt=""
+            alt={image.alt}
+            title={image.title}
             width={600}
             height={400}
             className="relative rounded-2xl object-cover shadow-card"

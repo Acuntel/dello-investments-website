@@ -5,10 +5,10 @@ module.exports = {
   generateIndexSitemap: false,
   changefreq: "weekly",
   priority: 0.7,
-  exclude: ["/api/*"],
+  exclude: ["/api/*", "/admin", "/admin/*"],
   robotsTxtOptions: {
     policies: [
-      { userAgent: "*", allow: "/" },
+      { userAgent: "*", allow: "/", disallow: ["/admin"] },
       // Explicitly welcome AI / answer-engine crawlers so Dello Investments
       // can be cited by Claude, ChatGPT, Perplexity, and Google AI Overviews.
       { userAgent: "ClaudeBot", allow: "/" },

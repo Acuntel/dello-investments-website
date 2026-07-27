@@ -3,14 +3,22 @@ import { Playfair_Display, Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import SiteChrome from "@/components/layout/SiteChrome";
 import Preloader from "@/components/ui/Preloader";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import ChatWidget from "@/components/ui/ChatWidget";
+import GoatCounter from "@/components/analytics/GoatCounter";
 import { SITE_URL } from "@/lib/constants";
 import {
   generateLocalBusinessSchema,
   generateWebSiteSchema,
+  parseExtraJsonLd,
 } from "@/lib/schema";
+import {
+  loadOverrides,
+  resolveBusiness,
+  resolveImageByLocale,
+} from "@/lib/admin/store";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -44,16 +52,20 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const overrides = await loadOverrides();
+  const business = resolveBusiness(overrides);
+  const extra = parseExtraJsonLd(business.extraJsonLd);
+
   return (
     <html lang="en" className={`${playfair.variable} ${vietnam.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generateLocalBusinessSchema()),
+            __html: JSON.stringify(generateLocalBusinessSchema(business)),
           }}
         />
         <script
@@ -62,14 +74,33 @@ export default function RootLayout({
             __html: JSON.stringify(generateWebSiteSchema()),
           }}
         />
+        {extra.map((block, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
+          />
+        ))}
+        <GoatCounter />
       </head>
       <body className="grain">
-        <Preloader />
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <ScrollToTop />
-        <ChatWidget />
+        <SiteChrome
+          header={
+            <>
+              <Preloader />
+              <Header logo={resolveImageByLocale(overrides, "logo")} />
+            </>
+          }
+          footer={
+            <>
+              <Footer logo={resolveImageByLocale(overrides, "logo")} />
+              <ScrollToTop />
+              <ChatWidget />
+            </>
+          }
+        >
+          {children}
+        </SiteChrome>
       </body>
     </html>
   );

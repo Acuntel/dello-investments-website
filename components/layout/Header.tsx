@@ -15,8 +15,12 @@ import {
 } from "@/lib/content";
 import { CONTACT } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
+import type { Locale } from "@/lib/content";
+import type { ImageMeta } from "@/lib/admin/types";
 
-export default function Header() {
+// The logo's description is resolved for all three languages upstream, because
+// this component only learns its locale from the URL on the client.
+export default function Header({ logo }: { logo: Record<Locale, ImageMeta> }) {
   const pathname = usePathname() || "/";
   const locale = detectLocaleFromPath(pathname);
   const t = getDict(locale);
@@ -57,7 +61,8 @@ export default function Header() {
           >
             <Image
               src="/images/logo-white.png"
-              alt="Dello Investments"
+              alt={logo[locale].alt}
+              title={logo[locale].title}
               width={168}
               height={59}
               priority

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { recordLead } from "@/lib/admin/leads";
 
 // Emails chat leads (and, on chat close, the transcript) to the team via
 // Resend. Console-logs as a fallback when RESEND_API_KEY is absent so leads
@@ -58,6 +59,17 @@ export async function POST(req: NextRequest) {
           )
           .join("\n\n")
       : "";
+
+    // Only the lead itself is recorded, not the transcript that follows when
+    // the visitor closes the chat, or every conversation would be counted twice.
+    if (!isClose) {
+      await recordLead({
+        source: "chat",
+        name,
+        email,
+        phone: phone ? String(phone) : "",
+      });
+    }
 
     const subject = isClose
       ? `Chat transcript, ${name}`

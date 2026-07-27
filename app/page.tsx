@@ -1,15 +1,16 @@
-import { generatePageMetadata } from "@/lib/metadata";
+import { pageMetadata } from "@/lib/metadata";
+import { loadOverrides } from "@/lib/admin/store";
 import HomePage from "@/components/HomePage";
 
-export const metadata = generatePageMetadata({
-  title:
-    "We Buy Houses Chicago for Cash | Offer in 24 Hours | Dello Investments",
-  description:
-    "Woman-owned Chicago cash home buyer. Fair offers in 24 hours, close in 7-14 days. Any condition, all 77 neighborhoods. No repairs, no commissions, no closing costs.",
-  path: "",
-  locale: "en",
-});
+// Rendered per request so anything saved in /admin is live immediately, rather
+// than waiting for the next deploy. The default wording lives in
+// lib/admin/defaults.ts, which is what an empty override falls back to.
+export const dynamic = "force-dynamic";
 
-export default function Page() {
-  return <HomePage locale="en" />;
+export async function generateMetadata() {
+  return pageMetadata("home", "en");
+}
+
+export default async function Page() {
+  return <HomePage locale="en" overrides={await loadOverrides()} />;
 }

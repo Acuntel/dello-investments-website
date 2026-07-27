@@ -1,15 +1,23 @@
 import Image from "next/image";
 import type { SiteDict } from "@/lib/content/types";
 import Reveal from "@/components/ui/Reveal";
+import type { ImageMeta } from "@/lib/admin/types";
 
-export default function Neighborhoods({ t }: { t: SiteDict }) {
+export default function Neighborhoods({
+  t,
+  image,
+}: {
+  t: SiteDict;
+  image: ImageMeta;
+}) {
   return (
     <section className="section-padding bg-sage-faint">
       <div className="container-custom grid items-center gap-14 lg:grid-cols-2">
         <Reveal variant="fade-right" className="order-2 lg:order-1">
           <Image
             src="/images/neighborhoods.webp"
-            alt={t.neighborhoods.imageAlt}
+            alt={image.alt}
+            title={image.title}
             width={720}
             height={480}
             className="rounded-2xl object-cover shadow-lift"

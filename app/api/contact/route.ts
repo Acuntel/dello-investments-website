@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { verifyTurnstile } from "@/lib/turnstile";
+import { recordLead } from "@/lib/admin/leads";
 
 // Contact / cash-offer form handler. Defense order: origin → rate limit →
 // honeypot → Turnstile (when configured) → validation with hard length caps
@@ -97,6 +98,17 @@ export async function POST(req: NextRequest) {
         );
       }
     }
+
+    // Recorded before the email goes out, so an email outage cannot lose the
+    // lead: it still shows up in the admin. Never throws.
+    await recordLead({
+      source: "form",
+      name,
+      phone,
+      email,
+      address,
+      message,
+    });
 
     const html = `
       <h2>New cash-offer request from delloinvestments.com</h2>

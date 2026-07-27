@@ -1,25 +1,26 @@
 import { SITE_URL } from "./constants";
+import type { BusinessInfo } from "./admin/types";
 
 // JSON-LD builders. Inject with:
 //   <script type="application/ld+json"
 //     dangerouslySetInnerHTML={{ __html: JSON.stringify(builder()) }} />
-// All figures here are real (Google 5.0 across 4 reviews, founded 2021,
-// licenses from delloinvestments.com), never inflate structured data.
+// The business facts now come from lib/admin (defaults, overridden by what
+// Karen saves in /admin). Never inflate structured data: every figure must be
+// one she can back up.
 
-export function generateLocalBusinessSchema() {
+export function generateLocalBusinessSchema(b: BusinessInfo) {
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "RealEstateAgent"],
     "@id": SITE_URL,
-    name: "Dello Investments",
-    description:
-      "Woman-owned, veteran-owned cash home buyer serving all 77 Chicago neighborhoods and Cook County suburbs. Fair cash offers in 24 hours, closings in as little as 7 days, any condition, no repairs, no commissions, no closing costs.",
+    name: b.name,
+    description: b.description,
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo.png`,
     image: `${SITE_URL}/images/team-alexa-karen.webp`,
-    telephone: "+13129755557",
-    email: "connect@delloinvestments.com",
-    foundingDate: "2021",
+    telephone: b.telephone,
+    email: b.email,
+    foundingDate: b.foundingDate,
     founder: [
       {
         "@type": "Person",
@@ -30,13 +31,17 @@ export function generateLocalBusinessSchema() {
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "1651 S Drake Ave G",
-      addressLocality: "Chicago",
-      addressRegion: "IL",
-      postalCode: "60623",
+      streetAddress: b.streetAddress,
+      addressLocality: b.addressLocality,
+      addressRegion: b.addressRegion,
+      postalCode: b.postalCode,
       addressCountry: "US",
     },
-    geo: { "@type": "GeoCoordinates", latitude: 41.8586, longitude: -87.7133 },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: Number(b.latitude),
+      longitude: Number(b.longitude),
+    },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
@@ -48,15 +53,19 @@ export function generateLocalBusinessSchema() {
         "Saturday",
         "Sunday",
       ],
-      opens: "09:00",
-      closes: "17:00",
+      opens: b.opens,
+      closes: b.closes,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "4",
-    },
-    priceRange: "$$",
+    // Omitted entirely rather than shipped as zero: a rating of 0 reviews is a
+    // false claim, and Google penalises invented review markup.
+    ...(Number(b.reviewCount) > 0 && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: b.ratingValue,
+        reviewCount: b.reviewCount,
+      },
+    }),
+    priceRange: b.priceRange,
     knowsLanguage: ["en", "es", "pl"],
     areaServed: [
       { "@type": "City", name: "Chicago" },
@@ -71,54 +80,42 @@ export function generateLocalBusinessSchema() {
         geoRadius: "40000",
       },
     ],
-    hasCredential: [
-      {
+    hasCredential: b.credentials
+      .filter((name) => name.trim())
+      .map((name) => ({
         "@type": "EducationalOccupationalCredential",
-        credentialCategory: "license",
-        name: "Illinois Real Estate Broker License",
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "license",
-        name: "City of Chicago General Contractor License #TGC137744",
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "certification",
-        name: "City of Chicago Woman-Owned Business Enterprise (WBE)",
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "certification",
-        name: "City of Chicago Veteran-Owned Business Enterprise (VBE)",
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "certification",
-        name: "City of Chicago Business Enterprise owned by People with Disabilities (BEPD)",
-      },
-    ],
+        credentialCategory: /certifi|enterprise|\(WBE\)|\(VBE\)|\(BEPD\)/i.test(
+          name,
+        )
+          ? "certification"
+          : "license",
+        name,
+      })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Home Buying Services",
-      itemListElement: [
-        "As-is cash home purchase",
-        "Inherited & probate property purchase",
-        "Pre-foreclosure home purchase",
-        "Vacant & damaged property purchase",
-        "Multi-unit & rental building purchase",
-        "Code violation & lien resolution at closing",
-      ].map((name) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name },
-      })),
+      itemListElement: b.services
+        .filter((name) => name.trim())
+        .map((name) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name },
+        })),
     },
-    sameAs: [
-      "https://www.facebook.com/DelloInvestments/",
-      "https://www.instagram.com/delloinvestments",
-      "https://www.youtube.com/@delloinvestments",
-    ],
+    sameAs: b.sameAs.filter((url) => url.trim()),
   };
+}
+
+// Karen's free-form JSON-LD from the admin. Already validated on save, but
+// re-checked here so a hand-edited blob can never break a page render.
+export function parseExtraJsonLd(raw: string): unknown[] {
+  const text = raw?.trim();
+  if (!text) return [];
+  try {
+    const parsed = JSON.parse(text);
+    return Array.isArray(parsed) ? parsed : [parsed];
+  } catch {
+    return [];
+  }
 }
 
 export function generateWebSiteSchema() {

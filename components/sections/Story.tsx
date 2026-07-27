@@ -2,8 +2,9 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import type { SiteDict } from "@/lib/content/types";
 import Reveal from "@/components/ui/Reveal";
+import type { ImageMeta } from "@/lib/admin/types";
 
-export default function Story({ t }: { t: SiteDict }) {
+export default function Story({ t, image }: { t: SiteDict; image: ImageMeta }) {
   return (
     <section id="story" className="section-padding scroll-mt-24">
       <div className="container-custom grid items-center gap-14 lg:grid-cols-2">
@@ -15,7 +16,8 @@ export default function Story({ t }: { t: SiteDict }) {
           />
           <Image
             src="/images/team-alexa-karen.webp"
-            alt={t.story.imageAlt}
+            alt={image.alt}
+            title={image.title}
             width={640}
             height={480}
             className="relative rounded-2xl object-cover shadow-lift"
