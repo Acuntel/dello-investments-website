@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { detectLocaleFromPath, getDict, localePrefix } from "@/lib/content";
 import { CONTACT, SOCIAL } from "@/lib/constants";
+import { footerNav } from "@/lib/nav";
 import type { Locale } from "@/lib/content";
 import type { ImageMeta } from "@/lib/admin/types";
 
@@ -15,13 +16,7 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
   const t = getDict(locale);
   const prefix = localePrefix(locale);
 
-  const links = [
-    { href: `${prefix}/#story`, label: t.nav.about },
-    { href: `${prefix}/#process`, label: t.nav.howItWorks },
-    { href: `${prefix}/#situations`, label: t.nav.situations },
-    { href: `${prefix}/#faq`, label: t.nav.faq },
-    { href: `${prefix}/contact`, label: t.nav.contact },
-  ];
+  const links = footerNav(t, locale);
 
   return (
     <footer className="bg-emerald text-white/80">

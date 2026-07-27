@@ -12,6 +12,12 @@ interface PageMetadataParams {
   path: string;
   locale?: "en" | "es" | "pl";
   noindex?: boolean;
+  /** Languages this page actually exists in. The pages ported off Carrot are
+   *  English only, so advertising /es and /pl alternates for them would point
+   *  Google at URLs that 404. */
+  locales?: Locale[];
+  /** Optional social share image, e.g. a blog post's own illustration. */
+  image?: string;
 }
 
 // What every page actually calls. Reads the title and description Karen last
@@ -20,11 +26,19 @@ interface PageMetadataParams {
 export async function pageMetadata(
   pageKey: string,
   locale: Locale,
+  image?: string,
 ): Promise<Metadata> {
   const overrides = await loadOverrides();
   const { title, description } = resolveSeo(overrides, pageKey, locale);
-  const path = PAGES.find((p) => p.key === pageKey)?.path ?? "";
-  return generatePageMetadata({ title, description, path, locale });
+  const def = PAGES.find((p) => p.key === pageKey);
+  return generatePageMetadata({
+    title,
+    description,
+    path: def?.path ?? "",
+    locale,
+    locales: def?.locales,
+    image,
+  });
 }
 
 export function generatePageMetadata({
@@ -33,9 +47,17 @@ export function generatePageMetadata({
   path,
   locale = "en",
   noindex,
+  locales = ["en", "es", "pl"],
+  image,
 }: PageMetadataParams): Metadata {
   const prefix = locale === "en" ? "" : `/${locale}`;
-  const url = `${SITE_URL}${prefix}${path}` || SITE_URL;
+  // next.config sets trailingSlash:true, so canonicals and hreflang must use the
+  // same form or they point at a URL that redirects.
+  const withSlash = (p: string) =>
+    `${SITE_URL}${p}/`.replace(/([^:])\/{2,}/g, "$1/");
+  const url = withSlash(`${prefix}${path}`);
+  const multilingual = locales.length > 1;
+  const card = image || "/images/og-card.jpg";
   return {
     // absolute skips the root layout's "%s | Dello Investments" template. That
     // template applies to child segments only, so /es and /pl (whose titles
@@ -46,12 +68,14 @@ export function generatePageMetadata({
     description,
     alternates: {
       canonical: url,
-      languages: {
-        en: `${SITE_URL}${path}` || SITE_URL,
-        es: `${SITE_URL}/es${path}`,
-        pl: `${SITE_URL}/pl${path}`,
-        "x-default": `${SITE_URL}${path}` || SITE_URL,
-      },
+      ...(multilingual && {
+        languages: {
+          en: withSlash(path),
+          es: withSlash(`/es${path}`),
+          pl: withSlash(`/pl${path}`),
+          "x-default": withSlash(path),
+        },
+      }),
     },
     ...(noindex && { robots: { index: false, follow: true } }),
     openGraph: {
@@ -62,7 +86,7 @@ export function generatePageMetadata({
       locale: locale === "en" ? "en_US" : locale === "es" ? "es_US" : "pl_PL",
       images: [
         {
-          url: "/images/og-card.jpg",
+          url: card,
           width: 1200,
           height: 630,
           alt: "Dello Investments, we buy houses Chicago for cash",
@@ -73,7 +97,7 @@ export function generatePageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/og-card.jpg"],
+      images: [card],
     },
   };
 }

@@ -1,6 +1,7 @@
 import { getDict, type Locale } from "@/lib/content";
 import type { SiteDict } from "@/lib/content/types";
 import { CONTACT, CREDENTIALS, SOCIAL } from "@/lib/constants";
+import seoIndex from "@/lib/pages/seo-index.json";
 import type { BusinessInfo, Overrides, SeoOverride } from "./types";
 
 // The compiled defaults every override falls back to. Editing a field in
@@ -13,21 +14,83 @@ export interface PageDef {
   path: string;
   label: string;
   hint: string;
+  /** Which languages this page exists in. The pages ported off Carrot are
+   *  English only, so the editor does not offer empty Spanish/Polish boxes. */
+  locales: Locale[];
+  group: "Main" | "Neighborhoods" | "Situations" | "Guides" | "Blog";
 }
 
-export const PAGES: PageDef[] = [
+const ALL_LOCALES: Locale[] = ["en", "es", "pl"];
+
+// The two hand-built trilingual pages.
+const CORE_PAGES: PageDef[] = [
   {
     key: "home",
     path: "",
     label: "Home page",
     hint: "delloinvestments.com",
+    locales: ALL_LOCALES,
+    group: "Main",
   },
   {
     key: "contact",
     path: "/contact",
     label: "Get a cash offer",
     hint: "delloinvestments.com/contact",
+    locales: ALL_LOCALES,
+    group: "Main",
   },
+];
+
+const MAIN_SLUGS = new Set([
+  "about",
+  "faqs",
+  "reviews",
+  "how-it-works",
+  "situations",
+  "chicago-neighborhoods",
+  "chicago-suburbs",
+  "blog",
+]);
+
+function groupOf(slug: string, kind: string): PageDef["group"] {
+  if (kind === "blog") return "Blog";
+  if (MAIN_SLUGS.has(slug)) return "Main";
+  if (
+    /^(sell-my-house-fast-|es-vender-casa-|south-side-house-buyers)/.test(slug)
+  )
+    return "Neighborhoods";
+  if (
+    /(inherited|probate|vacant|damage|divorce|hoarder|lien|landlord|foreclosure|bankruptcy|tax|code-violation|mortgage|foundation|multi-unit)/.test(
+      slug,
+    )
+  )
+    return "Situations";
+  return "Guides";
+}
+
+// Every page ported off Carrot, so Karen can edit the search wording for all of
+// them. This index is deliberately small (slug + title + description only); the
+// full page content never reaches the browser.
+const PORTED_PAGES: PageDef[] = (
+  seoIndex as { slug: string; kind: string; h1: string }[]
+).map((p) => ({
+  key: `p:${p.slug}`,
+  path: `/${p.slug}`,
+  label: p.h1 || p.slug,
+  hint: `delloinvestments.com/${p.slug}`,
+  locales: ["en"] as Locale[],
+  group: groupOf(p.slug, p.kind),
+}));
+
+export const PAGES: PageDef[] = [...CORE_PAGES, ...PORTED_PAGES];
+
+export const PAGE_GROUPS: PageDef["group"][] = [
+  "Main",
+  "Neighborhoods",
+  "Situations",
+  "Guides",
+  "Blog",
 ];
 
 // The titles and descriptions the site ships with, lifted verbatim out of the
@@ -68,9 +131,25 @@ const DEFAULT_SEO: Record<string, SeoOverride> = {
   },
 };
 
+// The ported pages keep the exact titles and descriptions Carrot was serving,
+// so nothing Google already ranks changes wording on the day we cut over.
+const PORTED_SEO = new Map(
+  (seoIndex as { slug: string; title: string; description: string }[]).map(
+    (p) => [p.slug, { title: p.title, description: p.description }],
+  ),
+);
+
 export function defaultSeo(pageKey: string, locale: Locale): SeoOverride {
+  if (pageKey.startsWith("p:")) {
+    // Ported pages exist in English only.
+    if (locale !== "en") return { title: "", description: "" };
+    return PORTED_SEO.get(pageKey.slice(2)) ?? { title: "", description: "" };
+  }
   return DEFAULT_SEO[`${locale}:${pageKey}`] ?? { title: "", description: "" };
 }
+
+/** Page key for a ported Carrot page, e.g. "about" → "p:about". */
+export const portedKey = (slug: string) => `p:${slug}`;
 
 export interface ImageDef {
   id: string;

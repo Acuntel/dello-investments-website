@@ -15,6 +15,7 @@ import {
 } from "@/lib/content";
 import { CONTACT } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
+import { mainNav } from "@/lib/nav";
 import type { Locale } from "@/lib/content";
 import type { ImageMeta } from "@/lib/admin/types";
 
@@ -37,12 +38,7 @@ export default function Header({ logo }: { logo: Record<Locale, ImageMeta> }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = [
-    { href: `${prefix}/#story`, label: t.nav.about },
-    { href: `${prefix}/#process`, label: t.nav.howItWorks },
-    { href: `${prefix}/#situations`, label: t.nav.situations },
-    { href: `${prefix}/#faq`, label: t.nav.faq },
-  ];
+  const navLinks = mainNav(t, locale);
 
   return (
     <>

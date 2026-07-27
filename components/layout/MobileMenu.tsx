@@ -11,6 +11,7 @@ import {
   LOCALES,
 } from "@/lib/content";
 import { CONTACT } from "@/lib/constants";
+import { footerNav } from "@/lib/nav";
 
 export default function MobileMenu({
   open,
@@ -25,13 +26,7 @@ export default function MobileMenu({
   const t = getDict(locale);
   const prefix = localePrefix(locale);
 
-  const navLinks = [
-    { href: `${prefix}/#story`, label: t.nav.about },
-    { href: `${prefix}/#process`, label: t.nav.howItWorks },
-    { href: `${prefix}/#situations`, label: t.nav.situations },
-    { href: `${prefix}/#faq`, label: t.nav.faq },
-    { href: `${prefix}/contact`, label: t.nav.contact },
-  ];
+  const navLinks = footerNav(t, locale);
 
   return (
     <div

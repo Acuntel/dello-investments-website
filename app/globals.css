@@ -146,6 +146,25 @@ h4 {
   .btn-emerald {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-emerald px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 ease-smooth hover:bg-emerald-700 hover:shadow-lift;
   }
+
+  /* Inline markup inside ported page copy. The extractor allows only
+     <a>, <strong>, <em> and <br>, so this is the complete surface. */
+  .rich a {
+    @apply font-medium text-emerald underline decoration-champagne decoration-1 underline-offset-4 transition-colors duration-200 hover:text-champagne-ink;
+  }
+  .rich strong {
+    @apply font-semibold text-ink;
+  }
+  .rich em {
+    @apply italic;
+  }
+  /* On the emerald hero band the same markup has to read light-on-dark. */
+  .rich-invert a {
+    @apply font-medium text-champagne underline decoration-champagne/50 decoration-1 underline-offset-4 transition-colors duration-200 hover:text-white;
+  }
+  .rich-invert strong {
+    @apply font-semibold text-white;
+  }
 }
 
 /* ---- Subtle film grain for depth (luxury texture, ~2% opacity) ---- */
