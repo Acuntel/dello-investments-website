@@ -104,15 +104,15 @@ export default function AdminPage() {
 
   if (!authed) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-emerald px-5">
+      <div className="flex min-h-screen items-center justify-center bg-navy px-5">
         <form
           onSubmit={signIn}
           className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-lift"
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-sage-light">
-            <Lock className="h-5 w-5 text-champagne-ink" />
+          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-mist-light">
+            <Lock className="h-5 w-5 text-mist-ink" />
           </span>
-          <h1 className="mt-5 font-heading text-2xl text-emerald">
+          <h1 className="mt-5 font-heading text-2xl text-navy">
             Dello Investments
           </h1>
           <p className="mt-1.5 text-sm text-muted">
@@ -125,15 +125,15 @@ export default function AdminPage() {
             onChange={(e) => setTyped(e.target.value)}
             placeholder="Password"
             aria-label="Password"
-            className="mt-6 w-full rounded-lg border border-sage bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-colors duration-200 focus:border-champagne focus:ring-2 focus:ring-champagne/25"
+            className="mt-6 w-full rounded-lg border border-mist bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-colors duration-200 focus:border-mist focus:ring-2 focus:ring-mist/25"
           />
           {error ? (
-            <p className="mt-3 text-sm text-champagne-ink">{error}</p>
+            <p className="mt-3 text-sm text-mist-ink">{error}</p>
           ) : null}
           <button
             type="submit"
             disabled={checking || !typed}
-            className="btn-champagne mt-6 w-full disabled:cursor-not-allowed disabled:opacity-40"
+            className="btn-mist mt-6 w-full disabled:cursor-not-allowed disabled:opacity-40"
           >
             {checking ? (
               <>
@@ -161,7 +161,7 @@ export default function AdminPage() {
   return (
     <>
       {loadFailed ? (
-        <div className="bg-champagne/25 px-5 py-3 text-center text-sm text-champagne-ink">
+        <div className="bg-mist/25 px-5 py-3 text-center text-sm text-mist-ink">
           Your current settings could not be loaded, so this is showing the
           site&apos;s built-in wording. Reload before saving, or you may
           overwrite newer changes.

@@ -89,7 +89,7 @@ export function generatePageMetadata({
           url: card,
           width: 1200,
           height: 630,
-          alt: "Dello Investments, we buy houses Chicago for cash",
+          alt: "Dello Investments, Chicago real estate investors, over the Chicago skyline",
         },
       ],
     },

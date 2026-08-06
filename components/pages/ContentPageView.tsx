@@ -39,7 +39,7 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
         />
       ) : null}
 
-      <section className="relative overflow-hidden bg-emerald pb-24 pt-40">
+      <section className="relative overflow-hidden bg-navy pb-24 pt-40">
         {hero ? (
           <>
             <Image
@@ -51,7 +51,7 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
               className="object-cover object-center opacity-25"
             />
             <div
-              className="absolute inset-0 bg-gradient-to-r from-emerald via-emerald/90 to-emerald/50"
+              className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/50"
               aria-hidden
             />
           </>
@@ -75,7 +75,7 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
       {sections.map((section, i) => (
         <section
           key={i}
-          className={`section-padding ${i % 2 === 1 ? "bg-sage-faint" : ""}`}
+          className={`section-padding ${i % 2 === 1 ? "bg-mist-faint" : ""}`}
         >
           <div className="container-custom flex flex-col gap-6">
             {section.map((block, j) => (
@@ -87,7 +87,7 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
 
       {page.faq.length > 0 ? (
         <section
-          className={`section-padding ${sections.length % 2 === 1 ? "bg-sage-faint" : ""}`}
+          className={`section-padding ${sections.length % 2 === 1 ? "bg-mist-faint" : ""}`}
         >
           <div className="container-custom max-w-3xl">
             <Reveal variant="fade-up" className="text-center">

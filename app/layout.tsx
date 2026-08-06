@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Be_Vietnam_Pro } from "next/font/google";
+import { headers } from "next/headers";
+import { Be_Vietnam_Pro, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -20,16 +21,18 @@ import {
   resolveImageByLocale,
 } from "@/lib/admin/store";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+const vietnam = Be_Vietnam_Pro({
+  subsets: ["latin", "latin-ext"],
+  weight: ["600", "700", "800"],
+  style: ["normal", "italic"],
+  variable: "--font-vietnam",
   display: "swap",
 });
 
-const vietnam = Be_Vietnam_Pro({
+const poppins = Poppins({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-vietnam",
+  weight: ["400", "500", "600"],
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -42,11 +45,11 @@ export const metadata: Metadata = {
   },
   description:
     "Woman-owned Chicago cash home buyer. Fair offers in 24 hours, close in 7-14 days. Any condition, all 77 neighborhoods. No repairs, no commissions, no closing costs.",
-  icons: { icon: "/favicon.png" },
+  icons: { icon: "/favicon.png", apple: "/favicon.png" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0C2F25",
+  themeColor: "#0F1F31",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -58,9 +61,10 @@ export default async function RootLayout({
   const overrides = await loadOverrides();
   const business = resolveBusiness(overrides);
   const extra = parseExtraJsonLd(business.extraJsonLd);
+  const lang = headers().get("x-locale") ?? "en";
 
   return (
-    <html lang="en" className={`${playfair.variable} ${vietnam.variable}`}>
+    <html lang={lang} className={`${vietnam.variable} ${poppins.variable}`}>
       <head>
         <script
           type="application/ld+json"

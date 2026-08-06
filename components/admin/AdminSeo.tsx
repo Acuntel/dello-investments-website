@@ -26,8 +26,8 @@ function SearchPreview({
   url: string;
 }) {
   return (
-    <div className="rounded-xl border border-sage bg-sage-faint p-5">
-      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-champagne-ink">
+    <div className="rounded-xl border border-mist bg-mist-faint p-5">
+      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-mist-ink">
         How this looks on Google
       </p>
       <p className="truncate text-xs text-muted">{url}</p>
@@ -109,7 +109,7 @@ export default function AdminSeo({
   return (
     <div className="flex flex-col gap-8">
       <div className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
-        <h2 className="font-heading text-xl text-emerald">
+        <h2 className="font-heading text-xl text-navy">
           Titles and descriptions
         </h2>
         <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted">
@@ -150,7 +150,7 @@ export default function AdminSeo({
             ) : null}
             {grouped.map(({ group, pages }) => (
               <div key={group} className="mb-2">
-                <p className="px-3 pb-1 pt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-champagne-ink">
+                <p className="px-3 pb-1 pt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-mist-ink">
                   {group}
                 </p>
                 {pages.map((p) => {
@@ -162,14 +162,14 @@ export default function AdminSeo({
                       onClick={() => setSelected(p.key)}
                       className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors duration-150 ${
                         active
-                          ? "bg-sage-light font-semibold text-emerald"
-                          : "text-ink hover:bg-sage-faint"
+                          ? "bg-mist-light font-semibold text-navy"
+                          : "text-ink hover:bg-mist-faint"
                       }`}
                     >
                       <span className="min-w-0 flex-1 truncate">{p.label}</span>
                       {edited(p) ? (
                         <span
-                          className="h-1.5 w-1.5 shrink-0 rounded-full bg-champagne"
+                          className="h-1.5 w-1.5 shrink-0 rounded-full bg-mist"
                           title="You have changed this one"
                         />
                       ) : null}
@@ -183,7 +183,7 @@ export default function AdminSeo({
 
         {page ? (
           <section className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
-            <h3 className="font-heading text-xl text-emerald">{page.label}</h3>
+            <h3 className="font-heading text-xl text-navy">{page.label}</h3>
             <p className="mt-1 break-all text-sm text-muted">{url}</p>
             <div className="mt-6 flex flex-col gap-5">
               <Text

@@ -25,13 +25,18 @@ export function localePrefix(locale: Locale): string {
   return locale === "en" ? "" : `/${locale}`;
 }
 
-// Map the current path to its equivalent in another locale, so the language
-// switcher keeps you on the page you're reading instead of dumping you at
-// the locale home.
+// The only routes that exist in every locale. The 75 ported Carrot pages are
+// English-only, so mapping their paths into /es or /pl produces a 404.
+const TRANSLATED_PATHS = new Set(["/", "/contact"]);
+
+// Map the current path to its equivalent in another locale. Keeps you on the
+// page you're reading when a translation exists; otherwise sends you to the
+// locale home rather than a broken URL.
 export function pathInLocale(pathname: string, target: Locale): string {
   const bare =
     pathname.replace(/^\/(es|pl)(?=\/|$)/, "").replace(/\/+$/, "") || "/";
   const prefix = localePrefix(target);
   if (bare === "/") return prefix || "/";
+  if (prefix && !TRANSLATED_PATHS.has(bare)) return prefix;
   return `${prefix}${bare}`;
 }

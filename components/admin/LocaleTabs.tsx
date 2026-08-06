@@ -18,7 +18,7 @@ export default function LocaleTabs({
   onChange: (l: Locale) => void;
 }) {
   return (
-    <div className="flex gap-6 border-b border-sage">
+    <div className="flex gap-6 border-b border-mist">
       {LOCALES.map((l) => {
         const active = l === value;
         return (
@@ -29,8 +29,8 @@ export default function LocaleTabs({
             aria-current={active ? "true" : undefined}
             className={`-mb-px border-b-2 pb-2.5 text-sm font-semibold transition-colors duration-200 ${
               active
-                ? "border-champagne text-emerald"
-                : "border-transparent text-muted hover:text-emerald"
+                ? "border-mist text-navy"
+                : "border-transparent text-muted hover:text-navy"
             }`}
           >
             {NAMES[l]}

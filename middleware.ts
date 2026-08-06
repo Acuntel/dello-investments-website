@@ -34,9 +34,20 @@ export function middleware(request: NextRequest) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
   }
+
+  // The root layout owns the single <html> tag, so it can't know the locale
+  // from the route tree. Pass it via header so /es and /pl pages render
+  // lang="es"/"pl" instead of lang="en" (Ahrefs: hreflang/lang mismatch).
+  const locale = request.nextUrl.pathname.match(/^\/(es|pl)(?=\/|$)/)?.[1];
+  if (locale) {
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-locale", locale);
+    return NextResponse.next({ request: { headers: requestHeaders } });
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: "/api/:path*",
+  matcher: ["/api/:path*", "/es", "/es/:path*", "/pl", "/pl/:path*"],
 };

@@ -21,9 +21,9 @@ export default function StatsBar({
             {t.stats.map((stat, i) => (
               <div
                 key={i}
-                className="text-center lg:border-r lg:border-sage-light lg:last:border-0"
+                className="text-center lg:border-r lg:border-mist-light lg:last:border-0"
               >
-                <p className="font-heading text-5xl text-emerald">
+                <p className="font-heading text-5xl text-navy">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>
                 <p className="mx-auto mt-2 max-w-[180px] text-sm text-muted">
@@ -32,8 +32,8 @@ export default function StatsBar({
               </div>
             ))}
           </div>
-          <div className="mt-10 flex flex-col items-center gap-5 border-t border-sage-light pt-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-champagne-ink">
+          <div className="mt-10 flex flex-col items-center gap-5 border-t border-mist-light pt-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mist-ink">
               {t.certs.label}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8">

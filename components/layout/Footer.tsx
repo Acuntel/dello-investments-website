@@ -19,7 +19,7 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
   const links = footerNav(t, locale);
 
   return (
-    <footer className="bg-emerald text-white/80">
+    <footer className="bg-navy text-white/80">
       <div className="container-custom grid gap-12 py-16 md:grid-cols-3">
         <div>
           <Image
@@ -36,7 +36,7 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
               href={SOCIAL.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-champagne"
+              className="transition-colors hover:text-mist"
             >
               Facebook
             </a>
@@ -44,7 +44,7 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
               href={SOCIAL.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-champagne"
+              className="transition-colors hover:text-mist"
             >
               Instagram
             </a>
@@ -52,7 +52,7 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
               href={SOCIAL.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-champagne"
+              className="transition-colors hover:text-mist"
             >
               YouTube
             </a>
@@ -68,7 +68,7 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="transition-colors hover:text-champagne"
+                  className="transition-colors hover:text-mist"
                 >
                   {link.label}
                 </Link>
@@ -85,27 +85,27 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
             <li>
               <a
                 href={CONTACT.phoneHref}
-                className="flex items-center gap-3 transition-colors hover:text-champagne"
+                className="flex items-center gap-3 transition-colors hover:text-mist"
               >
-                <Phone className="h-4 w-4 shrink-0 text-champagne" />
+                <Phone className="h-4 w-4 shrink-0 text-mist" />
                 {CONTACT.phone}
               </a>
             </li>
             <li>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-3 transition-colors hover:text-champagne"
+                className="flex items-center gap-3 transition-colors hover:text-mist"
               >
-                <Mail className="h-4 w-4 shrink-0 text-champagne" />
+                <Mail className="h-4 w-4 shrink-0 text-mist" />
                 {CONTACT.email}
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 shrink-0 text-champagne" />
+              <MapPin className="h-4 w-4 shrink-0 text-mist" />
               {CONTACT.address}
             </li>
             <li className="flex items-center gap-3">
-              <Clock className="h-4 w-4 shrink-0 text-champagne" />
+              <Clock className="h-4 w-4 shrink-0 text-mist" />
               {t.footer.hours}
             </li>
           </ul>
@@ -121,7 +121,7 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
               href="https://www.flickr.com/photos/48922763@N04/34087296956"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline transition-colors hover:text-champagne"
+              className="underline transition-colors hover:text-mist"
             >
               Cragin Spring
             </a>{" "}

@@ -1,8 +1,7 @@
 import type { Config } from "tailwindcss";
 
-// Emerald luxury palette (v2 — moved off the navy/gold scheme that read too
-// close to the RealLaw site). Deep forest emerald base, sage tints from
-// Karen's seafoam, champagne accent.
+// Navy brand palette (v3 — Karen's official brand kit, 2026-08-01). Dark navy
+// base, primary navy mid tone, mist tint/accent family, warm cream ground.
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -12,32 +11,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        emerald: {
-          DEFAULT: "#0C2F25",
-          800: "#113B2E",
-          700: "#175041",
+        navy: {
+          DEFAULT: "#0F1F31", // brand dark navy — hero bands, headings, buttons
+          800: "#1B2E42",
+          700: "#2B4158",
         },
-        jade: {
-          DEFAULT: "#3A6B58",
-          soft: "#4F8069",
+        steel: {
+          DEFAULT: "#344B63", // brand primary navy — mid tone, gradients
+          soft: "#4C6580",
         },
-        sage: {
-          DEFAULT: "#C7DCCE",
-          light: "#E2EFE6",
-          faint: "#F4F9F5",
+        mist: {
+          DEFAULT: "#C1D9DB", // brand mist — accent + tint family
+          light: "#DCE9EB",
+          faint: "#EFF5F6",
+          strong: "#A6C8CC",
+          ink: "#41666B",
         },
-        champagne: {
-          DEFAULT: "#D3B97E",
-          strong: "#BFA05C",
-          ink: "#8A6C38",
-        },
-        cream: "#FAF9F6",
-        ink: "#13221B",
-        muted: "#5D6E65",
+        cream: "#F7F4F1", // brand cream
+        ink: "#14202C",
+        muted: "#5C6B79",
       },
       fontFamily: {
-        heading: ["var(--font-playfair)", "Georgia", "serif"],
-        body: ["var(--font-vietnam)", "system-ui", "sans-serif"],
+        heading: ["var(--font-vietnam)", "system-ui", "sans-serif"],
+        body: ["var(--font-poppins)", "system-ui", "sans-serif"],
       },
       maxWidth: {
         content: "72rem",
@@ -47,8 +43,8 @@ const config: Config = {
         drama: "cubic-bezier(0.77, 0, 0.175, 1)",
       },
       boxShadow: {
-        card: "0 2px 8px rgba(12, 47, 37, 0.06), 0 12px 32px rgba(12, 47, 37, 0.08)",
-        lift: "0 4px 12px rgba(12, 47, 37, 0.08), 0 24px 48px rgba(12, 47, 37, 0.14)",
+        card: "0 2px 8px rgba(15, 31, 49, 0.06), 0 12px 32px rgba(15, 31, 49, 0.08)",
+        lift: "0 4px 12px rgba(15, 31, 49, 0.08), 0 24px 48px rgba(15, 31, 49, 0.14)",
       },
     },
   },

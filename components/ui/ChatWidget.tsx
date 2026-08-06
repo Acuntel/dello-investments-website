@@ -276,7 +276,7 @@ export default function ChatWidget() {
   }
 
   const fieldCls =
-    "rounded-xl bg-sage-faint px-4 py-3 text-base outline-none ring-1 ring-transparent transition-shadow focus:ring-champagne";
+    "rounded-xl bg-mist-faint px-4 py-3 text-base outline-none ring-1 ring-transparent transition-shadow focus:ring-mist";
 
   return (
     <div className="fixed bottom-5 right-4 z-50 sm:right-6">
@@ -284,7 +284,7 @@ export default function ChatWidget() {
 
       {/* Proactive bubble */}
       {showBubble && state === "closed" && (
-        <div className="absolute bottom-16 right-0 w-64 rounded-2xl border border-sage bg-white p-4 shadow-lift">
+        <div className="absolute bottom-16 right-0 w-64 rounded-2xl border border-mist bg-white p-4 shadow-lift">
           <button
             type="button"
             aria-label={t.dismiss}
@@ -292,7 +292,7 @@ export default function ChatWidget() {
               setShowBubble(false);
               sessionStorage.setItem("dello-chat-dismissed", "1");
             }}
-            className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-emerald text-white"
+            className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-navy text-white"
           >
             <X className="h-3.5 w-3.5" />
           </button>
@@ -306,22 +306,22 @@ export default function ChatWidget() {
           role="dialog"
           aria-modal="true"
           aria-label={t.headerTitle}
-          className="absolute bottom-16 right-0 flex max-h-[min(580px,calc(100vh-120px))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border border-sage bg-white shadow-lift sm:w-[390px]"
+          className="absolute bottom-16 right-0 flex max-h-[min(580px,calc(100vh-120px))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border border-mist bg-white shadow-lift sm:w-[390px]"
         >
           {/* Header: gradient + monogram avatar */}
-          <div className="shrink-0 bg-gradient-to-br from-emerald via-emerald-800 to-emerald-700 px-5 pb-4 pt-5">
+          <div className="shrink-0 bg-gradient-to-br from-navy via-navy-800 to-navy-700 px-5 pb-4 pt-5">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-champagne font-heading text-lg text-emerald">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-mist font-heading text-lg text-navy">
                   D
                 </span>
                 <div>
                   <p className="font-heading text-lg leading-tight text-white">
                     {t.headerTitle}
                   </p>
-                  <p className="mt-0.5 flex items-center gap-1.5 text-xs text-sage">
+                  <p className="mt-0.5 flex items-center gap-1.5 text-xs text-mist">
                     <span
-                      className="inline-block h-1.5 w-1.5 rounded-full bg-champagne"
+                      className="inline-block h-1.5 w-1.5 rounded-full bg-mist"
                       aria-hidden
                     />
                     {t.headerSubtitle}
@@ -343,7 +343,7 @@ export default function ChatWidget() {
           <div
             role="group"
             aria-label={t.languageAriaLabel}
-            className="flex shrink-0 border-b border-sage-light bg-sage-faint"
+            className="flex shrink-0 border-b border-mist-light bg-mist-faint"
           >
             {CHAT_LOCALES.map(({ code, label }) => (
               <button
@@ -353,8 +353,8 @@ export default function ChatWidget() {
                 onClick={() => setLocale(code)}
                 className={`flex-1 border-b-2 py-2 text-xs font-semibold tracking-wide transition-colors ${
                   locale === code
-                    ? "border-champagne text-emerald"
-                    : "border-transparent text-muted hover:text-emerald"
+                    ? "border-mist text-navy"
+                    : "border-transparent text-muted hover:text-navy"
                 }`}
               >
                 {label}
@@ -407,12 +407,12 @@ export default function ChatWidget() {
                   {formError}
                 </p>
               )}
-              <button type="submit" className="btn-emerald w-full">
+              <button type="submit" className="btn-navy w-full">
                 {t.startChat}
               </button>
               <a
                 href={CONTACT.phoneHref}
-                className="flex items-center justify-center gap-2 text-sm text-jade transition-colors hover:text-emerald"
+                className="flex items-center justify-center gap-2 text-sm text-steel transition-colors hover:text-navy"
               >
                 <Phone className="h-3.5 w-3.5" />
                 {t.preferToCall(CONTACT.phone)}
@@ -432,12 +432,12 @@ export default function ChatWidget() {
                     key={i}
                     className={`max-w-[85%] px-4 py-2.5 text-sm leading-relaxed ${
                       m.role === "user"
-                        ? "self-end rounded-xl bg-emerald-700 text-white"
-                        : "self-start rounded-xl border-l-2 border-champagne bg-sage-faint text-ink"
+                        ? "self-end rounded-xl bg-navy-700 text-white"
+                        : "self-start rounded-xl border-l-2 border-mist bg-mist-faint text-ink"
                     }`}
                   >
                     {m.content === "" && isStreaming ? (
-                      <Loader2 className="h-4 w-4 animate-spin text-champagne-ink" />
+                      <Loader2 className="h-4 w-4 animate-spin text-mist-ink" />
                     ) : (
                       m.content
                     )}
@@ -447,7 +447,7 @@ export default function ChatWidget() {
               </div>
               <form
                 onSubmit={handleSendMessage}
-                className="flex shrink-0 items-center gap-2 border-t border-sage-light bg-sage-faint p-3"
+                className="flex shrink-0 items-center gap-2 border-t border-mist-light bg-mist-faint p-3"
               >
                 <input
                   ref={inputRef}
@@ -457,13 +457,13 @@ export default function ChatWidget() {
                   placeholder={t.inputPlaceholder}
                   aria-label={t.inputPlaceholder}
                   maxLength={5000}
-                  className="min-w-0 flex-1 rounded-xl bg-white px-4 py-2.5 text-base outline-none ring-1 ring-sage transition-shadow focus:ring-champagne"
+                  className="min-w-0 flex-1 rounded-xl bg-white px-4 py-2.5 text-base outline-none ring-1 ring-mist transition-shadow focus:ring-mist"
                 />
                 <button
                   type="submit"
                   aria-label={t.sendMessage}
                   disabled={isStreaming || !input.trim()}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald text-champagne transition-colors hover:bg-emerald-700 disabled:opacity-40"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy text-mist transition-colors hover:bg-navy-700 disabled:opacity-40"
                 >
                   <ArrowUp className="h-4 w-4" />
                 </button>
@@ -478,16 +478,16 @@ export default function ChatWidget() {
         type="button"
         aria-label={state === "closed" ? t.openChat : t.closeChat}
         onClick={() => (state === "closed" ? openWidget() : handleClose())}
-        className="group flex items-center gap-2.5 rounded-full border border-champagne/40 bg-emerald py-3 pl-4 pr-5 text-white shadow-lift transition-all duration-300 ease-smooth hover:border-champagne hover:bg-emerald-700"
+        className="group flex items-center gap-2.5 rounded-full border border-mist/40 bg-navy py-3 pl-4 pr-5 text-white shadow-lift transition-all duration-300 ease-smooth hover:border-mist hover:bg-navy-700"
       >
         {state === "closed" ? (
           <>
-            <MessageCircle className="h-5 w-5 text-champagne" />
+            <MessageCircle className="h-5 w-5 text-mist" />
             <span className="text-sm font-semibold">{t.launcherLabel}</span>
           </>
         ) : (
           <>
-            <X className="h-5 w-5 text-champagne" />
+            <X className="h-5 w-5 text-mist" />
             <span className="text-sm font-semibold">{t.closeChat}</span>
           </>
         )}

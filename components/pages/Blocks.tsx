@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import type { PageBlock } from "@/lib/pages/types";
 import Reveal from "@/components/ui/Reveal";
 
-// Renders one of Karen's content blocks in the emerald design language. Her
+// Renders one of Karen's content blocks in the navy design language. Her
 // words are untouched; the treatment is ours. Each block type maps onto a
 // pattern the home page already established, so a ported page and the home
 // page read as one site.
@@ -22,8 +22,8 @@ function Bullets({ items }: { items: string[] }) {
     <ul className="grid gap-3 sm:grid-cols-2">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-2.5 text-sm text-ink">
-          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-champagne/15">
-            <Check className="h-3 w-3 text-champagne-ink" />
+          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mist/15">
+            <Check className="h-3 w-3 text-mist-ink" />
           </span>
           <span
             className="rich leading-relaxed"
@@ -40,7 +40,7 @@ function Steps({ items }: { items: string[] }) {
     <ol className="flex flex-col gap-4">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-4">
-          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald font-heading text-sm text-champagne">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy font-heading text-sm text-mist">
             {i + 1}
           </span>
           <span
@@ -58,7 +58,7 @@ function Cards({ items }: { items: { title: string; body: string[] }[] }) {
     <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
       {items.map((item, i) => (
         <Reveal key={i} variant="fade-up" delay={(i % 2) * 90}>
-          <div className="border-l border-champagne/40 pl-6">
+          <div className="border-l border-mist/40 pl-6">
             <h3 className="text-lg">{item.title}</h3>
             {item.body.map((line, j) => (
               <Prose key={j} html={line} className="mt-2.5 text-sm" />
@@ -73,9 +73,9 @@ function Cards({ items }: { items: { title: string; body: string[] }[] }) {
 function Figure({ block }: { block: Extract<PageBlock, { t: "image" }> }) {
   return (
     <Reveal variant="fade-up" className="relative mx-auto w-full max-w-2xl">
-      {/* The offset champagne frame from the home page's Story section. */}
+      {/* The offset mist frame from the home page's Story section. */}
       <div
-        className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border border-champagne"
+        className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border border-mist"
         aria-hidden
       />
       <Image
@@ -138,7 +138,7 @@ export default function Block({ block }: { block: PageBlock }) {
     case "quote":
       return (
         <Reveal variant="fade-up">
-          <blockquote className="max-w-3xl border-l-2 border-champagne pl-6 font-heading text-xl italic text-emerald">
+          <blockquote className="max-w-3xl border-l-2 border-mist pl-6 font-heading text-xl italic text-navy">
             {block.text}
           </blockquote>
         </Reveal>

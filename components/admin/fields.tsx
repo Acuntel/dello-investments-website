@@ -6,11 +6,11 @@ import { Plus, X } from "lucide-react";
 // with the site's own palette rather than a generic dashboard grey.
 
 export const inputClass =
-  "w-full rounded-lg border border-sage bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-colors duration-200 placeholder:text-muted/50 focus:border-champagne focus:ring-2 focus:ring-champagne/25";
+  "w-full rounded-lg border border-mist bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-colors duration-200 placeholder:text-muted/50 focus:border-mist focus:ring-2 focus:ring-mist/25";
 
 export function Label({ children }: { children: React.ReactNode }) {
   return (
-    <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.16em] text-champagne-ink">
+    <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.16em] text-mist-ink">
       {children}
     </span>
   );
@@ -30,7 +30,7 @@ export function Counter({ value, max }: { value: string; max: number }) {
   const over = n > max;
   return (
     <span
-      className={`text-xs tabular-nums ${over ? "font-semibold text-champagne-ink" : "text-muted"}`}
+      className={`text-xs tabular-nums ${over ? "font-semibold text-mist-ink" : "text-muted"}`}
     >
       {n}/{max}
       {over ? " · Google will cut this off" : ""}
@@ -141,7 +141,7 @@ export function ListEditor({
               type="button"
               onClick={() => remove(i)}
               aria-label={`Remove "${item || "empty row"}"`}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-sage text-muted transition-colors duration-200 hover:border-champagne hover:text-champagne-ink"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-mist text-muted transition-colors duration-200 hover:border-mist hover:text-mist-ink"
             >
               <X className="h-4 w-4" />
             </button>
@@ -151,7 +151,7 @@ export function ListEditor({
       <button
         type="button"
         onClick={() => onChange([...items, ""])}
-        className="mt-2.5 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald transition-colors duration-200 hover:text-champagne-ink"
+        className="mt-2.5 inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors duration-200 hover:text-mist-ink"
       >
         <Plus className="h-4 w-4" /> Add another
       </button>
@@ -171,7 +171,7 @@ export function Card({
 }) {
   return (
     <section className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
-      <h2 className="font-heading text-xl text-emerald">{title}</h2>
+      <h2 className="font-heading text-xl text-navy">{title}</h2>
       {subtitle ? (
         <p className="mt-1.5 text-sm leading-relaxed text-muted">{subtitle}</p>
       ) : null}

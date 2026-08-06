@@ -57,7 +57,7 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
   if (status === "done") {
     return (
       <div className="rounded-2xl bg-white p-10 text-center shadow-card">
-        <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-champagne" />
+        <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-mist" />
         <h3 className="mb-2 text-2xl">{t.successTitle}</h3>
         <p className="text-muted">{t.successBody}</p>
       </div>
@@ -65,8 +65,8 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
   }
 
   const inputCls = (field: string) =>
-    `w-full rounded-lg border px-4 py-3.5 text-base outline-none transition-colors focus:border-champagne ${
-      errors[field] ? "border-red-400" : "border-sage"
+    `w-full rounded-lg border px-4 py-3.5 text-base outline-none transition-colors focus:border-mist ${
+      errors[field] ? "border-red-400" : "border-mist"
     }`;
 
   return (
@@ -161,7 +161,7 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
         rows={4}
         value={values.message}
         onChange={set("message")}
-        className="w-full resize-y rounded-lg border border-sage px-4 py-3.5 text-base outline-none transition-colors focus:border-champagne"
+        className="w-full resize-y rounded-lg border border-mist px-4 py-3.5 text-base outline-none transition-colors focus:border-mist"
       />
       {status === "error" && (
         <p role="alert" className="text-sm text-red-600">
@@ -171,7 +171,7 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="btn-champagne w-full disabled:opacity-60 sm:w-auto"
+        className="btn-mist w-full disabled:opacity-60 sm:w-auto"
       >
         {status === "sending" ? (
           <>

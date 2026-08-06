@@ -3,11 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --emerald: #0c2f25;
-  --jade: #3a6b58;
-  --sage: #c7dcce;
-  --champagne: #d3b97e;
-  --cream: #faf9f6;
+  --navy: #0f1f31;
+  --steel: #344b63;
+  --mist: #c1d9db;
+  --cream: #f7f4f1;
   --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-drama: cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -15,6 +14,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  /* Pre-reveal fade-left/right elements sit at translateX(±32px); clip so
+     they can never widen the page. */
+  overflow-x: clip;
 }
 
 body {
@@ -26,13 +28,13 @@ h1,
 h2,
 h3,
 h4 {
-  @apply font-heading text-emerald;
+  @apply font-heading font-bold text-navy;
   text-wrap: balance;
 }
 
 ::selection {
-  background: var(--champagne);
-  color: var(--emerald);
+  background: var(--mist);
+  color: var(--navy);
 }
 
 /* ---- Scroll-reveal system (IntersectionObserver adds .revealed) ---- */
@@ -44,13 +46,13 @@ h4 {
   will-change: opacity, transform;
 }
 [data-reveal="fade-up"] {
-  transform: tranjadeY(28px);
+  transform: translateY(28px);
 }
 [data-reveal="fade-left"] {
-  transform: tranjadeX(-32px);
+  transform: translateX(-32px);
 }
 [data-reveal="fade-right"] {
-  transform: tranjadeX(32px);
+  transform: translateX(32px);
 }
 [data-reveal="scale"] {
   transform: scale(0.94);
@@ -64,7 +66,7 @@ h4 {
 @keyframes heroReveal {
   from {
     opacity: 0;
-    transform: tranjadeY(26px);
+    transform: translateY(26px);
   }
   to {
     opacity: 1;
@@ -103,11 +105,11 @@ h4 {
   }
 }
 .preloader {
-  @apply fixed inset-0 z-[100] flex flex-col items-center justify-center bg-emerald;
+  @apply fixed inset-0 z-[100] flex flex-col items-center justify-center bg-navy;
   transition: transform 0.8s var(--ease-drama);
 }
 .preloader.dismissed {
-  transform: tranjadeY(-100%);
+  transform: translateY(-100%);
 }
 .preloader-text {
   opacity: 0;
@@ -116,7 +118,7 @@ h4 {
 .preloader-line {
   width: 160px;
   height: 1px;
-  background: var(--champagne);
+  background: var(--mist);
   transform: scaleX(0);
   transform-origin: left;
   animation: preloaderLineGrow 1s 0.6s var(--ease-smooth) forwards;
@@ -131,26 +133,26 @@ h4 {
     @apply py-20 md:py-28;
   }
   .section-label {
-    @apply mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-champagne-ink;
+    @apply mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-mist-ink;
   }
   .section-label::before {
     content: "";
-    @apply block h-px w-10 bg-champagne;
+    @apply block h-px w-10 bg-mist-strong;
   }
-  .btn-champagne {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-champagne px-8 py-4 text-sm font-semibold tracking-wide text-emerald transition-all duration-300 ease-smooth hover:bg-champagne-strong hover:shadow-lift;
+  .btn-mist {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-mist px-8 py-4 text-sm font-semibold tracking-wide text-navy transition-all duration-300 ease-smooth hover:bg-mist-strong hover:shadow-lift;
   }
   .btn-outline-light {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 ease-smooth hover:border-champagne hover:text-champagne;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 ease-smooth hover:border-mist hover:text-mist;
   }
-  .btn-emerald {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-emerald px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 ease-smooth hover:bg-emerald-700 hover:shadow-lift;
+  .btn-navy {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 ease-smooth hover:bg-navy-700 hover:shadow-lift;
   }
 
   /* Inline markup inside ported page copy. The extractor allows only
      <a>, <strong>, <em> and <br>, so this is the complete surface. */
   .rich a {
-    @apply font-medium text-emerald underline decoration-champagne decoration-1 underline-offset-4 transition-colors duration-200 hover:text-champagne-ink;
+    @apply font-medium text-navy underline decoration-mist decoration-1 underline-offset-4 transition-colors duration-200 hover:text-mist-ink;
   }
   .rich strong {
     @apply font-semibold text-ink;
@@ -158,9 +160,9 @@ h4 {
   .rich em {
     @apply italic;
   }
-  /* On the emerald hero band the same markup has to read light-on-dark. */
+  /* On the navy hero band the same markup has to read light-on-dark. */
   .rich-invert a {
-    @apply font-medium text-champagne underline decoration-champagne/50 decoration-1 underline-offset-4 transition-colors duration-200 hover:text-white;
+    @apply font-medium text-mist underline decoration-mist/50 decoration-1 underline-offset-4 transition-colors duration-200 hover:text-white;
   }
   .rich-invert strong {
     @apply font-semibold text-white;
@@ -196,6 +198,6 @@ h4 {
 }
 
 :focus-visible {
-  outline: 2px solid var(--champagne);
+  outline: 2px solid var(--steel);
   outline-offset: 2px;
 }

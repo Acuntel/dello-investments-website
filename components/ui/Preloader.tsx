@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-// Navy curtain with the wordmark and a growing champagne line, then slides up
+// Navy curtain with the wordmark and a growing mist line, then slides up
 // (Alliance-style entrance). Shows once per tab session.
 export default function Preloader() {
   const [dismissed, setDismissed] = useState(false);
@@ -21,7 +21,7 @@ export default function Preloader() {
   return (
     <div className={`preloader ${dismissed ? "dismissed" : ""}`} aria-hidden>
       <p className="preloader-text font-heading text-2xl tracking-[0.18em] text-white">
-        DELLO <span className="text-champagne">INVESTMENTS</span>
+        DELLO <span className="text-mist">INVESTMENTS</span>
       </p>
       <div className="preloader-line mt-5" />
     </div>

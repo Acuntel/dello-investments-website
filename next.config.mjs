@@ -21,11 +21,42 @@ const nextConfig = {
       "/we-buy-houses-in-logan-square": "/sell-my-house-fast-logan-square-chicago/",
       "/blog/author/delloinvestments": "/about/",
     };
-    return Object.entries(map).map(([source, destination]) => ({
-      source,
-      destination,
-      permanent: true,
-    }));
+    // 2026-07-31, Karen's request: every service/situation page URL carries
+    // the city. These are her original Carrot slugs, all indexed by Google,
+    // 301ing to the renamed -chicago form. Do not remove before the old URLs
+    // fall out of the index.
+    const cityRenames = {
+      "/as-is-home-buying": "/as-is-home-buying-chicago/",
+      "/behind-on-mortgage-help": "/behind-on-mortgage-help-chicago/",
+      "/code-violation-property-buying": "/code-violation-property-buying-chicago/",
+      "/damaged-house-purchase": "/damaged-house-purchase-chicago/",
+      "/divorce-property-sale": "/divorce-property-sale-chicago/",
+      "/estate-appraiser": "/estate-appraiser-chicago/",
+      "/foreclosure-service": "/foreclosure-service-chicago/",
+      "/foundation-issue-home-buyer": "/foundation-issue-home-buyer-chicago/",
+      "/free-home-valuation": "/free-home-valuation-chicago/",
+      "/hoarder-house-buying": "/hoarder-house-buying-chicago/",
+      "/inherited-property-sales": "/inherited-property-sales-chicago/",
+      "/multi-unit-building-purchase": "/multi-unit-building-purchase-chicago/",
+      "/pre-foreclosure-house-buying": "/pre-foreclosure-house-buying-chicago/",
+      "/probate-property-purchase": "/probate-property-purchase-chicago/",
+      "/property-investment-company": "/property-investment-company-chicago/",
+      "/property-tax-delinquency-help": "/property-tax-delinquency-help-chicago/",
+      "/property-with-liens-purchase": "/property-with-liens-purchase-chicago/",
+      "/real-estate-consultant": "/real-estate-consultant-chicago/",
+      "/sell-house-without-realtor": "/sell-house-without-realtor-chicago/",
+      "/south-side-house-buyers": "/south-side-house-buyers-chicago/",
+      "/tired-landlord-solutions": "/tired-landlord-solutions-chicago/",
+      "/vacant-house-purchase": "/vacant-house-purchase-chicago/",
+      "/water-damaged-property-purchase": "/water-damaged-property-purchase-chicago/",
+    };
+    return Object.entries({ ...map, ...cityRenames }).map(
+      ([source, destination]) => ({
+        source,
+        destination,
+        permanent: true,
+      }),
+    );
   },
   async headers() {
     return [

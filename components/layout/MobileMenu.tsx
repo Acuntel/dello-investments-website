@@ -35,7 +35,7 @@ export default function MobileMenu({
       }`}
     >
       <div
-        className="absolute inset-0 bg-emerald/60 backdrop-blur-sm"
+        className="absolute inset-0 bg-navy/60 backdrop-blur-sm"
         onClick={onClose}
         aria-hidden
       />
@@ -44,16 +44,16 @@ export default function MobileMenu({
         aria-modal="true"
         aria-label="Menu"
         className={`absolute right-0 top-0 flex h-full w-[300px] flex-col bg-white shadow-lift transition-transform duration-500 ease-drama ${
-          open ? "tranjade-x-0" : "tranjade-x-full"
+          open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-sage-light px-6 py-5">
-          <p className="font-heading text-lg text-emerald">Dello Investments</p>
+        <div className="flex items-center justify-between border-b border-mist-light px-6 py-5">
+          <p className="font-heading text-lg text-navy">Dello Investments</p>
           <button
             type="button"
             aria-label="Close menu"
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-emerald"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-navy"
           >
             <X className="h-5 w-5" />
           </button>
@@ -65,7 +65,7 @@ export default function MobileMenu({
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className="border-b border-sage-light py-4 font-medium text-ink transition-colors hover:text-champagne-ink"
+              className="border-b border-mist-light py-4 font-medium text-ink transition-colors hover:text-mist-ink"
             >
               {link.label}
             </Link>
@@ -85,8 +85,8 @@ export default function MobileMenu({
                 onClick={onClose}
                 className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
                   code === locale
-                    ? "border-champagne bg-champagne/10 font-semibold text-champagne-ink"
-                    : "border-sage text-ink hover:border-champagne"
+                    ? "border-mist bg-mist/10 font-semibold text-mist-ink"
+                    : "border-mist text-ink hover:border-mist"
                 }`}
               >
                 {DICTS[code].langName}
@@ -96,14 +96,14 @@ export default function MobileMenu({
         </div>
 
         <div className="mt-auto flex flex-col gap-3 p-6">
-          <a href={CONTACT.phoneHref} className="btn-emerald w-full">
+          <a href={CONTACT.phoneHref} className="btn-navy w-full">
             <Phone className="h-4 w-4" />
             {CONTACT.phone}
           </a>
           <Link
             href={`${prefix}/contact`}
             onClick={onClose}
-            className="btn-champagne w-full"
+            className="btn-mist w-full"
           >
             {t.nav.getOffer}
           </Link>

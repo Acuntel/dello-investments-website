@@ -39,7 +39,7 @@ export default function AdminImages({
   return (
     <div className="flex flex-col gap-8">
       <div className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
-        <h2 className="font-heading text-xl text-emerald">
+        <h2 className="font-heading text-xl text-navy">
           Photograph descriptions
         </h2>
         <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted">
@@ -65,7 +65,7 @@ export default function AdminImages({
               <div className="flex flex-col gap-5 sm:flex-row">
                 <div
                   className={`relative h-32 w-full shrink-0 overflow-hidden rounded-xl sm:w-44 ${
-                    img.onDark ? "bg-emerald" : "bg-sage-faint"
+                    img.onDark ? "bg-navy" : "bg-mist-faint"
                   }`}
                 >
                   <Image
@@ -78,7 +78,7 @@ export default function AdminImages({
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col gap-4">
                   <div>
-                    <h3 className="font-heading text-lg text-emerald">
+                    <h3 className="font-heading text-lg text-navy">
                       {img.label}
                     </h3>
                     <p className="text-sm text-muted">{img.where}</p>

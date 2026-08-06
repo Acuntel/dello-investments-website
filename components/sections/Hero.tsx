@@ -16,7 +16,7 @@ export default function Hero({
 }) {
   const prefix = localePrefix(locale);
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-emerald">
+    <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-navy">
       <Image
         src="/images/hero-home.webp"
         alt={image.alt}
@@ -27,22 +27,22 @@ export default function Hero({
         sizes="100vw"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-r from-emerald via-emerald/85 to-emerald/30"
+        className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/30"
         aria-hidden
       />
       <div className="container-custom relative pb-32 pt-36">
         <div className="hero-stagger max-w-2xl">
-          <p className="section-label !text-champagne">{t.hero.eyebrow}</p>
+          <p className="section-label !text-mist">{t.hero.eyebrow}</p>
           <h1 className="text-4xl leading-[1.12] !text-white sm:text-5xl lg:text-6xl">
             {t.hero.titleLead}{" "}
-            <em className="italic text-champagne">{t.hero.titleAccent}</em>{" "}
+            <em className="italic text-mist">{t.hero.titleAccent}</em>{" "}
             {t.hero.titleTail}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75">
             {t.hero.subtitle}
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <Link href={`${prefix}/contact`} className="btn-champagne">
+            <Link href={`${prefix}/contact`} className="btn-mist">
               {t.hero.ctaPrimary}
             </Link>
             <a href={`${prefix}/#process`} className="btn-outline-light">
@@ -50,7 +50,7 @@ export default function Hero({
             </a>
           </div>
           <p className="mt-8 flex items-center gap-2 text-sm text-white/60">
-            <span className="flex text-champagne" aria-hidden>
+            <span className="flex text-mist" aria-hidden>
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="h-3.5 w-3.5 fill-current" />
               ))}

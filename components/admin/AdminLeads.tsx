@@ -102,7 +102,7 @@ export default function AdminLeads({ passcode }: { passcode: string }) {
         <button
           type="button"
           onClick={() => downloadCsv(leads)}
-          className="inline-flex items-center gap-2 rounded-full border border-sage bg-white px-5 py-2.5 text-sm font-semibold text-emerald transition-colors duration-200 hover:border-champagne hover:text-champagne-ink"
+          className="inline-flex items-center gap-2 rounded-full border border-mist bg-white px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:border-mist hover:text-mist-ink"
         >
           <Download className="h-4 w-4" /> Download as a spreadsheet
         </button>
@@ -115,7 +115,7 @@ export default function AdminLeads({ passcode }: { passcode: string }) {
             className="rounded-2xl bg-white p-5 shadow-card sm:p-6"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h3 className="font-heading text-lg text-emerald">
+              <h3 className="font-heading text-lg text-navy">
                 {lead.name || "No name given"}
               </h3>
               <span className="flex items-center gap-1.5 text-xs text-muted">
@@ -132,7 +132,7 @@ export default function AdminLeads({ passcode }: { passcode: string }) {
               {lead.phone ? (
                 <a
                   href={`tel:${lead.phone.replace(/[^\d+]/g, "")}`}
-                  className="font-semibold text-emerald hover:text-champagne-ink"
+                  className="font-semibold text-navy hover:text-mist-ink"
                 >
                   {lead.phone}
                 </a>
@@ -140,7 +140,7 @@ export default function AdminLeads({ passcode }: { passcode: string }) {
               {lead.email ? (
                 <a
                   href={`mailto:${lead.email}`}
-                  className="text-ink hover:text-champagne-ink"
+                  className="text-ink hover:text-mist-ink"
                 >
                   {lead.email}
                 </a>
@@ -150,7 +150,7 @@ export default function AdminLeads({ passcode }: { passcode: string }) {
               <p className="mt-2 text-sm text-ink">{lead.address}</p>
             ) : null}
             {lead.message ? (
-              <p className="mt-3 whitespace-pre-wrap border-l-2 border-sage pl-4 text-sm leading-relaxed text-muted">
+              <p className="mt-3 whitespace-pre-wrap border-l-2 border-mist pl-4 text-sm leading-relaxed text-muted">
                 {lead.message}
               </p>
             ) : null}

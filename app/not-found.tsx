@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[70vh] items-center bg-emerald pt-24">
+    <section className="flex min-h-[70vh] items-center bg-navy pt-24">
       <div className="container-custom text-center">
-        <p className="font-heading text-7xl italic text-champagne">404</p>
+        <p className="font-heading text-7xl italic text-mist">404</p>
         <h1 className="mt-4 text-3xl !text-white">
           This page has moved on, like a closed deal.
         </h1>
@@ -13,7 +13,7 @@ export default function NotFound() {
           reach out, we answer seven days a week.
         </p>
         <div className="mt-8 flex justify-center gap-4">
-          <Link href="/" className="btn-champagne">
+          <Link href="/" className="btn-mist">
             Back to Home
           </Link>
           <Link href="/contact" className="btn-outline-light">

@@ -22,7 +22,7 @@ export default function Situations({ t }: { t: SiteDict }) {
   return (
     <section
       id="situations"
-      className="section-padding scroll-mt-24 bg-sage-faint"
+      className="section-padding scroll-mt-24 bg-mist-faint"
     >
       <div className="container-custom">
         <Reveal variant="fade-up" className="max-w-2xl">
@@ -35,9 +35,9 @@ export default function Situations({ t }: { t: SiteDict }) {
             const Icon = ICONS[i % ICONS.length];
             return (
               <Reveal key={item.title} variant="fade-up" delay={(i % 3) * 100}>
-                <div className="group h-full rounded-2xl bg-white p-8 shadow-card transition-all duration-500 ease-smooth hover:-tranjade-y-1.5 hover:shadow-lift">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sage-light transition-colors duration-500 group-hover:bg-champagne/15">
-                    <Icon className="h-5 w-5 text-jade transition-colors duration-500 group-hover:text-champagne-ink" />
+                <div className="group h-full rounded-2xl bg-white p-8 shadow-card transition-all duration-500 ease-smooth hover:-translate-y-1.5 hover:shadow-lift">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-mist-light transition-colors duration-500 group-hover:bg-mist/15">
+                    <Icon className="h-5 w-5 text-steel transition-colors duration-500 group-hover:text-mist-ink" />
                   </span>
                   <h3 className="mt-5 text-xl">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted">

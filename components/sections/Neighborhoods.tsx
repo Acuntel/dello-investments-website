@@ -11,7 +11,7 @@ export default function Neighborhoods({
   image: ImageMeta;
 }) {
   return (
-    <section className="section-padding bg-sage-faint">
+    <section className="section-padding bg-mist-faint">
       <div className="container-custom grid items-center gap-14 lg:grid-cols-2">
         <Reveal variant="fade-right" className="order-2 lg:order-1">
           <Image
@@ -34,7 +34,7 @@ export default function Neighborhoods({
               {t.neighborhoods.areas.map((area) => (
                 <span
                   key={area}
-                  className="rounded-full border border-sage bg-white px-4 py-1.5 text-sm text-ink transition-colors duration-300 hover:border-champagne"
+                  className="rounded-full border border-mist bg-white px-4 py-1.5 text-sm text-ink transition-colors duration-300 hover:border-mist"
                 >
                   {area}
                 </span>

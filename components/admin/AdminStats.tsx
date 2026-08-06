@@ -26,10 +26,10 @@ function Tile({
 }) {
   return (
     <div className="rounded-2xl bg-white p-6 shadow-card">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-champagne-ink">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-mist-ink">
         {label}
       </p>
-      <p className="mt-3 font-heading text-4xl text-emerald">{value}</p>
+      <p className="mt-3 font-heading text-4xl text-navy">{value}</p>
       {sub ? <p className="mt-1 text-sm text-muted">{sub}</p> : null}
     </div>
   );
@@ -40,7 +40,7 @@ function Bars({ title, rows }: { title: string; rows: NamedCount[] }) {
   const max = Math.max(...rows.map((r) => r.count), 1);
   return (
     <section className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
-      <h3 className="font-heading text-lg text-emerald">{title}</h3>
+      <h3 className="font-heading text-lg text-navy">{title}</h3>
       <ul className="mt-5 flex flex-col gap-3.5">
         {rows.map((r) => (
           <li key={r.name}>
@@ -50,9 +50,9 @@ function Bars({ title, rows }: { title: string; rows: NamedCount[] }) {
                 {r.count.toLocaleString()}
               </span>
             </div>
-            <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-sage-faint">
+            <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-mist-faint">
               <div
-                className="h-full rounded-full bg-champagne"
+                className="h-full rounded-full bg-mist"
                 style={{ width: `${Math.max((r.count / max) * 100, 2)}%` }}
               />
             </div>
@@ -126,7 +126,7 @@ export default function AdminStats({ passcode }: { passcode: string }) {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h2 className="font-heading text-xl text-emerald">Last 28 days</h2>
+        <h2 className="font-heading text-xl text-navy">Last 28 days</h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <Tile
             label="People came by"
@@ -155,7 +155,7 @@ export default function AdminStats({ passcode }: { passcode: string }) {
       </div>
 
       <div>
-        <h2 className="font-heading text-xl text-emerald">
+        <h2 className="font-heading text-xl text-navy">
           Last 7 days, and since launch
         </h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">

@@ -45,9 +45,9 @@ export default function BlogIndex() {
         }}
       />
 
-      <section className="bg-emerald pb-24 pt-40">
+      <section className="bg-navy pb-24 pt-40">
         <div className="container-custom hero-stagger">
-          <p className="section-label !text-champagne">Guides and answers</p>
+          <p className="section-label !text-mist">Guides and answers</p>
           <h1 className="max-w-3xl text-4xl !text-white sm:text-5xl">
             {page?.h1 || "Selling a Chicago house, explained"}
           </h1>
@@ -67,7 +67,7 @@ export default function BlogIndex() {
               <Reveal key={post.slug} variant="fade-up" delay={(i % 3) * 90}>
                 <article className="group flex h-full flex-col">
                   <Link href={href} className="overflow-hidden rounded-2xl">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-sage-light">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-mist-light">
                       {hero ? (
                         <Image
                           src={hero.src}
@@ -82,7 +82,7 @@ export default function BlogIndex() {
                   <h2 className="mt-5 text-xl leading-snug">
                     <Link
                       href={href}
-                      className="transition-colors duration-200 hover:text-champagne-ink"
+                      className="transition-colors duration-200 hover:text-mist-ink"
                     >
                       {post.h1}
                     </Link>
@@ -92,7 +92,7 @@ export default function BlogIndex() {
                   </p>
                   <Link
                     href={href}
-                    className="mt-4 text-sm font-semibold text-emerald transition-colors duration-200 hover:text-champagne-ink"
+                    className="mt-4 text-sm font-semibold text-navy transition-colors duration-200 hover:text-mist-ink"
                   >
                     Read more
                   </Link>

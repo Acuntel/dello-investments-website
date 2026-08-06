@@ -122,19 +122,19 @@ export default function AdminEditor({
 
   return (
     <div className="min-h-screen bg-cream pb-24">
-      <header className="sticky top-0 z-20 border-b border-sage bg-cream/95 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-mist bg-cream/95 backdrop-blur">
         <div className="container-custom flex flex-wrap items-center justify-between gap-4 py-5">
           <div>
-            <p className="font-heading text-xl text-emerald">
+            <p className="font-heading text-xl text-navy">
               Dello Investments
             </p>
-            <p className="text-xs uppercase tracking-[0.16em] text-champagne-ink">
+            <p className="text-xs uppercase tracking-[0.16em] text-mist-ink">
               Website manager
             </p>
           </div>
           <div className="flex items-center gap-4">
             {dirty ? (
-              <span className="text-sm font-semibold text-champagne-ink">
+              <span className="text-sm font-semibold text-mist-ink">
                 Not saved yet
               </span>
             ) : null}
@@ -142,7 +142,7 @@ export default function AdminEditor({
               type="button"
               onClick={publish}
               disabled={saving || !dirty}
-              className="btn-champagne !px-7 !py-3 disabled:cursor-not-allowed disabled:opacity-40"
+              className="btn-mist !px-7 !py-3 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {saving ? (
                 <>
@@ -166,8 +166,8 @@ export default function AdminEditor({
                 onClick={() => setTab(t.id)}
                 className={`-mb-px flex shrink-0 items-center gap-2 border-b-2 pb-3 text-sm font-semibold transition-colors duration-200 ${
                   active
-                    ? "border-champagne text-emerald"
-                    : "border-transparent text-muted hover:text-emerald"
+                    ? "border-mist text-navy"
+                    : "border-transparent text-muted hover:text-navy"
                 }`}
               >
                 <Icon className="h-4 w-4" />
@@ -180,8 +180,8 @@ export default function AdminEditor({
 
       <main className="container-custom pt-8">
         {pendingDraft ? (
-          <div className="mb-8 rounded-2xl border border-champagne bg-white p-6 shadow-card">
-            <h2 className="font-heading text-lg text-emerald">
+          <div className="mb-8 rounded-2xl border border-mist bg-white p-6 shadow-card">
+            <h2 className="font-heading text-lg text-navy">
               You have changes from last time that were never saved
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
@@ -192,14 +192,14 @@ export default function AdminEditor({
               <button
                 type="button"
                 onClick={() => restore(pendingDraft)}
-                className="btn-emerald !px-6 !py-3"
+                className="btn-navy !px-6 !py-3"
               >
                 Bring them back
               </button>
               <button
                 type="button"
                 onClick={discard}
-                className="rounded-full border border-sage px-6 py-3 text-sm font-semibold text-muted transition-colors duration-200 hover:border-champagne hover:text-champagne-ink"
+                className="rounded-full border border-mist px-6 py-3 text-sm font-semibold text-muted transition-colors duration-200 hover:border-mist hover:text-mist-ink"
               >
                 Throw them away
               </button>
@@ -211,8 +211,8 @@ export default function AdminEditor({
           <div
             className={`mb-8 flex items-start gap-2.5 rounded-xl p-4 text-sm ${
               notice.tone === "ok"
-                ? "bg-sage-light text-emerald"
-                : "bg-champagne/20 text-champagne-ink"
+                ? "bg-mist-light text-navy"
+                : "bg-mist/20 text-mist-ink"
             }`}
           >
             {notice.tone === "ok" ? (

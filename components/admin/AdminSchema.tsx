@@ -174,13 +174,13 @@ export default function AdminSchema({
           onChange={(v) => set({ extraJsonLd: v })}
         />
         {extraValid === true ? (
-          <p className="flex items-center gap-2 text-sm text-jade">
+          <p className="flex items-center gap-2 text-sm text-steel">
             <CheckCircle2 className="h-4 w-4" /> Valid JSON. This will be added
             to every page.
           </p>
         ) : null}
         {extraValid === false ? (
-          <p className="flex items-start gap-2 text-sm text-champagne-ink">
+          <p className="flex items-start gap-2 text-sm text-mist-ink">
             <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" /> This is not
             valid JSON yet, so it will not save. Check for a missing comma,
             bracket, or quote mark.
