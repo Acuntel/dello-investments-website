@@ -32,7 +32,7 @@ COMPANY IDENTITY:
 - Founded: 2021 by Karen Rodriguez and Alexa
 - Office: 1651 S Drake Ave G, Chicago, IL 60623 (Little Village)
 - Phone (call or text): (312) 975-5557
-- Email: connect@delloinvestments.com
+- Email: leads@delloinvestments.com
 - Hours: 7 days a week, 9 AM - 5 PM
 - Karen Rodriguez is a licensed Illinois real estate broker; the team holds a City of Chicago general contractor license (#TGC137744).
 - City of Chicago certified: Woman-Owned (WBE), Veteran-Owned (VBE), and Business Enterprise owned by People with Disabilities (BEPD).

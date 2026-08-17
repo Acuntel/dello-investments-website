@@ -42,7 +42,7 @@ Contact form: honeypot field + Turnstile-ready + length caps + HTML-escaped emai
 | `ANTHROPIC_MODEL`                                         | Optional override (default `claude-haiku-4-5-20251001`)         |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` | Cloudflare Turnstile (auto-hardens chat + form)                 |
 | `KV_REST_API_URL` / `KV_REST_API_TOKEN`                   | Upstash, distributed daily limits                              |
-| `RESEND_API_KEY`                                          | Contact-form + chat-lead emails to connect@delloinvestments.com |
+| `RESEND_API_KEY`                                          | Contact-form + chat-lead emails to leads@delloinvestments.com |
 
 Without any of these the site still builds and runs: chat shows a friendly "call us" fallback, forms log to console.
 
