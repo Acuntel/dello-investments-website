@@ -2,11 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { verifyTurnstile } from "@/lib/turnstile";
 import { recordLead } from "@/lib/admin/leads";
+import { sendLeadEmail } from "@/lib/leadEmail";
 
 // Contact / cash-offer form handler. Defense order: origin → rate limit →
 // honeypot → Turnstile (when configured) → validation with hard length caps
-// → HTML-escaped email via Resend. Console-log fallback when Resend is
-// absent so a misconfigured deploy never silently eats leads.
+// → HTML-escaped email via Resend (see lib/leadEmail.ts for the delivery
+// strategy). The visitor sees success once the lead is recorded in the
+// admin store; an email delivery failure is logged, not shown, because the
+// lead itself is already safe.
 
 const ALLOWED_HOSTS = [
   "delloinvestments.com",
@@ -119,37 +122,11 @@ export async function POST(req: NextRequest) {
       ${message ? `<p><strong>Message:</strong></p><pre style="font-family:inherit;white-space:pre-wrap">${esc(message)}</pre>` : ""}
     `;
 
-    const key = process.env.RESEND_API_KEY;
-    if (!key) {
-      console.log("[contact form, RESEND_API_KEY not set]", {
-        name,
-        phone,
-        address,
-      });
-      return NextResponse.json({ ok: true });
-    }
-
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${key}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "Dello Website <onboarding@resend.dev>",
-        to: ["connect@delloinvestments.com"],
-        ...(email && { reply_to: email }),
-        subject: `Cash offer request, ${name} (${address})`,
-        html,
-      }),
+    await sendLeadEmail({
+      subject: `Cash offer request, ${name} (${address})`,
+      html,
+      ...(email && { replyTo: email }),
     });
-    if (!res.ok) {
-      console.error("Resend error:", await res.text());
-      return NextResponse.json(
-        { error: "Could not send your message. Please call us directly." },
-        { status: 502 },
-      );
-    }
 
     return NextResponse.json({ ok: true });
   } catch (error) {

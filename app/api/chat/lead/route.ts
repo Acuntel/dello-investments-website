@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { recordLead } from "@/lib/admin/leads";
+import { sendLeadEmail } from "@/lib/leadEmail";
 
 // Emails chat leads (and, on chat close, the transcript) to the team via
-// Resend. Console-logs as a fallback when RESEND_API_KEY is absent so leads
-// are never silently dropped in development.
+// Resend (see lib/leadEmail.ts for the delivery strategy).
 
 const ALLOWED_HOSTS = [
   "delloinvestments.com",
@@ -82,30 +82,7 @@ export async function POST(req: NextRequest) {
       ${transcriptText ? `<hr/><pre style="font-family:inherit;white-space:pre-wrap">${esc(transcriptText)}</pre>` : ""}
     `;
 
-    const key = process.env.RESEND_API_KEY;
-    if (!key) {
-      console.log("[chat lead, RESEND_API_KEY not set]", {
-        name,
-        email,
-        phone,
-      });
-      return NextResponse.json({ ok: true });
-    }
-
-    await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${key}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "Dello Website <onboarding@resend.dev>",
-        to: ["connect@delloinvestments.com"],
-        reply_to: email,
-        subject,
-        html,
-      }),
-    });
+    await sendLeadEmail({ subject, html, replyTo: email });
 
     return NextResponse.json({ ok: true });
   } catch (error) {
