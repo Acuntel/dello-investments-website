@@ -41,9 +41,5 @@ export function footerNav(t: SiteDict, locale: Locale): NavLink[] {
       ...links,
       { href: `${localePrefix(locale)}/contact`, label: t.nav.contact },
     ];
-  return [
-    ...links,
-    { href: "/reviews", label: "Reviews" },
-    { href: "/contact", label: t.nav.contact },
-  ];
+  return [...links, { href: "/contact", label: t.nav.contact }];
 }

@@ -11,9 +11,13 @@ const nextConfig = {
   // pointing at these lands somewhere useful instead of a 404.
   async redirects() {
     const map = {
+      "/pl": "/",
+      "/pl/contact": "/contact/",
+      "/reviews": "/",
       "/we-buy-houses-chicago": "/cash-home-buyers-chicago/",
       "/sell-my-house-fast-roseland": "/sell-my-house-fast-roseland-chicago/",
-      "/we-buy-houses-north-lawndale": "/sell-my-house-fast-north-lawdale-chicago/",
+      "/we-buy-houses-north-lawndale": "/sell-my-house-fast-north-lawndale-chicago/",
+      "/sell-my-house-fast-north-lawdale-chicago": "/sell-my-house-fast-north-lawndale-chicago/",
       "/sell-house-fast-chicago": "/sell-my-house-fast-chicago/",
       "/how-we-buy-houses": "/how-it-works/",
       "/contact-us": "/contact/",

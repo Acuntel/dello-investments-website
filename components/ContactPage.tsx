@@ -8,12 +8,7 @@ import Reveal from "@/components/ui/Reveal";
 export default function ContactPage({ locale }: { locale: Locale }) {
   const t = getDict(locale);
   const c = t.contactPage;
-  const hours =
-    locale === "es"
-      ? CONTACT.hoursEs
-      : locale === "pl"
-        ? CONTACT.hoursPl
-        : CONTACT.hoursEn;
+  const hours = locale === "es" ? CONTACT.hoursEs : CONTACT.hoursEn;
 
   return (
     <>

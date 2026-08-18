@@ -116,8 +116,7 @@ export async function POST(req: NextRequest) {
     }
 
     const { messages, leadInfo, locale, sessionToken } = await req.json();
-    const chatLocale: ChatLocale =
-      locale === "es" || locale === "pl" ? locale : "en";
+    const chatLocale: ChatLocale = locale === "es" ? "es" : "en";
 
     // When Turnstile is configured, require the signed session token (the
     // non-spoofable gate). Without Turnstile keys, run in graceful mode:

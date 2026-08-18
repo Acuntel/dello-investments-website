@@ -20,9 +20,9 @@ export interface PageDef {
   group: "Main" | "Neighborhoods" | "Situations" | "Guides" | "Blog";
 }
 
-const ALL_LOCALES: Locale[] = ["en", "es", "pl"];
+const ALL_LOCALES: Locale[] = ["en", "es"];
 
-// The two hand-built trilingual pages.
+// The two hand-built bilingual pages.
 const CORE_PAGES: PageDef[] = [
   {
     key: "home",
@@ -255,7 +255,7 @@ export const DEFAULT_BUSINESS: BusinessInfo = {
   opens: "09:00",
   closes: "17:00",
   ratingValue: "5.0",
-  reviewCount: "4",
+  reviewCount: "6",
   services: [
     "As-is cash home purchase",
     "Inherited & probate property purchase",
@@ -265,7 +265,7 @@ export const DEFAULT_BUSINESS: BusinessInfo = {
     "Code violation & lien resolution at closing",
   ],
   credentials: [
-    "Illinois Real Estate Broker License",
+    "Illinois Real Estate Broker License #475.201055",
     `City of Chicago General Contractor License #${CREDENTIALS.gcLicense}`,
     "City of Chicago Woman-Owned Business Enterprise (WBE)",
     "City of Chicago Veteran-Owned Business Enterprise (VBE)",

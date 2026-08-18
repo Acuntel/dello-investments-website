@@ -66,7 +66,7 @@ export function generateLocalBusinessSchema(b: BusinessInfo) {
       },
     }),
     priceRange: b.priceRange,
-    knowsLanguage: ["en", "es", "pl"],
+    knowsLanguage: ["en", "es"],
     areaServed: [
       { "@type": "City", name: "Chicago" },
       { "@type": "AdministrativeArea", name: "Cook County" },
@@ -74,8 +74,8 @@ export function generateLocalBusinessSchema(b: BusinessInfo) {
         "@type": "GeoCircle",
         geoMidpoint: {
           "@type": "GeoCoordinates",
-          latitude: 41.8781,
-          longitude: -87.6298,
+          latitude: 41.8586,
+          longitude: -87.7133,
         },
         geoRadius: "40000",
       },
@@ -124,7 +124,7 @@ export function generateWebSiteSchema() {
     "@type": "WebSite",
     name: "Dello Investments",
     url: SITE_URL,
-    inLanguage: ["en", "es", "pl"],
+    inLanguage: ["en", "es"],
   };
 }
 

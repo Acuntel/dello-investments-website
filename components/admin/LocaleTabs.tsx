@@ -5,11 +5,10 @@ import { LOCALES, type Locale } from "@/lib/content";
 const NAMES: Record<Locale, string> = {
   en: "English",
   es: "Español",
-  pl: "Polski",
 };
 
-// The site is trilingual, so anything Google reads exists three times. These
-// tabs make that obvious instead of hiding two thirds of the site.
+// The site is bilingual, so anything Google reads exists twice. These
+// tabs make that obvious instead of hiding half of the site.
 export default function LocaleTabs({
   value,
   onChange,

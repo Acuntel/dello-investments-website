@@ -10,7 +10,7 @@ interface PageMetadataParams {
   // Locale-less path ("" for home, "/contact", …). hreflang alternates for
   // en/es/pl are derived from it automatically.
   path: string;
-  locale?: "en" | "es" | "pl";
+  locale?: "en" | "es";
   noindex?: boolean;
   /** Languages this page actually exists in. The pages ported off Carrot are
    *  English only, so advertising /es and /pl alternates for them would point
@@ -47,7 +47,7 @@ export function generatePageMetadata({
   path,
   locale = "en",
   noindex,
-  locales = ["en", "es", "pl"],
+  locales = ["en", "es"],
   image,
 }: PageMetadataParams): Metadata {
   const prefix = locale === "en" ? "" : `/${locale}`;
@@ -72,7 +72,6 @@ export function generatePageMetadata({
         languages: {
           en: withSlash(path),
           es: withSlash(`/es${path}`),
-          pl: withSlash(`/pl${path}`),
           "x-default": withSlash(path),
         },
       }),
@@ -83,7 +82,7 @@ export function generatePageMetadata({
       description,
       url,
       type: "website",
-      locale: locale === "en" ? "en_US" : locale === "es" ? "es_US" : "pl_PL",
+      locale: locale === "es" ? "es_US" : "en_US",
       images: [
         {
           url: card,

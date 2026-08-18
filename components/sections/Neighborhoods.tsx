@@ -28,6 +28,7 @@ export default function Neighborhoods({
             <p className="section-label">{t.neighborhoods.label}</p>
             <h2 className="text-3xl sm:text-4xl">{t.neighborhoods.title}</h2>
             <p className="mt-4 text-muted">{t.neighborhoods.body}</p>
+            <p className="mt-4 text-muted">{t.neighborhoods.body2}</p>
           </Reveal>
           <Reveal variant="fade-up" delay={120}>
             <div className="mt-8 flex flex-wrap gap-2.5">

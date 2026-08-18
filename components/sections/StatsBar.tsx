@@ -52,6 +52,15 @@ export default function StatsBar({
                   </span>
                 </div>
               ))}
+              {t.certs.licenses.map((license) => (
+                <span
+                  key={license.number}
+                  className="rounded-full border border-mist bg-mist-faint px-4 py-2 text-sm font-medium text-ink"
+                >
+                  {license.name}{" "}
+                  <span className="text-mist-ink">{license.number}</span>
+                </span>
+              ))}
             </div>
           </div>
         </div>

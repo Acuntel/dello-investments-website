@@ -12,15 +12,22 @@ export const es: SiteDict = {
     languageLabel: "Idioma",
   },
   hero: {
-    eyebrow: "Compradores de casas en Chicago, empresa de mujeres",
-    titleLead: "Venda su casa en Chicago",
-    titleAccent: "con dignidad,",
-    titleTail: "a su ritmo.",
+    eyebrow:
+      "Agente de bienes raíces con licencia de Illinois · Contratista general con licencia de Chicago",
+    titleLead: "Compramos Casas",
+    titleAccent: "Chicago",
+    titleTail: "— en cualquier condición y situación.",
     subtitle:
-      "Dello Investments compra casas en los 77 vecindarios de Chicago al contado, en cualquier condición y en cualquier situación. Recibirá una oferta justa en 24 horas y podrá cerrar en tan solo 7 días, sin reparaciones, sin comisiones y sin costos de cierre.",
+      "¿Enfrenta una ejecución hipotecaria, violaciones de código, una casa vacía o heredada, o una propiedad que se volvió difícil de manejar? Compramos casas al contado en Chicago y el condado de Cook — tal como están, sin reparaciones, sin comisiones y sin costos de cierre. Oferta justa en 24 horas.",
+    bullets: [
+      "Cierre en 7–14 días — o elija su plazo",
+      "Contratista general con licencia — calculamos reparaciones con números reales",
+      "Agente de bienes raíces con licencia de Illinois — trabaja con una agente, no un centro de llamadas",
+    ],
     ctaPrimary: "Obtener Mi Oferta en Efectivo",
     ctaSecondary: "Ver Cómo Funciona",
-    trustLine: "5.0 en Google · A+ BBB · Corredora con licencia de Illinois",
+    trustLine:
+      "★★★★★ 5.0 en Google · A+ BBB · Agente de bienes raíces con licencia de Illinois · Contratista general de Chicago",
   },
   stats: [
     { value: 77, suffix: "", label: "vecindarios de Chicago atendidos" },
@@ -29,7 +36,11 @@ export const es: SiteDict = {
     { value: 0, suffix: "", label: "comisiones, cargos o reparaciones" },
   ],
   certs: {
-    label: "Certificados por la Ciudad de Chicago",
+    label: "Con Licencia y Certificación",
+    licenses: [
+      { name: "Agente de Bienes Raíces de Illinois", number: "#475.201055" },
+      { name: "Contratista General de Chicago", number: "#TGC137744" },
+    ],
     items: [
       {
         img: "/images/badge-wbe.webp",
@@ -48,16 +59,44 @@ export const es: SiteDict = {
       },
     ],
   },
+  categoryLinks: {
+    title: "Sea cual sea la situación, hay un camino hacia adelante.",
+    bodyHtml:
+      'Ayudamos a propietarios de Chicago con <a href="/foreclosure-service-chicago/">ayuda con ejecuciones hipotecarias en Chicago</a>, <a href="/estate-appraiser-chicago/">propiedades heredadas y en sucesión</a>, y todo tipo de propiedad con problemas como <a href="/property-investment-company-chicago/">empresa de inversión inmobiliaria de Chicago</a> con licencia.',
+    seeAllLabel: "Vea todas las situaciones que manejamos →",
+  },
+  positioning: {
+    gc: {
+      title: "Contratista General con Licencia de la Ciudad de Chicago",
+      body: "No somos solo compradores: somos contratistas con licencia. Sabemos lo que realmente cuesta arreglar cada propiedad con problemas. Por eso nuestras ofertas son justas y precisas, no números bajos a ciegas. Usted no repara nada. Nosotros nos encargamos.",
+      license: "Licencia GC #TGC137744",
+    },
+    distressed: {
+      title: "Propiedades Dañadas o en Dificultades",
+      body1:
+        "¿Violaciones de código? ¿Daños por agua o fuego? ¿Cimientos que han visto mejores días, o años de reparaciones pendientes? Compramos casas dañadas y en dificultades en Chicago y el condado de Cook — exactamente como están, sin pedirle que arregle nada.",
+      body2:
+        "Como somos contratistas generales con licencia de la Ciudad de Chicago, sabemos lo que necesita una propiedad con problemas. Eso significa una oferta justa y precisa por el tipo de casa que la mayoría de los compradores mira una vez y deja pasar. Sin ofertas bajas ni conjeturas — solo un número real con el que puede contar.",
+    },
+    foreclosure: {
+      title: "¿Enfrenta una Ejecución Hipotecaria en Illinois?",
+      body1:
+        "Una ejecución hipotecaria en Illinois puede tardar de 12 a 18 meses — pero el golpe a su crédito empieza en el momento en que deja de pagar, no cuando el banco termina.",
+      body2Html:
+        'Si está atrasado en su hipoteca o ya está en pre-ejecución, todavía tiene opciones. <a href="/foreclosure-service-chicago/">Vender al contado antes de que el banco tome la casa</a> puede proteger su crédito, detener el reloj y poner dinero en su bolsillo en lugar de perderlo en la subasta.',
+      body3: "Sin juicios y sin presión. Solo un camino real hacia adelante.",
+    },
+  },
   story: {
     label: "Nuestra Historia",
     title: "Primero vecinos, después inversionistas.",
     body1:
-      "Dello Investments fue fundada en 2021 por Karen Rodriguez y Alexa, dos chicagüenses convencidas de que vender una casa en un momento difícil no debería ser una carga más. Karen es corredora de bienes raíces con licencia de Illinois, y nuestro equipo tiene licencia de contratista general de la Ciudad de Chicago: las personas que hacen su oferta son las mismas que entienden exactamente lo que su propiedad necesita.",
+      "Dello Investments fue fundada en 2021 por Karen Rodriguez y Alexa, dos chicagüenses convencidas de que todo propietario merece vender con dignidad y a su propio ritmo, incluso en un momento difícil. Karen es agente de bienes raíces con licencia de Illinois, y nuestro equipo tiene licencia de contratista general de la Ciudad de Chicago: las personas que hacen su oferta son las mismas que entienden exactamente lo que su propiedad necesita.",
     body2:
       "Estamos orgullosamente certificadas por la Ciudad de Chicago como empresa propiedad de mujeres, de veteranos y de personas con discapacidad. Cuando nos sentamos en su mesa, le explicamos cada número de la oferta, en español o en inglés, y usted decide el calendario, sin presión y sin juegos.",
     points: [
-      "Corredora de bienes raíces con licencia de Illinois",
-      "Contratista general con licencia de la Ciudad de Chicago",
+      "Agente de bienes raíces con licencia de Illinois #475.201055",
+      "Contratista general con licencia de la Ciudad de Chicago #TGC137744",
       "Ofertas transparentes, número por número",
       "Atención completa en español",
     ],
@@ -121,30 +160,33 @@ export const es: SiteDict = {
   },
   why: {
     label: "Por Qué Dello",
-    title: "La diferencia está en los detalles.",
+    title: "Por qué los propietarios de Chicago eligen a Dello.",
     items: [
       {
-        title: "Números claros",
-        body: "Cada oferta viene con las cuentas a la vista: qué estimamos en reparaciones, qué pagamos y por qué.",
+        title: "Agente de bienes raíces con licencia de Illinois",
+        body: "Usted trabaja directamente con una agente con licencia, no con un centro de llamadas.",
       },
       {
-        title: "Licencias de los dos lados",
-        body: "Una corredora con licencia de Illinois valora su casa con honestidad; un contratista con licencia valora las reparaciones con honestidad.",
+        title:
+          "Contratista general con licencia y seguro de la Ciudad de Chicago",
+        body: "Evaluamos cada propiedad con precisión porque sabemos lo que cuestan las reparaciones.",
       },
       {
-        title: "Su calendario, de verdad",
-        body: "Cierre en una semana, o quédese 60 días después del cierre mientras encuentra su próximo hogar. El plan se arma alrededor suyo.",
+        title: "Cálculos de oferta transparentes",
+        body: "Le mostramos cómo llegamos al número.",
       },
       {
-        title: "Raíces en Chicago",
-        body: "Estamos en La Villita, certificadas por la Ciudad y trabajando en cada vecindario, de Beverly a Rogers Park.",
+        title: "Empresa de mujeres, veteranos y latinos",
+        body: "Certificada por la Ciudad de Chicago: WBE, VBE y BEPD.",
       },
     ],
   },
   neighborhoods: {
     label: "Dónde Compramos",
-    title: "Los 77 vecindarios y todos los suburbios del condado de Cook.",
-    body: "De bungalows a two-flats y de greystones a ranches, si está en Chicagoland le hacemos una oferta.",
+    title: "Compramos Casas en Todo Chicago y el Condado de Cook",
+    body: "Trabajamos en los lados oeste y suroeste de Chicago — La Villita, North Lawndale, Humboldt Park, Pilsen, Garfield Park, Austin — además de Cicero, Berwyn y los suburbios cercanos del condado de Cook.",
+    body2:
+      "Compramos en los 77 vecindarios de Chicago. ¿No sabe si cubrimos su cuadra? Llame al (312) 975-5557.",
     areas: [
       "La Villita",
       "Pilsen",
@@ -187,7 +229,7 @@ export const es: SiteDict = {
       },
       {
         q: "¿En qué se diferencia Dello de otras empresas que 'compran casas'?",
-        a: "Karen es corredora con licencia de Illinois y nuestro equipo tiene licencia de contratista general de Chicago, nuestras ofertas se basan en números reales de reparación que le mostramos abiertamente, no en una fórmula para ofrecer de menos.",
+        a: "Karen es agente de bienes raíces con licencia de Illinois y nuestro equipo tiene licencia de contratista general de Chicago, nuestras ofertas se basan en números reales de reparación que le mostramos abiertamente, no en una fórmula para ofrecer de menos.",
       },
       {
         q: "¿Pueden ayudarme si enfrento una ejecución hipotecaria?",
@@ -231,7 +273,7 @@ export const es: SiteDict = {
     contactLabel: "Contacto",
     hours: "Abierto los 7 días · 9 AM - 5 PM",
     certsLine:
-      "Certificada por la Ciudad de Chicago: WBE · VBE · BEPD. Corredora de bienes raíces con licencia de Illinois. Contratista general con licencia #TGC137744.",
+      "Certificada por la Ciudad de Chicago: WBE · VBE · BEPD. Agente de bienes raíces con licencia de Illinois #475.201055. Contratista general con licencia de la Ciudad de Chicago #TGC137744.",
     rights: "Todos los derechos reservados.",
   },
 };

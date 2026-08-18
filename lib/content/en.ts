@@ -12,15 +12,21 @@ export const en: SiteDict = {
     languageLabel: "Language",
   },
   hero: {
-    eyebrow: "Chicago's Woman-Owned Cash Home Buyer",
-    titleLead: "Sell your Chicago home",
-    titleAccent: "with dignity,",
-    titleTail: "on your timeline.",
+    eyebrow: "Licensed Illinois Broker · Licensed Chicago General Contractor",
+    titleLead: "We Buy Houses",
+    titleAccent: "Chicago",
+    titleTail: "— any condition, any situation.",
     subtitle:
-      "Dello Investments buys houses across all 77 Chicago neighborhoods for cash, in any condition and any situation. You'll have a fair offer within 24 hours and can close in as little as 7 days, with no repairs, no commissions, and no closing costs.",
+      "Facing foreclosure, code violations, a vacant or inherited house, or a property that's become too much to manage? We buy houses for cash across Chicago and Cook County — as-is, no repairs, no commissions, no closing costs. Fair offer in 24 hours, close in as little as 7 days.",
+    bullets: [
+      "Close in 7–14 days — or choose your timeline",
+      "Licensed general contractor — we price repairs from real numbers, not guesses",
+      "Licensed Illinois broker — you work with a licensed broker, not a call center",
+    ],
     ctaPrimary: "Get My Cash Offer",
     ctaSecondary: "See How It Works",
-    trustLine: "5.0 Google Rating · A+ BBB · Licensed Illinois Broker",
+    trustLine:
+      "★★★★★ 5.0 Google · A+ BBB · Licensed IL Broker · Licensed Chicago GC",
   },
   stats: [
     { value: 77, suffix: "", label: "Chicago neighborhoods served" },
@@ -29,7 +35,11 @@ export const en: SiteDict = {
     { value: 0, suffix: "", label: "fees, commissions, or repairs" },
   ],
   certs: {
-    label: "Certified by the City of Chicago",
+    label: "Licensed & Certified",
+    licenses: [
+      { name: "Illinois Real Estate Broker", number: "#475.201055" },
+      { name: "Chicago General Contractor", number: "#TGC137744" },
+    ],
     items: [
       {
         img: "/images/badge-wbe.webp",
@@ -48,16 +58,44 @@ export const en: SiteDict = {
       },
     ],
   },
+  categoryLinks: {
+    title: "Whatever the situation, there's a path forward.",
+    bodyHtml:
+      'We help Chicago homeowners through <a href="/foreclosure-service-chicago/">foreclosure help in Chicago</a>, <a href="/estate-appraiser-chicago/">inherited and probate property</a>, and every kind of problem property as a licensed <a href="/property-investment-company-chicago/">Chicago property investment company</a>.',
+    seeAllLabel: "See all the situations we handle →",
+  },
+  positioning: {
+    gc: {
+      title: "Licensed City of Chicago General Contractor",
+      body: "We're not just buyers — we're licensed contractors. We know what every problem property actually costs to fix. That's why our offers are fair and accurate, not lowball guesses. No repairs on you. We handle it.",
+      license: "GC License #TGC137744",
+    },
+    distressed: {
+      title: "Distressed and Damaged Properties",
+      body1:
+        "Code violations? Water or fire damage? A foundation that's seen better days, or years of repairs you never got to? We buy distressed and damaged houses across Chicago and Cook County — exactly as they sit, without asking you to fix a single thing.",
+      body2:
+        "Because we're licensed City of Chicago general contractors, we know what a problem property needs. That means a fair, accurate offer on the kind of house most buyers take one look at and walk away from. No lowballing, no guesswork — just a real number you can count on.",
+    },
+    foreclosure: {
+      title: "Facing Foreclosure in Illinois",
+      body1:
+        "Foreclosure in Illinois can drag on 12 to 18 months — but the hit to your credit starts the moment you miss a payment, not when the bank finishes.",
+      body2Html:
+        'If you\'re behind on your mortgage or already in pre-foreclosure, you still have options. <a href="/foreclosure-service-chicago/">Selling for cash before the bank takes over</a> can protect your credit, stop the clock, and put money back in your pocket instead of losing it at auction.',
+      body3: "No judgment, no pressure. Just a real path forward.",
+    },
+  },
   story: {
     label: "Our Story",
     title: "Neighbors first, investors second.",
     body1:
-      "Dello Investments was founded in 2021 by Karen Rodriguez and Alexa, two Chicagoans who believed selling a house in a hard season shouldn't add to the burden. Karen is a licensed Illinois real estate broker, and our team holds a City of Chicago general contractor license, so the people making your offer are the same people who understand exactly what your property needs.",
+      "Dello Investments was founded in 2021 by Karen Rodriguez and Alexa, two Chicagoans who believed every homeowner deserves to sell with dignity, on their own timeline — even in a hard season. Karen is a licensed Illinois real estate broker, and our team holds a City of Chicago general contractor license, so the people making your offer are the same people who understand exactly what your property needs.",
     body2:
       "We're proudly certified by the City of Chicago as a woman-owned, veteran-owned, and disability-owned business. When we sit at your kitchen table, we explain every number in the offer, in English or Spanish, and you decide the timeline, with no pressure and no games.",
     points: [
-      "Licensed Illinois real estate broker",
-      "Licensed City of Chicago general contractor",
+      "Licensed Illinois real estate broker #475.201055",
+      "Licensed City of Chicago general contractor #TGC137744",
       "Transparent, line-by-line offer math",
       "Se habla español",
     ],
@@ -121,30 +159,32 @@ export const en: SiteDict = {
   },
   why: {
     label: "Why Dello",
-    title: "The difference is in the details.",
+    title: "Why Chicago homeowners choose Dello.",
     items: [
       {
-        title: "Straightforward numbers",
-        body: "Every offer comes with the math shown line by line: what we estimate for repairs, what we pay, and why.",
+        title: "Licensed Illinois real estate broker",
+        body: "You work directly with a licensed broker, not a call center.",
       },
       {
-        title: "Licensed on both sides",
-        body: "A licensed Illinois broker prices your home honestly; a licensed general contractor prices the repairs honestly.",
+        title: "Licensed and insured City of Chicago general contractor",
+        body: "We assess every property accurately because we know what repairs cost.",
       },
       {
-        title: "Your timeline, truly",
-        body: "Close in a week, or stay 60 days after closing while you find your next place. We build the schedule around you.",
+        title: "Transparent offer calculations",
+        body: "We show you how we got to the number.",
       },
       {
-        title: "Rooted in Chicago",
-        body: "We're based in Little Village, certified by the City, and working every neighborhood from Beverly to Rogers Park.",
+        title: "Woman, veteran, and Latine-owned",
+        body: "City of Chicago certified WBE, VBE, and BEPD.",
       },
     ],
   },
   neighborhoods: {
     label: "Where We Buy",
-    title: "All 77 neighborhoods and every suburb in Cook County.",
-    body: "From bungalow belts to two-flats and greystones to ranches, if it's in Chicagoland we'll make an offer on it.",
+    title: "We Buy Houses Across Chicago and Cook County",
+    body: "We work throughout Chicago's West and Southwest Sides — Little Village, North Lawndale, Humboldt Park, Pilsen, Garfield Park, Austin — plus Cicero, Berwyn, and the nearby Cook County suburbs.",
+    body2:
+      "We buy across all 77 Chicago neighborhoods. Not sure if we cover your block? Call (312) 975-5557.",
     areas: [
       "Little Village",
       "Pilsen",
@@ -230,7 +270,7 @@ export const en: SiteDict = {
     contactLabel: "Contact",
     hours: "Open 7 days a week · 9 AM - 5 PM",
     certsLine:
-      "City of Chicago certified WBE · VBE · BEPD. Licensed Illinois real estate broker. Licensed general contractor #TGC137744.",
+      "City of Chicago certified WBE · VBE · BEPD. Licensed Illinois real estate broker #475.201055. Licensed City of Chicago general contractor #TGC137744.",
     rights: "All rights reserved.",
   },
 };

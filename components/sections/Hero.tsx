@@ -41,6 +41,19 @@ export default function Hero({
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75">
             {t.hero.subtitle}
           </p>
+          <ul className="mt-6 space-y-2.5">
+            {t.hero.bullets.map((bullet) => (
+              <li
+                key={bullet}
+                className="flex items-start gap-2.5 text-[15px] leading-snug text-white/85"
+              >
+                <span className="mt-0.5 text-mist" aria-hidden>
+                  ✓
+                </span>
+                {bullet}
+              </li>
+            ))}
+          </ul>
           <div className="mt-9 flex flex-wrap gap-4">
             <Link href={`${prefix}/contact`} className="btn-mist">
               {t.hero.ctaPrimary}

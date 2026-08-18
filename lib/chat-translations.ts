@@ -1,24 +1,21 @@
-// All chat-widget UI strings, three locales. Record<ChatLocale, ChatStrings>
+// All chat-widget UI strings, both locales. Record<ChatLocale, ChatStrings>
 // is exhaustive, adding a locale is a compile error until every key exists.
-export type ChatLocale = "en" | "es" | "pl";
+export type ChatLocale = "en" | "es";
 
 export const CHAT_LOCALES: { code: ChatLocale; label: string }[] = [
   { code: "en", label: "EN" },
   { code: "es", label: "ES" },
-  { code: "pl", label: "PL" },
 ];
 
 export function detectChatLocale(pathname: string | null): ChatLocale {
   if (!pathname) return "en";
   if (pathname === "/es" || pathname.startsWith("/es/")) return "es";
-  if (pathname === "/pl" || pathname.startsWith("/pl/")) return "pl";
   return "en";
 }
 
 export const LANGUAGE_INSTRUCTION: Record<ChatLocale, string> = {
   en: "Reply in English.",
   es: "Responde siempre en español, incluso si el usuario escribe en otro idioma.",
-  pl: "Odpowiadaj zawsze po polsku, nawet jeśli użytkownik pisze w innym języku.",
 };
 
 type ChatStrings = {
@@ -106,34 +103,5 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     dismiss: "Cerrar",
     openChat: "Abrir chat",
     languageAriaLabel: "Idioma del chat",
-  },
-  pl: {
-    headerTitle: "Concierge Dello",
-    launcherLabel: "Porozmawiaj z nami",
-    headerSubtitle: "Zapytaj o cokolwiek, odpowiadamy od razu",
-    closeChat: "Zamknij czat",
-    leadFormIntro:
-      "Powiedz nam, kim jesteś, a odpowiemy na każde pytanie o sprzedaż Twojego domu.",
-    namePlaceholder: "Twoje imię",
-    emailPlaceholder: "Adres e-mail",
-    phonePlaceholder: "Telefon (opcjonalnie)",
-    startChat: "Rozpocznij Czat",
-    preferToCall: (phone) => `Wolisz rozmowę? Zadzwoń lub napisz: ${phone}`,
-    nameRequired: "Podaj swoje imię.",
-    emailRequired: "Podaj swój e-mail.",
-    emailInvalid: "Podaj prawidłowy e-mail.",
-    greeting: (firstName) =>
-      `Cześć ${firstName}! Jestem asystentem Dello Investments i pomogę Ci we wszystkim, od domu ze spadku po egzekucję albo zwykłe "ile mój dom jest dla was wart?" W czym mogę dziś pomóc?`,
-    callNow: "Zadzwoń Teraz",
-    inputPlaceholder: "Wpisz swoje pytanie…",
-    sendMessage: "Wyślij wiadomość",
-    errorMessage:
-      "Przepraszamy, coś poszło nie tak. Spróbuj ponownie lub zadzwoń: (312) 975-5557.",
-    unavailableMessage:
-      "Czat jest chwilowo niedostępny. Zadzwoń lub napisz: (312) 975-5557.",
-    proactiveBubble: "Zapytaj mnie o cokolwiek w sprawie sprzedaży domu.",
-    dismiss: "Zamknij",
-    openChat: "Otwórz czat",
-    languageAriaLabel: "Język czatu",
   },
 };

@@ -1,7 +1,7 @@
 // One exhaustive dictionary per locale. Record<Locale, SiteDict> makes a
 // missing translation a compile error, the fix for the copy drift that
 // happens when each locale is a hand-edited page tree.
-export type Locale = "en" | "es" | "pl";
+export type Locale = "en" | "es";
 
 export interface SiteDict {
   langName: string;
@@ -20,6 +20,7 @@ export interface SiteDict {
     titleAccent: string;
     titleTail: string;
     subtitle: string;
+    bullets: string[];
     ctaPrimary: string;
     ctaSecondary: string;
     trustLine: string;
@@ -28,6 +29,27 @@ export interface SiteDict {
   certs: {
     label: string;
     items: { img: string; alt: string; name: string }[];
+    // License credentials rendered as text chips beside the badge images; no
+    // badge graphics exist for these and none are needed.
+    licenses: { name: string; number: string }[];
+  };
+  // Post-hero band linking the three money-page categories. bodyHtml carries
+  // inline anchors, rendered with dangerouslySetInnerHTML (static, our copy).
+  categoryLinks: {
+    title: string;
+    bodyHtml: string;
+    seeAllLabel: string;
+  };
+  // The three positioning bands (licensed-GC, distressed, foreclosure).
+  positioning: {
+    gc: { title: string; body: string; license: string };
+    distressed: { title: string; body1: string; body2: string };
+    foreclosure: {
+      title: string;
+      body1: string;
+      body2Html: string;
+      body3: string;
+    };
   };
   story: {
     label: string;
@@ -58,6 +80,7 @@ export interface SiteDict {
     label: string;
     title: string;
     body: string;
+    body2: string;
     areas: string[];
     imageAlt: string;
   };
