@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { getDict } from "@/lib/content";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
-import { heroFor, sectionise, type ContentPage } from "@/lib/pages";
-import Block from "@/components/pages/Blocks";
+import { heroFor, pairMedia, sectionise, type ContentPage } from "@/lib/pages";
+import SectionRows from "@/components/pages/SectionRows";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import CTASection from "@/components/sections/CTASection";
+import MapCard from "@/components/sections/MapCard";
 import Reveal from "@/components/ui/Reveal";
 
 // One assembly for all 77 pages ported off Carrot. The hero band, the
@@ -77,10 +78,8 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
           key={i}
           className={`section-padding ${i % 2 === 1 ? "bg-mist-faint" : ""}`}
         >
-          <div className="container-custom flex flex-col gap-6">
-            {section.map((block, j) => (
-              <Block key={j} block={block} />
-            ))}
+          <div className="container-custom flex flex-col gap-8">
+            <SectionRows rows={pairMedia(section)} />
           </div>
         </section>
       ))}
@@ -102,6 +101,8 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
           </div>
         </section>
       ) : null}
+
+      {page.slug === "about-us" ? <MapCard /> : null}
 
       <CTASection t={t} locale="en" />
     </>

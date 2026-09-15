@@ -3,7 +3,7 @@ import type { SiteDict } from "./types";
 export const en: SiteDict = {
   langName: "English",
   nav: {
-    about: "Our Story",
+    about: "About Us",
     howItWorks: "How It Works",
     situations: "Situations We Solve",
     faq: "FAQs",

@@ -20,6 +20,29 @@ export type PageBlock =
       height: number;
       caption?: string;
     }
+  | {
+      // A row of people, each with a photo, a name, an optional role and an
+      // optional run of prose. Rendered as equal columns on desktop and a
+      // stack on mobile, which is what keeps the About page headshots the same
+      // size even though the source photographs have different proportions.
+      t: "team";
+      items: {
+        src: string;
+        alt: string;
+        width: number;
+        height: number;
+        name: string;
+        role?: string;
+        body?: InlineHtml[];
+      }[];
+    }
+  | {
+      // Certification marks and other small trust badges. These are emblems
+      // rather than photographs, so they sit in a compact centred row instead
+      // of taking a screen each.
+      t: "badges";
+      items: { src: string; alt: string; width: number; height: number }[];
+    }
   | { t: "quote"; text: string };
 
 export type PageKind = "page" | "blog" | "blogIndex";

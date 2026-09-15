@@ -4,7 +4,7 @@ export const CONTACT = {
   phone: "(312) 975-5557",
   phoneHref: "tel:+13129755557",
   smsHref: "sms:+13129755557",
-  email: "leads@delloinvestments.com",
+  email: "connect@delloinvestments.com",
   address: "1651 S Drake Ave G, Chicago, IL 60623",
   hoursEn: "Open 7 days a week · 9 AM - 5 PM",
   hoursEs: "Abierto los 7 días · 9 AM - 5 PM",

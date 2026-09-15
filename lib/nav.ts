@@ -24,7 +24,7 @@ export function mainNav(t: SiteDict, locale: Locale): NavLink[] {
     ];
   }
   return [
-    { href: "/about", label: t.nav.about },
+    { href: "/about-us", label: t.nav.about },
     { href: "/how-it-works", label: t.nav.howItWorks },
     { href: "/situations", label: t.nav.situations },
     { href: "/chicago-neighborhoods", label: "Neighborhoods" },

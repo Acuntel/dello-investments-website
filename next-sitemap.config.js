@@ -31,7 +31,7 @@ module.exports = {
     let priority = config.priority;
     if (bare === "/") priority = 1.0;
     else if (bare === "/contact") priority = 0.9;
-    else if (bare === "/how-it-works" || bare === "/about") priority = 0.8;
+    else if (bare === "/how-it-works" || bare === "/about-us") priority = 0.8;
 
     return {
       loc: path,
@@ -71,7 +71,7 @@ module.exports = {
       else if (/^sell-my-house-fast-|^es-vender-casa-/.test(page.slug))
         priority = 0.8;
       else if (
-        ["about", "faqs", "how-it-works", "situations"].includes(
+        ["about-us", "faqs", "how-it-works", "situations"].includes(
           page.slug,
         )
       )

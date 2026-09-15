@@ -75,3 +75,76 @@ export function sectionise(blocks: PageBlock[]): PageBlock[][] {
   // an empty band. Same for any other heading whose content did not survive.
   return sections.filter((section) => section.some((b) => !HEADINGS.has(b.t)));
 }
+
+/**
+ * A rendered row inside a section. Most blocks stand on their own, but a body
+ * photograph is paired with the prose next to it so that desktop readers get
+ * image beside text instead of a single column where every picture takes a
+ * screen to itself. On narrow screens the pair simply stacks.
+ */
+export type SectionRow =
+  | { kind: "block"; block: PageBlock }
+  | {
+      kind: "media";
+      image: Extract<PageBlock, { t: "image" }>;
+      side: PageBlock[];
+      /** true puts the photograph on the right and the prose on the left. */
+      flip: boolean;
+    };
+
+const SIDE_TYPES = new Set(["p", "list"]);
+/** How much prose can sit beside one photograph before the column gets tall. */
+const MAX_SIDE_BLOCKS = 3;
+
+function isSide(block: PageBlock): boolean {
+  return SIDE_TYPES.has(block.t);
+}
+
+export function pairMedia(blocks: PageBlock[]): SectionRow[] {
+  const rows: SectionRow[] = [];
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i];
+    if (block.t !== "image") {
+      rows.push({ kind: "block", block });
+      continue;
+    }
+
+    // Prefer the prose that follows the photograph, which is how Karen's pages
+    // are written: a picture introduces the passage underneath it.
+    const side: PageBlock[] = [];
+    while (
+      side.length < MAX_SIDE_BLOCKS &&
+      i + 1 < blocks.length &&
+      isSide(blocks[i + 1])
+    ) {
+      side.push(blocks[i + 1]);
+      i++;
+    }
+    if (side.length) {
+      rows.push({ kind: "media", image: block, side, flip: false });
+      continue;
+    }
+
+    // Nothing after it, so fall back to the prose immediately before it and
+    // move the photograph to the right of that text.
+    const before: PageBlock[] = [];
+    while (
+      before.length < MAX_SIDE_BLOCKS &&
+      rows.length > 1 &&
+      rows[rows.length - 1].kind === "block" &&
+      isSide((rows[rows.length - 1] as { block: PageBlock }).block)
+    ) {
+      before.unshift((rows.pop() as { block: PageBlock }).block);
+    }
+    if (!before.length) {
+      // No prose on either side of it, so it stays a single contained figure
+      // centred in the column rather than a half-empty two-column row.
+      rows.push({ kind: "block", block });
+      continue;
+    }
+    rows.push({ kind: "media", image: block, side: before, flip: true });
+  }
+
+  return rows;
+}

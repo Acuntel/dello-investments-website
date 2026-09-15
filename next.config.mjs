@@ -23,7 +23,12 @@ const nextConfig = {
       "/contact-us": "/contact/",
       "/we-buy-houses-in-humboldt-park": "/sell-my-house-fast-humboldt-park-chicago/",
       "/we-buy-houses-in-logan-square": "/sell-my-house-fast-logan-square-chicago/",
-      "/blog/author/delloinvestments": "/about/",
+      "/blog/author/delloinvestments": "/about-us/",
+      // 2026-09-15: the About page slug moved to /about-us/ so the URL matches
+      // the "About Us" nav label Karen asked for. Every existing link,
+      // bookmark, backlink and Google result for /about/ lands on the new URL
+      // permanently, so nothing that points at the old path breaks.
+      "/about": "/about-us/",
     };
     // 2026-07-31, Karen's request: every service/situation page URL carries
     // the city. These are her original Carrot slugs, all indexed by Google,

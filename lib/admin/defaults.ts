@@ -43,7 +43,7 @@ const CORE_PAGES: PageDef[] = [
 ];
 
 const MAIN_SLUGS = new Set([
-  "about",
+  "about-us",
   "faqs",
   "reviews",
   "how-it-works",

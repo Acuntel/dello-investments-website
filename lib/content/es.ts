@@ -3,7 +3,7 @@ import type { SiteDict } from "./types";
 export const es: SiteDict = {
   langName: "Español",
   nav: {
-    about: "Nuestra Historia",
+    about: "Sobre Nosotros",
     howItWorks: "Cómo Funciona",
     situations: "Situaciones",
     faq: "Preguntas",
