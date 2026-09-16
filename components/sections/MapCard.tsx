@@ -8,17 +8,25 @@ import LazyMap from "@/components/ui/LazyMap";
 // pairing in WhyUs, so this card sits inside the page rhythm rather than
 // running full bleed across it.
 //
-// The query form of the embed is deliberate: it is the only variant that
-// renders Google's own business panel with the name and the review stars, which
-// is what Karen asked for. The coordinates come from the profile link she sent,
-// so the view matches exactly what her own Google listing shows.
+// The embed queries the STREET ADDRESS, not the business name, and that is
+// deliberate. Querying "Dello Investments" makes Google centre on the pin its
+// own Business Profile holds, and that pin is wrong: it sits near 47th and
+// Western, about three and a half miles from the office. Both the named-place
+// form and the same form with the coordinates stripped were tested in a real
+// iframe and both centred on the wrong neighbourhood with no marker anywhere.
+// Querying the address geocodes correctly and drops a real pin on the door.
+//
+// The trade for that is Google's business panel, which only renders for a named
+// place, so the rating and the profile link live in the text column beside the
+// map instead. A visitor gets the right building and the same facts.
+//
+// If Karen corrects the pin in her Google Business Profile, switch the query
+// back to the business name and the panel comes back for free.
 const PROFILE_URL = "https://maps.app.goo.gl/mQNXoP8q4ugUxk2d8";
 const EMBED_SRC =
   "https://www.google.com/maps?q=" +
-  encodeURIComponent(
-    "Dello Investments, 1651 S Drake Ave G, Chicago, IL 60623",
-  ) +
-  "&ll=41.8119986,-87.6874016&z=15&output=embed";
+  encodeURIComponent("1651 S Drake Ave G, Chicago, IL 60623") +
+  "&z=16&output=embed";
 
 export default function MapCard() {
   return (
@@ -35,7 +43,7 @@ export default function MapCard() {
           <div className="relative">
             <LazyMap
               src={EMBED_SRC}
-              title="Google Maps listing for Dello Investments in Chicago"
+              title="Google map showing the Dello Investments office at 1651 S Drake Ave G, Chicago"
             />
           </div>
         </Reveal>
@@ -49,9 +57,10 @@ export default function MapCard() {
           </Reveal>
           <Reveal variant="fade-up" delay={100}>
             <p className="mt-6 leading-relaxed text-muted">
-              Our office is here in Chicago and the map beside this text is our
-              live Google Business Profile, so everything you see on it is
-              coming straight from Google rather than from us.
+              Our office is here on the West Side of Chicago, and the map on
+              this page points at our front door. You are welcome to call ahead
+              and come by, or read what our neighbors have said about working
+              with us on our Google Business Profile.
             </p>
             <ul className="mt-7 flex flex-col gap-4 text-sm text-ink">
               <li className="flex items-start gap-3">
