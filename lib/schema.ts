@@ -17,7 +17,7 @@ export function generateLocalBusinessSchema(b: BusinessInfo) {
     description: b.description,
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo.png`,
-    image: `${SITE_URL}/images/team-alexa-karen.webp`,
+    image: `${SITE_URL}/images/pages/dello-investments-team-chicago-real-estate.webp`,
     telephone: b.telephone,
     email: b.email,
     foundingDate: b.foundingDate,

@@ -177,7 +177,7 @@ export const IMAGES: ImageDef[] = [
   },
   {
     id: "team",
-    src: "/images/team-alexa-karen.webp",
+    src: "/images/pages/dello-investments-team-chicago-real-estate.webp",
     label: "Karen and Alexa",
     where: "Home page, Our story",
     defaultAlt: (t) => t.story.imageAlt,

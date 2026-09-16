@@ -100,7 +100,8 @@ export const es: SiteDict = {
       "Ofertas transparentes, número por número",
       "Atención completa en español",
     ],
-    imageAlt: "Alexa y Karen de Dello Investments",
+    imageAlt:
+      "Alexa Cardello y Karen Rodriguez de Dello Investments, fotografiadas con el horizonte de Chicago de fondo",
   },
   process: {
     label: "Cómo Funciona",

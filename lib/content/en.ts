@@ -90,7 +90,7 @@ export const en: SiteDict = {
     label: "Our Story",
     title: "Neighbors first, investors second.",
     body1:
-      "Dello Investments was founded in 2021 by Karen Rodriguez and Alexa, two Chicagoans who believed every homeowner deserves to sell with dignity, on their own timeline — even in a hard season. Karen is a licensed Illinois real estate broker, and our team holds a City of Chicago general contractor license, so the people making your offer are the same people who understand exactly what your property needs.",
+      "Dello Investments was founded in 2021 by Karen Rodriguez and Alexa, two Chicagoans who believed every homeowner deserves to sell with dignity, on their own timeline, even in a hard season. Karen is a licensed Illinois real estate broker, and our team holds a City of Chicago general contractor license, so the people making your offer are the same people who understand exactly what your property needs.",
     body2:
       "We're proudly certified by the City of Chicago as a woman-owned, veteran-owned, and disability-owned business. When we sit at your kitchen table, we explain every number in the offer, in English or Spanish, and you decide the timeline, with no pressure and no games.",
     points: [
@@ -99,7 +99,8 @@ export const en: SiteDict = {
       "Transparent, line-by-line offer math",
       "Se habla español",
     ],
-    imageAlt: "Alexa and Karen of Dello Investments",
+    imageAlt:
+      "Alexa Cardello and Karen Rodriguez of Dello Investments, photographed against the Chicago skyline",
   },
   process: {
     label: "How It Works",

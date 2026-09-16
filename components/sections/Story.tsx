@@ -15,11 +15,11 @@ export default function Story({ t, image }: { t: SiteDict; image: ImageMeta }) {
             aria-hidden
           />
           <Image
-            src="/images/team-alexa-karen.webp"
+            src="/images/pages/dello-investments-team-chicago-real-estate.webp"
             alt={image.alt}
             title={image.title}
             width={640}
-            height={480}
+            height={427}
             className="relative rounded-2xl object-cover shadow-lift"
           />
         </Reveal>
