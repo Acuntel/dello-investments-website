@@ -51,6 +51,25 @@ export function heroFor(page: ContentPage) {
 }
 
 /**
+ * Every blog post opens with a "By Karen…" paragraph. Lift it out of the body
+ * so the page can show it under the title, beside the date.
+ */
+export function bylineFor(
+  page: ContentPage,
+  blocks: PageBlock[],
+): { byline: string | null; blocks: PageBlock[] } {
+  if (page.kind !== "blog") return { byline: null, blocks };
+  const first = blocks[0];
+  if (
+    first?.t === "p" &&
+    /^By\s/i.test(first.html.replace(/<[^>]+>/g, "").trim())
+  ) {
+    return { byline: first.html, blocks: blocks.slice(1) };
+  }
+  return { byline: null, blocks };
+}
+
+/**
  * Split a flat block list into sections at each h2, so the renderer can give
  * them alternating backgrounds and real vertical rhythm instead of one long
  * undifferentiated column.

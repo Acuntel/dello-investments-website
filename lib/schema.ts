@@ -154,3 +154,40 @@ export function generateFAQSchema(faqs: { q: string; a: string }[]) {
     })),
   };
 }
+
+// One blog post. The author is Karen with her real credential, which is the
+// whole point: it ties the post to a licensed broker Google can verify. The
+// publisher points at the LocalBusiness node by @id instead of repeating it.
+export function generateBlogPostingSchema(post: {
+  url: string;
+  headline: string;
+  description: string;
+  image?: string;
+  published?: string;
+  updated?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.headline,
+    description: post.description,
+    url: `${SITE_URL}${post.url}`,
+    mainEntityOfPage: `${SITE_URL}${post.url}`,
+    ...(post.image && { image: `${SITE_URL}${post.image}` }),
+    ...(post.published && { datePublished: post.published }),
+    ...(post.updated && { dateModified: post.updated }),
+    inLanguage: "en",
+    author: {
+      "@type": "Person",
+      name: "Karen Rodriguez",
+      jobTitle: "Co-Founder & Managing Partner",
+      url: `${SITE_URL}/about-us/`,
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "license",
+        name: "Illinois Real Estate Broker License #475.201055",
+      },
+    },
+    publisher: { "@id": SITE_URL },
+  };
+}

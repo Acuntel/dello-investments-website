@@ -65,4 +65,10 @@ export interface ContentPage {
   hero: { src: string; alt: string; width: number; height: number } | null;
   blocks: PageBlock[];
   faq: { q: string; a: string }[];
+  /** Blog only. ISO date (YYYY-MM-DD) the post first went up, if known. */
+  published?: string;
+  /** Blog only. ISO date of the last real content update. Shown as
+   *  "Updated <date>" under the title. Only change it for a meaningful
+   *  rewrite, never just to look fresh. */
+  updated?: string;
 }
