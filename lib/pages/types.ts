@@ -43,6 +43,13 @@ export type PageBlock =
       t: "badges";
       items: { src: string; alt: string; width: number; height: number }[];
     }
+  | {
+      // A simple data table, e.g. a line-itemed cost breakdown. Cells carry
+      // the same tiny inline-markup subset as a paragraph.
+      t: "table";
+      head: InlineHtml[];
+      rows: InlineHtml[][];
+    }
   | { t: "quote"; text: string };
 
 export type PageKind = "page" | "blog" | "blogIndex";

@@ -76,6 +76,48 @@ function Cards({ items }: { items: { title: string; body: string[] }[] }) {
   );
 }
 
+// Cost tables in blog posts. Scrolls sideways on a narrow phone rather than
+// squashing the numbers, and keeps the navy header the hero bands use.
+function Table({
+  head,
+  rows,
+}: {
+  head: string[];
+  rows: string[][];
+}) {
+  return (
+    <div className="max-w-3xl overflow-x-auto rounded-2xl border border-mist/60 bg-white shadow-card">
+      <table className="w-full min-w-[420px] text-left text-sm">
+        <thead className="bg-navy text-white">
+          <tr>
+            {head.map((cell, i) => (
+              <th
+                key={i}
+                scope="col"
+                className="rich-invert px-5 py-3 font-semibold"
+                dangerouslySetInnerHTML={{ __html: cell }}
+              />
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i} className="border-t border-mist/50">
+              {row.map((cell, j) => (
+                <td
+                  key={j}
+                  className="rich px-5 py-3 leading-relaxed text-ink"
+                  dangerouslySetInnerHTML={{ __html: cell }}
+                />
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 // Body photographs are held to the same width the home page uses for the
 // "Why Chicago homeowners choose Dello." photograph, so an interior page never
 // hands a visitor one enormous image per screen.
@@ -221,6 +263,12 @@ export default function Block({ block }: { block: PageBlock }) {
       );
     case "cards":
       return <Cards items={block.items} />;
+    case "table":
+      return (
+        <Reveal variant="fade-up">
+          <Table head={block.head} rows={block.rows} />
+        </Reveal>
+      );
     case "image":
       return <Figure block={block} />;
     case "team":
