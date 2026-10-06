@@ -76,8 +76,8 @@ function Cards({ items }: { items: { title: string; body: string[] }[] }) {
   );
 }
 
-// Cost tables in blog posts. Scrolls sideways on a narrow phone rather than
-// squashing the numbers, and keeps the navy header the hero bands use.
+// Cost tables in blog posts. Fits a phone screen: the label column wraps,
+// the price columns never break mid-number. Navy header like the hero bands.
 function Table({
   head,
   rows,
@@ -87,14 +87,14 @@ function Table({
 }) {
   return (
     <div className="max-w-3xl overflow-x-auto rounded-2xl border border-mist/60 bg-white shadow-card">
-      <table className="w-full min-w-[420px] text-left text-sm">
+      <table className="w-full text-left text-sm">
         <thead className="bg-navy text-white">
           <tr>
             {head.map((cell, i) => (
               <th
                 key={i}
                 scope="col"
-                className="rich-invert px-5 py-3 font-semibold"
+                className="rich-invert px-3 py-3 font-semibold sm:px-5"
                 dangerouslySetInnerHTML={{ __html: cell }}
               />
             ))}
@@ -106,7 +106,9 @@ function Table({
               {row.map((cell, j) => (
                 <td
                   key={j}
-                  className="rich px-5 py-3 leading-relaxed text-ink"
+                  className={`rich px-3 py-3 leading-snug text-ink sm:px-5 ${
+                    j > 0 ? "whitespace-nowrap" : ""
+                  }`}
                   dangerouslySetInnerHTML={{ __html: cell }}
                 />
               ))}
