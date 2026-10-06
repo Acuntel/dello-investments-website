@@ -5,7 +5,6 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SiteChrome from "@/components/layout/SiteChrome";
-import Preloader from "@/components/ui/Preloader";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import ChatWidget from "@/components/ui/ChatWidget";
 import GoatCounter from "@/components/analytics/GoatCounter";
@@ -91,7 +90,6 @@ export default async function RootLayout({
         <SiteChrome
           header={
             <>
-              <Preloader />
               <Header logo={resolveImageByLocale(overrides, "logo")} />
             </>
           }

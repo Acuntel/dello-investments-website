@@ -1,7 +1,17 @@
 import Image from "next/image";
 import { getDict } from "@/lib/content";
-import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
-import { heroFor, pairMedia, sectionise, type ContentPage } from "@/lib/pages";
+import {
+  generateBlogPostingSchema,
+  generateBreadcrumbSchema,
+  generateFAQSchema,
+} from "@/lib/schema";
+import {
+  bylineFor,
+  heroFor,
+  pairMedia,
+  sectionise,
+  type ContentPage,
+} from "@/lib/pages";
 import SectionRows from "@/components/pages/SectionRows";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import CTASection from "@/components/sections/CTASection";
@@ -14,8 +24,17 @@ import Reveal from "@/components/ui/Reveal";
 // site rather than a transplant.
 export default function ContentPageView({ page }: { page: ContentPage }) {
   const t = getDict("en");
-  const { hero, blocks } = heroFor(page);
+  const { hero, blocks: withoutHero } = heroFor(page);
+  // Blog posts: the "By Karen…" line moves up under the title, next to the
+  // date, instead of sitting alone at the top of the first section.
+  const { byline, blocks } = bylineFor(page, withoutHero);
   const sections = sectionise(blocks);
+  const isBlog = page.kind === "blog";
+  const dateLabel = page.updated
+    ? `Updated ${formatDate(page.updated)}`
+    : page.published
+      ? `Published ${formatDate(page.published)}`
+      : null;
 
   return (
     <>
@@ -31,6 +50,23 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
           ),
         }}
       />
+      {isBlog ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateBlogPostingSchema({
+                url: `/${page.slug}/`,
+                headline: page.h1,
+                description: page.description,
+                image: hero?.src,
+                published: page.published,
+                updated: page.updated,
+              }),
+            ),
+          }}
+        />
+      ) : null}
       {page.faq.length > 0 ? (
         <script
           type="application/ld+json"
@@ -62,6 +98,23 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
             <h1 className="text-4xl leading-[1.14] !text-white sm:text-5xl">
               {page.h1}
             </h1>
+            {byline || dateLabel ? (
+              <p className="rich-invert mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/75">
+                {byline ? (
+                  <span dangerouslySetInnerHTML={{ __html: byline }} />
+                ) : null}
+                {byline && dateLabel ? (
+                  <span aria-hidden className="text-mist">
+                    ·
+                  </span>
+                ) : null}
+                {dateLabel ? (
+                  <time dateTime={page.updated ?? page.published}>
+                    {dateLabel}
+                  </time>
+                ) : null}
+              </p>
+            ) : null}
             {page.intro.map((line, i) => (
               <p
                 key={i}
@@ -107,4 +160,16 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
       <CTASection t={t} locale="en" />
     </>
   );
+}
+
+// "2026-10-06" → "October 6, 2026". Parsed as a calendar date, not a moment,
+// so a Chicago evening never shows as the next day.
+function formatDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
 }
