@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { recordLead } from "@/lib/admin/leads";
 import { sendLeadEmail } from "@/lib/leadEmail";
+import { forwardLeadToGhl } from "@/lib/ghlWebhook";
 
 // Emails chat leads (and, on chat close, the transcript) to the team via
 // Resend (see lib/leadEmail.ts for the delivery strategy).
@@ -37,7 +38,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Too many requests" }, { status: 429 });
     }
 
-    const { name, email, phone, transcript, isClose } = await req.json();
+    const {
+      name,
+      email,
+      phone,
+      transcript,
+      isClose,
+      landingPage,
+      submitPage,
+      referrer,
+    } = await req.json();
 
     if (typeof name !== "string" || typeof email !== "string" || !name.trim()) {
       return NextResponse.json({ error: "Invalid lead" }, { status: 400 });
@@ -62,13 +72,19 @@ export async function POST(req: NextRequest) {
 
     // Only the lead itself is recorded, not the transcript that follows when
     // the visitor closes the chat, or every conversation would be counted twice.
+    let ghl: Promise<void> = Promise.resolve();
     if (!isClose) {
-      await recordLead({
+      const lead = await recordLead({
         source: "chat",
         name,
         email,
         phone: phone ? String(phone) : "",
+        landingPage,
+        submitPage,
+        referrer,
       });
+      // Overlaps the email below. Never throws; capped at 5s.
+      ghl = forwardLeadToGhl(lead);
     }
 
     const subject = isClose
@@ -83,6 +99,7 @@ export async function POST(req: NextRequest) {
     `;
 
     await sendLeadEmail({ subject, html, replyTo: email });
+    await ghl;
 
     return NextResponse.json({ ok: true });
   } catch (error) {

@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import type { SiteDict } from "@/lib/content/types";
+import { attribution, countEvent } from "@/lib/leadTracking";
 
 // Localized cash-offer form. Includes a honeypot ("company") that stays
 // invisible to humans; the API silently accepts bot submissions that fill it.
@@ -45,9 +46,10 @@ export default function ContactForm({ t }: { t: SiteDict["contactPage"] }) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, ...attribution() }),
       });
       if (!res.ok) throw new Error("failed");
+      countEvent("form-submit");
       setStatus("done");
     } catch {
       setStatus("error");

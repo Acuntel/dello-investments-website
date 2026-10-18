@@ -3,6 +3,7 @@ import { checkRateLimit } from "@/lib/rate-limit";
 import { verifyTurnstile } from "@/lib/turnstile";
 import { recordLead } from "@/lib/admin/leads";
 import { sendLeadEmail } from "@/lib/leadEmail";
+import { forwardLeadToGhl } from "@/lib/ghlWebhook";
 
 // Contact / cash-offer form handler. Defense order: origin → rate limit →
 // honeypot → Turnstile (when configured) → validation with hard length caps
@@ -59,8 +60,18 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { name, email, phone, address, message, company, turnstileToken } =
-      body;
+    const {
+      name,
+      email,
+      phone,
+      address,
+      message,
+      company,
+      turnstileToken,
+      landingPage,
+      submitPage,
+      referrer,
+    } = body;
 
     // Honeypot: "company" is invisible to humans. Bots that fill it get a
     // fake success so they don't adapt.
@@ -104,14 +115,20 @@ export async function POST(req: NextRequest) {
 
     // Recorded before the email goes out, so an email outage cannot lose the
     // lead: it still shows up in the admin. Never throws.
-    await recordLead({
+    const lead = await recordLead({
       source: "form",
       name,
       phone,
       email,
       address,
       message,
+      landingPage,
+      submitPage,
+      referrer,
     });
+    // Started now and awaited after the email, so the two overlap. Never
+    // throws; capped at 5s; a no-op until GHL_WEBHOOK_URL is set.
+    const ghl = forwardLeadToGhl(lead);
 
     const html = `
       <h2>New cash-offer request from delloinvestments.com</h2>
@@ -127,6 +144,7 @@ export async function POST(req: NextRequest) {
       html,
       ...(email && { replyTo: email }),
     });
+    await ghl;
 
     return NextResponse.json({ ok: true });
   } catch (error) {

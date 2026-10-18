@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, FormEvent } from "react";
 import { usePathname } from "next/navigation";
 import { MessageCircle, X, ArrowUp, Phone, Loader2 } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import { attribution, countEvent } from "@/lib/leadTracking";
 import {
   CHAT_LOCALES,
   CHAT_STRINGS,
@@ -175,15 +176,17 @@ export default function ChatWidget() {
 
   async function sendLeadNotification(isClose: boolean) {
     try {
-      await fetch("/api/chat/lead", {
+      const res = await fetch("/api/chat/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...leadInfo,
+          ...attribution(),
           isClose,
           transcript: isClose ? messagesRef.current : undefined,
         }),
       });
+      if (!isClose && res.ok) countEvent("chat-lead");
     } catch {
       // never block UX on the notification
     }
