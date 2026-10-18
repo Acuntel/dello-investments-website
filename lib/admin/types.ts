@@ -71,4 +71,10 @@ export interface Lead {
   email: string;
   address: string;
   message: string;
+  // First page this visitor landed on (with its query string), the page they
+  // sent the enquiry from, and the first outside site that sent them. Missing
+  // on leads recorded before October 2026.
+  landingPage?: string;
+  submitPage?: string;
+  referrer?: string;
 }

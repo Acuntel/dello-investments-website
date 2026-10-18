@@ -22,6 +22,19 @@ function csvCell(value: string): string {
   return `"${safe.replace(/"/g, '""')}"`;
 }
 
+// The outside site that sent the visitor. Falls back to the utm_source tag
+// (ChatGPT adds utm_source=chatgpt.com) when the browser hid the referrer.
+function cameFrom(lead: Lead): string {
+  try {
+    if (lead.referrer)
+      return new URL(lead.referrer).hostname.replace(/^www\./, "");
+  } catch {
+    // unparseable: fall through
+  }
+  const query = (lead.landingPage ?? "").split("?")[1] ?? "";
+  return new URLSearchParams(query).get("utm_source") || "Direct or unknown";
+}
+
 function downloadCsv(leads: Lead[]) {
   const header = [
     "Date",
@@ -31,9 +44,25 @@ function downloadCsv(leads: Lead[]) {
     "Email",
     "Property",
     "Message",
+    "Came from",
+    "First page",
+    "Sent from",
+    "Referrer",
   ];
   const rows = leads.map((l) =>
-    [l.at, l.source, l.name, l.phone, l.email, l.address, l.message]
+    [
+      l.at,
+      l.source,
+      l.name,
+      l.phone,
+      l.email,
+      l.address,
+      l.message,
+      l.landingPage || l.referrer ? cameFrom(l) : "",
+      l.landingPage,
+      l.submitPage,
+      l.referrer,
+    ]
       .map((v) => csvCell(String(v ?? "")))
       .join(","),
   );
@@ -148,6 +177,13 @@ export default function AdminLeads({ passcode }: { passcode: string }) {
             </div>
             {lead.address ? (
               <p className="mt-2 text-sm text-ink">{lead.address}</p>
+            ) : null}
+            {lead.landingPage || lead.referrer ? (
+              <p className="mt-2 text-xs text-muted">
+                Came from {cameFrom(lead)} · First page{" "}
+                {lead.landingPage || "unknown"} · Sent from{" "}
+                {lead.submitPage || "unknown"}
+              </p>
             ) : null}
             {lead.message ? (
               <p className="mt-3 whitespace-pre-wrap border-l-2 border-mist pl-4 text-sm leading-relaxed text-muted">

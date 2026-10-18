@@ -8,6 +8,7 @@ import SiteChrome from "@/components/layout/SiteChrome";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import ChatWidget from "@/components/ui/ChatWidget";
 import GoatCounter from "@/components/analytics/GoatCounter";
+import LeadTracking from "@/components/analytics/LeadTracking";
 import { SITE_URL } from "@/lib/constants";
 import {
   generateLocalBusinessSchema,
@@ -98,6 +99,7 @@ export default async function RootLayout({
               <Footer logo={resolveImageByLocale(overrides, "logo")} />
               <ScrollToTop />
               <ChatWidget />
+              <LeadTracking />
             </>
           }
         >

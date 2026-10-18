@@ -38,24 +38,28 @@ const clip = (v: unknown, max: number): string =>
 
 // Records an enquiry. Best effort by design: this runs inside the contact and
 // chat routes, and a storage hiccup must never turn into a failed submission
-// for someone trying to sell their house.
+// for someone trying to sell their house. Returns the cleaned-up lead either
+// way, so the route can pass the same record on to the CRM.
 export async function recordLead(
   input: Partial<Lead> & { source: Lead["source"] },
-): Promise<void> {
-  if (!configured()) return;
+): Promise<Lead> {
+  const at = new Date();
+  const id = Math.random().toString(36).slice(2, 8);
+  const lead: Lead = {
+    id,
+    at: at.toISOString(),
+    source: input.source,
+    name: clip(input.name, 200),
+    phone: clip(input.phone, 50),
+    email: clip(input.email, 200),
+    address: clip(input.address, 300),
+    message: clip(input.message, 5000),
+    landingPage: clip(input.landingPage, 500),
+    submitPage: clip(input.submitPage, 500),
+    referrer: clip(input.referrer, 500),
+  };
+  if (!configured()) return lead;
   try {
-    const at = new Date();
-    const id = Math.random().toString(36).slice(2, 8);
-    const lead: Lead = {
-      id,
-      at: at.toISOString(),
-      source: input.source,
-      name: clip(input.name, 200),
-      phone: clip(input.phone, 50),
-      email: clip(input.email, 200),
-      address: clip(input.address, 300),
-      message: clip(input.message, 5000),
-    };
     await put(key(at, input.source, id), JSON.stringify(lead), {
       access: "private",
       addRandomSuffix: false,
@@ -66,6 +70,7 @@ export async function recordLead(
   } catch {
     // swallow: a lost dashboard row is survivable, a 500 on the form is not
   }
+  return lead;
 }
 
 async function allLeadBlobs(): Promise<{ pathname: string; at: number }[]> {
