@@ -117,7 +117,7 @@ const DEFAULT_SEO: Record<string, SeoOverride> = {
   "en:contact": {
     title: "Get Your Free Cash Offer | Dello Investments",
     description:
-      "Tell us about your Chicago property and get a fair, written cash offer within 24 hours. Call or text (312) 975-5557, open 7 days a week.",
+      "Tell us about your Chicago property and get a fair, written cash offer within 24 hours. Call or text (312) 975-5557, open 7 days a week, or use the form below.",
   },
   "es:contact": {
     title: "Obtenga Su Oferta Gratis en Efectivo | Dello Investments",

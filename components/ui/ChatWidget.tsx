@@ -479,7 +479,7 @@ export default function ChatWidget() {
       {/* Launcher: labeled pill, not an icon bubble */}
       <button
         type="button"
-        aria-label={state === "closed" ? t.openChat : t.closeChat}
+        aria-label={state === "closed" ? t.launcherLabel : t.closeChat}
         onClick={() => (state === "closed" ? openWidget() : handleClose())}
         className="group flex items-center gap-2.5 rounded-full border border-mist/40 bg-navy py-3 pl-4 pr-5 text-white shadow-lift transition-all duration-300 ease-smooth hover:border-mist hover:bg-navy-700"
       >
