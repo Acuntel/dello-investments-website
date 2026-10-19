@@ -92,6 +92,7 @@ export default function BlogIndex() {
                   </p>
                   <Link
                     href={href}
+                    aria-label={`Read more: ${post.h1}`}
                     className="mt-4 text-sm font-semibold text-navy transition-colors duration-200 hover:text-mist-ink"
                   >
                     Read more
