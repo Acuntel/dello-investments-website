@@ -29,6 +29,17 @@ const nextConfig = {
       // bookmark, backlink and Google result for /about/ lands on the new URL
       // permanently, so nothing that points at the old path breaks.
       "/about": "/about-us/",
+      // 2026-10-19, organic drop diagnosis: dead blog addresses Google still
+      // has on record. Misspelt copies of the grass-cutting and Section 8
+      // posts, plus two Carrot posts that never came across.
+      "/blog/to-stop-cutting-grass-in-chicago-homesellers-guide": "/blog/when-to-stop-cutting-grass-in-chicago-homesellers-guide/",
+      "/blog/when-to-stop-cutting-grass-chicago-homesellers-guide": "/blog/when-to-stop-cutting-grass-in-chicago-homesellers-guide/",
+      "/blog/when-to-stop-chicago-homesellers-guide": "/blog/when-to-stop-cutting-grass-in-chicago-homesellers-guide/",
+      "/blog/when-to-stop-cutting-chicago-homesellers-guide": "/blog/when-to-stop-cutting-grass-in-chicago-homesellers-guide/",
+      "/blog/when-to-stop-mowing-in-chicago-homesellers-guide": "/blog/when-to-stop-cutting-grass-in-chicago-homesellers-guide/",
+      "/blog/renting-to-section-8-prons-cons-myths": "/blog/renting-to-section-8-in-chicago-prons-cons-myths/",
+      "/blog/how-to-winterize-house-prevent-frozen-pipes": "/blog/how-much-does-it-cost-to-winterize-a-house/",
+      "/blog/sell-my-house-without-a-realtor-": "/sell-house-without-realtor-chicago/",
     };
     // 2026-07-31, Karen's request: every service/situation page URL carries
     // the city. These are her original Carrot slugs, all indexed by Google,
