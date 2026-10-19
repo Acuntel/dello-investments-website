@@ -12,9 +12,21 @@ export function getDict(locale: Locale): SiteDict {
   return DICTS[locale];
 }
 
+// Pages that exist in both languages under unrelated slugs (not /es-prefixed).
+// Drives hreflang, the page language and the header language switch.
+export const LANGUAGE_PAIRS: { en: string; es: string }[] = [
+  {
+    en: "/sell-my-house-fast-little-village-chicago",
+    es: "/es-vender-casa-rapido-little-village-chicago",
+  },
+];
+
+const bareOf = (p: string) => p.replace(/\/+$/, "") || "/";
+
 export function detectLocaleFromPath(pathname: string | null): Locale {
   if (!pathname) return "en";
   if (pathname === "/es" || pathname.startsWith("/es/")) return "es";
+  if (LANGUAGE_PAIRS.some((p) => p.es === bareOf(pathname))) return "es";
   return "en";
 }
 
@@ -31,6 +43,10 @@ const TRANSLATED_PATHS = new Set(["/", "/contact"]);
 // page you're reading when a translation exists; otherwise sends you to the
 // locale home rather than a broken URL.
 export function pathInLocale(pathname: string, target: Locale): string {
+  const pair = LANGUAGE_PAIRS.find(
+    (p) => p.en === bareOf(pathname) || p.es === bareOf(pathname),
+  );
+  if (pair) return `${pair[target]}/`;
   const bare = pathname.replace(/^\/es(?=\/|$)/, "").replace(/\/+$/, "") || "/";
   const prefix = localePrefix(target);
   if (bare === "/") return prefix || "/";

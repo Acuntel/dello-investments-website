@@ -38,7 +38,12 @@ export function middleware(request: NextRequest) {
   // The root layout owns the single <html> tag, so it can't know the locale
   // from the route tree. Pass it via header so /es and /pl pages render
   // lang="es"/"pl" instead of lang="en" (Ahrefs: hreflang/lang mismatch).
-  const locale = request.nextUrl.pathname.match(/^\/(es|pl)(?=\/|$)/)?.[1];
+  // The Spanish Little Village page lives at its own Spanish slug, not
+  // under /es, so it is named here.
+  const path = request.nextUrl.pathname;
+  const locale =
+    path.match(/^\/(es|pl)(?=\/|$)/)?.[1] ??
+    (path.startsWith("/es-vender-casa-rapido-little-village-chicago") ? "es" : undefined);
   if (locale) {
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set("x-locale", locale);
@@ -49,5 +54,13 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/api/:path*", "/es", "/es/:path*", "/pl", "/pl/:path*"],
+  matcher: [
+    "/api/:path*",
+    "/es",
+    "/es/:path*",
+    "/pl",
+    "/pl/:path*",
+    "/es-vender-casa-rapido-little-village-chicago",
+    "/es-vender-casa-rapido-little-village-chicago/:path*",
+  ],
 };

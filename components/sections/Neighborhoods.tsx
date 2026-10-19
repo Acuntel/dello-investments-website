@@ -1,7 +1,13 @@
+import Link from "next/link";
 import Image from "next/image";
 import type { SiteDict } from "@/lib/content/types";
 import Reveal from "@/components/ui/Reveal";
 import type { ImageMeta } from "@/lib/admin/types";
+
+// Area chips that have their own page in the same language.
+const AREA_LINKS: Record<string, string> = {
+  "La Villita": "/es-vender-casa-rapido-little-village-chicago/",
+};
 
 export default function Neighborhoods({
   t,
@@ -32,14 +38,24 @@ export default function Neighborhoods({
           </Reveal>
           <Reveal variant="fade-up" delay={120}>
             <div className="mt-8 flex flex-wrap gap-2.5">
-              {t.neighborhoods.areas.map((area) => (
+              {t.neighborhoods.areas.map((area) =>
+                AREA_LINKS[area] ? (
+                  <Link
+                    key={area}
+                    href={AREA_LINKS[area]}
+                    className="rounded-full border border-mist bg-white px-4 py-1.5 text-sm text-ink underline decoration-mist underline-offset-4 transition-colors duration-300 hover:border-mist hover:text-navy"
+                  >
+                    {area}
+                  </Link>
+                ) : (
                 <span
                   key={area}
                   className="rounded-full border border-mist bg-white px-4 py-1.5 text-sm text-ink transition-colors duration-300 hover:border-mist"
                 >
                   {area}
                 </span>
-              ))}
+                ),
+              )}
             </div>
           </Reveal>
         </div>
