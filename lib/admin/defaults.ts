@@ -100,7 +100,7 @@ const DEFAULT_SEO: Record<string, SeoOverride> = {
     title:
       "We Buy Houses Chicago for Cash | Offer in 24 Hours",
     description:
-      "Woman-owned Chicago cash home buyer. Fair offers in 24 hours, close in 7-14 days. Any condition, all 77 neighborhoods. No repairs, no commissions, no closing costs.",
+      "We buy houses in Chicago for cash, any condition. Woman-owned, with a licensed broker and GC. Fair offer in 24 hours, close in 7-14 days. No repairs, no fees.",
   },
   "es:home": {
     title:
