@@ -1,12 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+
+type Item = { q: string; a: string; link?: { text: string; href: string } };
+
+// Links the first occurrence of item.link.text inside the answer; the words
+// themselves never change.
+function Answer({ item }: { item: Item }) {
+  const at = item.link ? item.a.indexOf(item.link.text) : -1;
+  if (!item.link || at < 0) return <>{item.a}</>;
+  const end = at + item.link.text.length;
+  return (
+    <>
+      {item.a.slice(0, at)}
+      <Link href={item.link.href} className="underline decoration-mist underline-offset-4 hover:text-navy">
+        {item.link.text}
+      </Link>
+      {item.a.slice(end)}
+    </>
+  );
+}
 
 export default function FAQAccordion({
   items,
 }: {
-  items: { q: string; a: string }[];
+  items: Item[];
 }) {
   const [open, setOpen] = useState<number | null>(0);
 
@@ -37,7 +57,9 @@ export default function FAQAccordion({
               }`}
             >
               <div className="overflow-hidden">
-                <p className="px-6 pb-5 leading-relaxed text-muted">{item.a}</p>
+                <p className="px-6 pb-5 leading-relaxed text-muted">
+                  <Answer item={item} />
+                </p>
               </div>
             </div>
           </div>

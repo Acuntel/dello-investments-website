@@ -64,7 +64,9 @@ export interface ContentPage {
   intro: InlineHtml[];
   hero: { src: string; alt: string; width: number; height: number } | null;
   blocks: PageBlock[];
-  faq: { q: string; a: string }[];
+  // link: turns a phrase already in the answer into a link. The answer text
+  // itself stays plain so the FAQ schema is unchanged.
+  faq: { q: string; a: string; link?: { text: string; href: string } }[];
   /** Blog only. ISO date (YYYY-MM-DD) the post first went up, if known. */
   published?: string;
   /** Blog only. ISO date of the last real content update. Shown as

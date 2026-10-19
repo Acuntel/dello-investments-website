@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { SITE_URL } from "./constants";
-import type { Locale } from "./content";
+import { LANGUAGE_PAIRS, type Locale } from "./content";
 import { PAGES } from "./admin/defaults";
 import { loadOverrides, resolveSeo } from "./admin/store";
 
@@ -18,6 +18,8 @@ interface PageMetadataParams {
   locales?: Locale[];
   /** Optional social share image, e.g. a blog post's own illustration. */
   image?: string;
+  /** An explicit en/es pair (see LANGUAGE_PAIRS). */
+  pair?: { en: string; es: string };
 }
 
 // What every page actually calls. Reads the title and description Karen last
@@ -38,6 +40,9 @@ export async function pageMetadata(
     locale,
     locales: def?.locales,
     image,
+    pair: LANGUAGE_PAIRS.find(
+      (p) => p.en === def?.path || p.es === def?.path,
+    ),
   });
 }
 
@@ -49,6 +54,7 @@ export function generatePageMetadata({
   noindex,
   locales = ["en", "es"],
   image,
+  pair,
 }: PageMetadataParams): Metadata {
   const prefix = locale === "en" ? "" : `/${locale}`;
   // next.config sets trailingSlash:true, so canonicals and hreflang must use the
@@ -68,7 +74,14 @@ export function generatePageMetadata({
     description,
     alternates: {
       canonical: url,
-      ...(multilingual && {
+      ...(pair && {
+        languages: {
+          en: withSlash(pair.en),
+          es: withSlash(pair.es),
+          "x-default": withSlash(pair.en),
+        },
+      }),
+      ...(multilingual && !pair && {
         languages: {
           en: withSlash(path),
           es: withSlash(`/es${path}`),
@@ -82,7 +95,8 @@ export function generatePageMetadata({
       description,
       url,
       type: "website",
-      locale: locale === "es" ? "es_US" : "en_US",
+      locale:
+        locale === "es" || (pair && path === pair.es) ? "es_US" : "en_US",
       images: [
         {
           url: card,
