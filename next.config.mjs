@@ -40,6 +40,16 @@ const nextConfig = {
       "/blog/renting-to-section-8-prons-cons-myths": "/blog/renting-to-section-8-in-chicago-prons-cons-myths/",
       "/blog/how-to-winterize-house-prevent-frozen-pipes": "/blog/how-much-does-it-cost-to-winterize-a-house/",
       "/blog/sell-my-house-without-a-realtor-": "/sell-house-without-realtor-chicago/",
+      // 2026-10-19: old Carrot service pages that match services on Karen's
+      // Business Profile. Google still crawls them; each goes to the closest
+      // live page.
+      "/cash-for-houses-chicago": "/cash-home-buyers-chicago/",
+      "/distressed-property-acquisition": "/damaged-house-purchase-chicago/",
+      "/foreclosure-prevention-help": "/foreclosure-service-chicago/",
+      "/residential-property-consulting": "/real-estate-consultant-chicago/",
+      "/sell-your-house-fast-in-any-situation": "/situations/",
+      "/cash-home-buyers-near-me": "/cash-home-buyers-chicago/",
+      "/inicio": "/es/",
     };
     // 2026-07-31, Karen's request: every service/situation page URL carries
     // the city. These are her original Carrot slugs, all indexed by Google,
