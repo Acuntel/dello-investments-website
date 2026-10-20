@@ -1,3 +1,11 @@
+// Real "last changed" dates per page, from git history (npm run lastmod).
+// Pages missing from it get no lastmod at all rather than a made-up one.
+const LASTMOD = require("./lib/pages/lastmod.json");
+const lastmodFor = (loc) => {
+  const date = LASTMOD[loc.replace(/\/+$/, "") || "/"];
+  return date ? { lastmod: date } : {};
+};
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: process.env.SITE_URL || "https://www.delloinvestments.com",
@@ -37,7 +45,7 @@ module.exports = {
       loc: path,
       changefreq: config.changefreq,
       priority,
-      lastmod: new Date().toISOString(),
+      ...lastmodFor(path),
     };
   },
 
@@ -61,7 +69,7 @@ module.exports = {
     ].map((p) => ({
       ...p,
       changefreq: config.changefreq,
-      lastmod: new Date().toISOString(),
+      ...lastmodFor(p.loc),
     }));
 
     const ported = pages.map((page) => {
@@ -80,7 +88,7 @@ module.exports = {
         loc,
         changefreq: page.kind === "blog" ? "monthly" : config.changefreq,
         priority,
-        lastmod: new Date().toISOString(),
+        ...lastmodFor(loc),
       };
     });
 
