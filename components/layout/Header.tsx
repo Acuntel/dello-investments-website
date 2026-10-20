@@ -61,7 +61,7 @@ export default function Header({ logo }: { logo: Record<Locale, ImageMeta> }) {
               title={logo[locale].title}
               width={168}
               height={59}
-              priority
+              loading="eager"
               className="h-10 w-auto sm:h-11"
             />
           </Link>
