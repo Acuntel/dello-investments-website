@@ -17,9 +17,9 @@ export const en: SiteDict = {
     titleAccent: "Chicago",
     titleTail: "— any condition, any situation.",
     subtitle:
-      "Facing foreclosure, code violations, a vacant or inherited house, or a property that's become too much to manage? We buy houses for cash across Chicago and Cook County — as-is, no repairs, no commissions, no closing costs. Fair offer in 24 hours, close in as little as 7 days.",
+      "Facing foreclosure, code violations, a vacant or inherited house, or a property that's become too much to manage? We buy houses for cash across Chicago and Cook County — as-is, no repairs, no commissions, no closing costs (you only pay your own attorney). Fair offer within 24 hours of a walkthrough, close in as little as 7 days.",
     bullets: [
-      "Close in 7–14 days — or choose your timeline",
+      "Close in as little as 7 days, or choose your timeline",
       "Licensed general contractor — we price repairs from real numbers, not guesses",
       "Licensed Illinois broker — you work with a licensed broker, not a call center",
     ],
@@ -90,7 +90,7 @@ export const en: SiteDict = {
     label: "Our Story",
     title: "Neighbors first, investors second.",
     body1:
-      "Dello Investments was founded in 2021 by Karen Rodriguez and Alexa, two Chicagoans who believed every homeowner deserves to sell with dignity, on their own timeline, even in a hard season. Karen is a licensed Illinois real estate broker, and our team holds a City of Chicago general contractor license, so the people making your offer are the same people who understand exactly what your property needs.",
+      "Dello Investments was founded in 2021 by Karen Rodriguez and Alexa Cardello, two Chicagoans who believed every homeowner deserves to sell with dignity, on their own timeline, even in a hard season. Karen is a licensed Illinois real estate broker, and Dello Investments holds a City of Chicago general contractor license, so the people making your offer are the same people who understand exactly what your property needs.",
     body2:
       "We're proudly certified by the City of Chicago as a woman-owned, veteran-owned, and disability-owned business. When we sit at your kitchen table, we explain every number in the offer, in English or Spanish, and you decide the timeline, with no pressure and no games.",
     points: [
@@ -106,23 +106,23 @@ export const en: SiteDict = {
     label: "How It Works",
     title: "Four steps with zero stress.",
     subtitle:
-      "From first call to closing check, most sales take under two weeks, but the timeline is always yours to set.",
+      "From first call to closing check, you can close in as little as 7 days, but the timeline is always yours to set.",
     steps: [
       {
         title: "Tell us about the property",
         body: "Call, text, or send the form, and a few basics about the house and your situation is all we need to get started.",
       },
       {
-        title: "We visit, or we don't",
-        body: "We do a quick walkthrough at your convenience, or work from photos if you'd rather we not visit, because as-is truly means as-is: no cleaning and no repairs.",
+        title: "We visit at your convenience",
+        body: "We do a quick walkthrough at your convenience, because as-is truly means as-is: no cleaning and no repairs.",
       },
       {
         title: "Receive your cash offer in 24 hours",
-        body: "You receive a written, no-obligation offer with the math explained line by line, and you can take your time because it doesn't expire overnight.",
+        body: "You receive a written, no-obligation offer within 24 hours of the walkthrough, with the math explained line by line, and you can take your time because it doesn't expire overnight.",
       },
       {
         title: "Close on your timeline",
-        body: "Whether it takes seven days or seven months, you pick the date, we cover the closing costs, and you walk away with cash and closure.",
+        body: "Whether you close in as little as seven days or later, you pick the date, we cover the closing costs (except your own attorney), and you walk away with cash and closure.",
       },
     ],
   },
@@ -146,11 +146,11 @@ export const en: SiteDict = {
       },
       {
         title: "Tired Landlords & Multi-Units",
-        body: "From problem tenants to vacant units and deferred maintenance, we buy 2-4 flats and rental portfolios with tenants in place.",
+        body: "From problem tenants to vacant units and deferred maintenance, we buy 2-4 flats and rental portfolios, and tenant-occupied buildings are case by case.",
       },
       {
         title: "Code Violations & Liens",
-        body: "From building court dates to water bills, back taxes, and HOA liens, we've resolved them all at closing so you don't have to.",
+        body: "From building court dates to water bills, back taxes, and HOA liens, we've resolved them all at closing, paid from the sale, so you don't have to.",
       },
       {
         title: "Divorce & Major Life Changes",
@@ -176,7 +176,7 @@ export const en: SiteDict = {
       },
       {
         title: "Woman, veteran, and Latine-owned",
-        body: "City of Chicago certified WBE, VBE, and BEPD.",
+        body: "Latine-owned, and City of Chicago certified WBE, VBE, and BEPD.",
       },
     ],
   },
@@ -214,7 +214,7 @@ export const en: SiteDict = {
         a: "Completely, the written offer is free and walking away costs nothing, and many homeowners take weeks to decide, which is normal and welcome.",
       },
       {
-        q: "How can you close in 7-14 days?",
+        q: "How can you close in as little as 7 days?",
         a: "We buy with cash, so there's no lender, no appraisal contingency, and no loan underwriting. Title work is the only clock, and we start it immediately.",
       },
       {
@@ -223,11 +223,11 @@ export const en: SiteDict = {
       },
       {
         q: "What if the house has code violations or liens?",
-        a: "We buy properties in building court, with water liens, back taxes, and HOA claims regularly. These get resolved through closing, not by you beforehand.",
+        a: "We buy properties in building court, with water liens, back taxes, and HOA claims regularly. These get paid from the sale at closing, not by you beforehand.",
       },
       {
         q: "How is Dello different from other 'we buy houses' companies?",
-        a: "Karen is a licensed Illinois broker and our team holds a Chicago general contractor license, so our offers are built on real repair numbers, shown to you openly, not a lowball formula.",
+        a: "Karen is a licensed Illinois broker and Dello Investments holds a Chicago general contractor license, so our offers are built on real repair numbers, shown to you openly, not a lowball formula.",
       },
       {
         q: "Can you help if I'm facing foreclosure?",

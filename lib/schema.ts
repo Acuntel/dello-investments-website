@@ -27,20 +27,19 @@ export function generateLocalBusinessSchema(b: BusinessInfo) {
         name: "Karen Rodriguez",
         jobTitle: "Co-Founder & Managing Partner",
       },
-      { "@type": "Person", name: "Alexa", jobTitle: "Co-Founder" },
+      {
+        "@type": "Person",
+        name: "Alexa Cardello",
+        jobTitle: "Co-Founder & Managing Partner",
+      },
     ],
+    // City and state only. There is no public street address, so street,
+    // ZIP and geo are never emitted, even if an older admin save holds them.
     address: {
       "@type": "PostalAddress",
-      streetAddress: b.streetAddress,
       addressLocality: b.addressLocality,
       addressRegion: b.addressRegion,
-      postalCode: b.postalCode,
       addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: Number(b.latitude),
-      longitude: Number(b.longitude),
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -74,8 +73,8 @@ export function generateLocalBusinessSchema(b: BusinessInfo) {
         "@type": "GeoCircle",
         geoMidpoint: {
           "@type": "GeoCoordinates",
-          latitude: 41.8586,
-          longitude: -87.7133,
+          latitude: 41.8781,
+          longitude: -87.6298,
         },
         geoRadius: "40000",
       },

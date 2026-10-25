@@ -62,12 +62,9 @@ export default function AdminSchema({
       </Card>
 
       <Card title="Address and hours">
-        <Text
-          label="Street address"
-          value={b.streetAddress}
-          onChange={(v) => set({ streetAddress: v })}
-        />
-        <div className="grid gap-5 sm:grid-cols-3">
+        {/* No street address or ZIP: Dello has no public office, so the
+            schema only ever publishes city and state. */}
+        <div className="grid gap-5 sm:grid-cols-2">
           <Text
             label="City"
             value={b.addressLocality}
@@ -77,11 +74,6 @@ export default function AdminSchema({
             label="State"
             value={b.addressRegion}
             onChange={(v) => set({ addressRegion: v })}
-          />
-          <Text
-            label="ZIP"
-            value={b.postalCode}
-            onChange={(v) => set({ postalCode: v })}
           />
         </div>
         <div className="grid gap-5 sm:grid-cols-2">

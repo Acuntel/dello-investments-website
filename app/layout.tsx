@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     template: "%s | Dello Investments",
   },
   description:
-    "Woman-owned Chicago cash home buyer. Fair offers in 24 hours, close in 7-14 days. Any condition, all 77 neighborhoods. No repairs, no commissions, no closing costs.",
+    "Woman-owned Chicago cash home buyer. Fair offers within 24 hours of a walkthrough, close in as little as 7 days. Any condition, all 77 neighborhoods. No repairs, no commissions, no closing costs (you only pay your own attorney).",
   icons: { icon: "/favicon.png", apple: "/favicon.png" },
 };
 

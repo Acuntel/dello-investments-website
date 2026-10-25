@@ -114,6 +114,14 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
 
       <div className="border-t border-white/10">
         <div className="container-custom flex flex-col gap-2 py-6 text-xs text-white/50">
+          {/* White artwork on transparency: only works on this dark footer. */}
+          <Image
+            src="/images/realtor-logo-white.webp"
+            alt="REALTOR®"
+            width={96}
+            height={96}
+            className="mb-2 h-24 w-24"
+          />
           <p>{t.footer.certsLine}</p>
           <p>
             Bungalow photography by{" "}
