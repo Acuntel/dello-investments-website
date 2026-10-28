@@ -100,34 +100,34 @@ const DEFAULT_SEO: Record<string, SeoOverride> = {
     title:
       "We Buy Houses Chicago for Cash | Offer in 24 Hours",
     description:
-      "We buy houses in Chicago for cash, any condition. Woman-owned, with a licensed broker and GC. Fair offer in 24 hours, close in 7-14 days. No repairs, no fees.",
+      "We buy houses in Chicago for cash, any condition. Woman-owned, with a licensed broker and GC. Fair offer within 24 hours of a walkthrough, close in as little as 7 days. No repairs, no fees.",
   },
   "es:home": {
     title:
       "Compramos Casas en Chicago al Contado | Oferta en 24 Horas",
     description:
-      "Compramos casas en Chicago al contado, en cualquier condición. Empresa de mujeres. Oferta justa en 24 horas, cierre en 7 a 14 días, sin reparaciones.",
+      "Compramos casas en Chicago al contado, en cualquier condición. Empresa de mujeres. Oferta justa en 24 horas tras la visita, cierre en tan solo 7 días, sin reparaciones.",
   },
   "pl:home": {
     title:
       "Skup Domów w Chicago za Gotówkę | Oferta w 24 Godziny | Dello Investments",
     description:
-      "Skup domów w Chicago, firma prowadzona przez kobiety. Uczciwe oferty w 24 godziny, finalizacja w 7-14 dni. Każdy stan, wszystkie 77 dzielnic. Bez remontów, bez prowizji, bez kosztów zamknięcia.",
+      "Skup domów w Chicago, firma prowadzona przez kobiety. Uczciwe oferty w 24 godziny po obejrzeniu domu, finalizacja nawet w 7 dni. Każdy stan, wszystkie 77 dzielnic. Bez remontów, bez prowizji, bez kosztów zamknięcia (poza własnym prawnikiem).",
   },
   "en:contact": {
     title: "Get Your Free Cash Offer | Dello Investments",
     description:
-      "Tell us about your Chicago property and get a fair, written cash offer within 24 hours. Call or text (312) 975-5557, open 7 days a week, or use the form below.",
+      "Tell us about your Chicago property and get a fair, written cash offer within 24 hours of a walkthrough. Call or text (312) 975-5557, open 7 days a week, or use the form below.",
   },
   "es:contact": {
     title: "Obtenga Su Oferta Gratis en Efectivo | Dello Investments",
     description:
-      "Cuéntenos sobre su propiedad en Chicago y reciba una oferta justa por escrito en 24 horas. Llame o envíe texto al (312) 975-5557, abierto los 7 días.",
+      "Cuéntenos sobre su propiedad en Chicago y reciba una oferta justa por escrito en 24 horas tras la visita. Llame o envíe texto al (312) 975-5557, abierto los 7 días.",
   },
   "pl:contact": {
     title: "Otrzymaj Bezpłatną Ofertę Gotówkową | Dello Investments",
     description:
-      "Opowiedz nam o swojej nieruchomości w Chicago i otrzymaj uczciwą, pisemną ofertę w 24 godziny. Zadzwoń lub napisz: (312) 975-5557, otwarte 7 dni w tygodniu.",
+      "Opowiedz nam o swojej nieruchomości w Chicago i otrzymaj uczciwą, pisemną ofertę w 24 godziny po obejrzeniu domu. Zadzwoń lub napisz: (312) 975-5557, otwarte 7 dni w tygodniu.",
   },
 };
 
@@ -241,15 +241,15 @@ export function defaultAlt(id: string, locale: Locale): string {
 export const DEFAULT_BUSINESS: BusinessInfo = {
   name: "Dello Investments",
   description:
-    "Woman-owned, veteran-owned cash home buyer serving all 77 Chicago neighborhoods and Cook County suburbs. Fair cash offers in 24 hours, closings in as little as 7 days, any condition, no repairs, no commissions, no closing costs.",
+    "Woman-owned, veteran-owned cash home buyer serving all 77 Chicago neighborhoods and Cook County suburbs. Fair cash offers within 24 hours of a walkthrough, closings in as little as 7 days, any condition, no repairs, no commissions, no closing costs (you only pay your own attorney).",
   telephone: "+13129755557",
   email: CONTACT.email,
-  streetAddress: "1651 S Drake Ave G",
+  streetAddress: "",
   addressLocality: "Chicago",
   addressRegion: "IL",
-  postalCode: "60623",
-  latitude: "41.8586",
-  longitude: "-87.7133",
+  postalCode: "",
+  latitude: "",
+  longitude: "",
   foundingDate: String(CREDENTIALS.founded),
   priceRange: "$$",
   opens: "09:00",

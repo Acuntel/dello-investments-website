@@ -18,9 +18,9 @@ export const es: SiteDict = {
     titleAccent: "Chicago",
     titleTail: "— en cualquier condición y situación.",
     subtitle:
-      "¿Enfrenta una ejecución hipotecaria, violaciones de código, una casa vacía o heredada, o una propiedad que se volvió difícil de manejar? Compramos casas al contado en Chicago y el condado de Cook — tal como están, sin reparaciones, sin comisiones y sin costos de cierre. Oferta justa en 24 horas.",
+      "¿Enfrenta una ejecución hipotecaria, violaciones de código, una casa vacía o heredada, o una propiedad que se volvió difícil de manejar? Compramos casas al contado en Chicago y el condado de Cook — tal como están, sin reparaciones, sin comisiones y sin costos de cierre (usted solo paga a su propio abogado). Oferta justa en 24 horas tras la visita.",
     bullets: [
-      "Cierre en 7–14 días — o elija su plazo",
+      "Cierre en tan solo 7 días, o elija su plazo",
       "Contratista general con licencia — calculamos reparaciones con números reales",
       "Agente de bienes raíces con licencia de Illinois — trabaja con una agente, no un centro de llamadas",
     ],
@@ -91,7 +91,7 @@ export const es: SiteDict = {
     label: "Nuestra Historia",
     title: "Primero vecinos, después inversionistas.",
     body1:
-      "Dello Investments fue fundada en 2021 por Karen Rodriguez y Alexa, dos chicagüenses convencidas de que todo propietario merece vender con dignidad y a su propio ritmo, incluso en un momento difícil. Karen es agente de bienes raíces con licencia de Illinois, y nuestro equipo tiene licencia de contratista general de la Ciudad de Chicago: las personas que hacen su oferta son las mismas que entienden exactamente lo que su propiedad necesita.",
+      "Dello Investments fue fundada en 2021 por Karen Rodriguez y Alexa Cardello, dos chicagüenses convencidas de que todo propietario merece vender con dignidad y a su propio ritmo, incluso en un momento difícil. Karen es agente de bienes raíces con licencia de Illinois, y Dello Investments tiene licencia de contratista general de la Ciudad de Chicago: las personas que hacen su oferta son las mismas que entienden exactamente lo que su propiedad necesita.",
     body2:
       "Estamos orgullosamente certificadas por la Ciudad de Chicago como empresa propiedad de mujeres, de veteranos y de personas con discapacidad. Cuando nos sentamos en su mesa, le explicamos cada número de la oferta, en español o en inglés, y usted decide el calendario, sin presión y sin juegos.",
     points: [
@@ -107,23 +107,23 @@ export const es: SiteDict = {
     label: "Cómo Funciona",
     title: "Cuatro pasos y cero estrés.",
     subtitle:
-      "De la primera llamada al cheque de cierre, la mayoría de las ventas toman menos de dos semanas, pero el calendario siempre lo pone usted.",
+      "De la primera llamada al cheque de cierre, puede cerrar en tan solo 7 días, pero el calendario siempre lo pone usted.",
     steps: [
       {
         title: "Cuéntenos sobre la propiedad",
         body: "Llame, envíe un texto o llene el formulario, pues con algunos datos básicos de la casa y de su situación es suficiente para empezar.",
       },
       {
-        title: "La visitamos, o no",
-        body: "Hacemos un recorrido rápido cuando le convenga, o trabajamos con fotos si prefiere que no vayamos, porque tal como está significa exactamente eso: sin limpiar y sin reparar.",
+        title: "La visitamos cuando le convenga",
+        body: "Hacemos un recorrido rápido cuando le convenga, porque tal como está significa exactamente eso: sin limpiar y sin reparar.",
       },
       {
         title: "Reciba su oferta en 24 horas",
-        body: "Recibirá una oferta por escrito y sin compromiso, con las cuentas explicadas línea por línea, y puede tomarse su tiempo porque no vence de un día para otro.",
+        body: "Recibirá una oferta por escrito y sin compromiso dentro de 24 horas tras la visita, con las cuentas explicadas línea por línea, y puede tomarse su tiempo porque no vence de un día para otro.",
       },
       {
         title: "Cierre cuando usted decida",
-        body: "Ya sean siete días o siete meses, usted elige la fecha, nosotros cubrimos los costos de cierre y usted se va con su dinero y su tranquilidad.",
+        body: "Ya sea en tan solo siete días o más adelante, usted elige la fecha, nosotros cubrimos los costos de cierre (excepto su propio abogado) y usted se va con su dinero y su tranquilidad.",
       },
     ],
   },
@@ -147,11 +147,11 @@ export const es: SiteDict = {
       },
       {
         title: "Propietarios Cansados y Multifamiliares",
-        body: "Desde inquilinos problemáticos hasta unidades vacías y mantenimiento pendiente, compramos edificios de 2 a 4 unidades y portafolios de renta con inquilinos incluidos.",
+        body: "Desde inquilinos problemáticos hasta unidades vacías y mantenimiento pendiente, compramos edificios de 2 a 4 unidades y portafolios de renta, y los edificios con inquilinos se evalúan caso por caso.",
       },
       {
         title: "Violaciones de Código y Gravámenes",
-        body: "Desde citas en la corte de edificios hasta cuentas de agua, impuestos atrasados y gravámenes de HOA, todo se resuelve en el cierre, no antes y no por usted.",
+        body: "Desde citas en la corte de edificios hasta cuentas de agua, impuestos atrasados y gravámenes de HOA, todo se paga de la venta en el cierre, no antes y no por usted.",
       },
       {
         title: "Divorcio y Cambios de Vida",
@@ -178,7 +178,7 @@ export const es: SiteDict = {
       },
       {
         title: "Empresa de mujeres, veteranos y latinos",
-        body: "Certificada por la Ciudad de Chicago: WBE, VBE y BEPD.",
+        body: "De propiedad latina, y certificada por la Ciudad de Chicago: WBE, VBE y BEPD.",
       },
     ],
   },
@@ -217,7 +217,7 @@ export const es: SiteDict = {
         a: "Totalmente, la oferta por escrito es gratis y retirarse no cuesta nada, y muchos propietarios se toman semanas para decidir, lo cual es normal y bienvenido.",
       },
       {
-        q: "¿Cómo pueden cerrar en 7 a 14 días?",
+        q: "¿Cómo pueden cerrar en tan solo 7 días?",
         a: "Compramos con efectivo: no hay banco, no hay avalúo condicionado ni aprobación de préstamo. El único reloj es el trabajo de título, y lo iniciamos de inmediato.",
       },
       {
@@ -226,11 +226,11 @@ export const es: SiteDict = {
       },
       {
         q: "¿Y si la casa tiene violaciones de código o gravámenes?",
-        a: "Compramos propiedades en corte de edificios, con gravámenes de agua, impuestos atrasados y reclamos de HOA con regularidad. Todo se resuelve en el cierre.",
+        a: "Compramos propiedades en corte de edificios, con gravámenes de agua, impuestos atrasados y reclamos de HOA con regularidad. Todo se paga de la venta en el cierre.",
       },
       {
         q: "¿En qué se diferencia Dello de otras empresas que 'compran casas'?",
-        a: "Karen es agente de bienes raíces con licencia de Illinois y nuestro equipo tiene licencia de contratista general de Chicago, nuestras ofertas se basan en números reales de reparación que le mostramos abiertamente, no en una fórmula para ofrecer de menos.",
+        a: "Karen es agente de bienes raíces con licencia de Illinois y Dello Investments tiene licencia de contratista general de Chicago, nuestras ofertas se basan en números reales de reparación que le mostramos abiertamente, no en una fórmula para ofrecer de menos.",
       },
       {
         q: "¿Pueden ayudarme si enfrento una ejecución hipotecaria?",
