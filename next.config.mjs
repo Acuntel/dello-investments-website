@@ -50,6 +50,11 @@ const nextConfig = {
       "/sell-your-house-fast-in-any-situation": "/situations/",
       "/cash-home-buyers-near-me": "/cash-home-buyers-chicago/",
       "/inicio": "/es/",
+      // 2026-10-28, Karen's call: "company that buys houses chicago" and
+      // "we buy houses chicago" show the same Google results, so the two pages
+      // were competing. The company page merged into the homepage.
+      "/company-that-buys-houses-chicago": "/",
+      "/company-that-buys-houses": "/",
     };
     // 2026-07-31, Karen's request: every service/situation page URL carries
     // the city. These are her original Carrot slugs, all indexed by Google,
