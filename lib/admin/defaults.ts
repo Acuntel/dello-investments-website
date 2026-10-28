@@ -172,8 +172,7 @@ export const IMAGES: ImageDef[] = [
     src: "/images/hero-home.webp",
     label: "Hero photograph",
     where: "Home page, behind the headline",
-    decorative: true,
-    defaultAlt: () => "",
+    defaultAlt: (t) => t.hero.imageAlt,
   },
   {
     id: "team",
@@ -194,8 +193,7 @@ export const IMAGES: ImageDef[] = [
     src: "/images/home-sell.webp",
     label: "House photograph",
     where: "Home page, Why sell to us",
-    decorative: true,
-    defaultAlt: () => "",
+    defaultAlt: (t) => t.why.imageAlt,
   },
   {
     id: "badge-wbe",

@@ -27,6 +27,7 @@ export const en: SiteDict = {
     ctaSecondary: "See How It Works",
     trustLine:
       "★★★★★ 5.0 Google · A+ BBB · Licensed IL Broker · Licensed Chicago GC",
+    imageAlt: "Row of brick bungalows on a Chicago residential street",
   },
   stats: [
     { value: 77, suffix: "", label: "Chicago neighborhoods served" },
@@ -100,7 +101,7 @@ export const en: SiteDict = {
       "Se habla español",
     ],
     imageAlt:
-      "Alexa Cardello and Karen Rodriguez of Dello Investments, photographed against the Chicago skyline",
+      "Karen Rodriguez and Alexa Cardello of Dello Investments in front of the Chicago skyline",
   },
   process: {
     label: "How It Works",
@@ -179,6 +180,8 @@ export const en: SiteDict = {
         body: "Latine-owned, and City of Chicago certified WBE, VBE, and BEPD.",
       },
     ],
+    imageAlt:
+      "Chicago Humboldt Park neighborhood street of two-flats with the downtown skyline beyond",
   },
   neighborhoods: {
     label: "Where We Buy",
@@ -203,7 +206,7 @@ export const en: SiteDict = {
       "Oak Lawn",
       "+ all of Cook County",
     ],
-    imageAlt: "Map of Chicago's 77 neighborhoods served by Dello Investments",
+    imageAlt: "The Chicago River winding past downtown high-rises",
   },
   faq: {
     label: "Questions, Answered",

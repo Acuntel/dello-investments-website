@@ -24,6 +24,7 @@ export interface SiteDict {
     ctaPrimary: string;
     ctaSecondary: string;
     trustLine: string;
+    imageAlt: string;
   };
   stats: { value: number; suffix: string; label: string }[];
   certs: {
@@ -75,6 +76,7 @@ export interface SiteDict {
     label: string;
     title: string;
     items: { title: string; body: string }[];
+    imageAlt: string;
   };
   neighborhoods: {
     label: string;
