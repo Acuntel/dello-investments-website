@@ -62,7 +62,7 @@ export const es: SiteDict = {
   categoryLinks: {
     title: "Sea cual sea la situación, hay un camino hacia adelante.",
     bodyHtml:
-      'Ayudamos a propietarios de Chicago con <a href="/foreclosure-service-chicago/">ayuda con ejecuciones hipotecarias en Chicago</a>, <a href="/estate-appraiser-chicago/">propiedades heredadas y en sucesión</a>, y todo tipo de propiedad con problemas como <a href="/property-investment-company-chicago/">empresa de inversión inmobiliaria de Chicago</a> con licencia.',
+      'Ayudamos a propietarios de Chicago con <a href="/foreclosure-service-chicago/">ayuda con ejecuciones hipotecarias en Chicago</a>, <a href="/inherited-property-sales-chicago/">propiedades heredadas y en sucesión</a>, y todo tipo de propiedad con problemas como <a href="/property-investment-company-chicago/">empresa de inversión inmobiliaria de Chicago</a> con licencia.',
     seeAllLabel: "Vea todas las situaciones que manejamos →",
   },
   positioning: {

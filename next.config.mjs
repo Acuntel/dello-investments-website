@@ -55,6 +55,10 @@ const nextConfig = {
       // were competing. The company page merged into the homepage.
       "/company-that-buys-houses-chicago": "/",
       "/company-that-buys-houses": "/",
+      // 2026-10-28: Karen dropped the "Estate appraiser" Business Profile
+      // category (Dello are not licensed appraisers) and moved its services
+      // under Real estate consultant. The page goes to the inherited page.
+      "/estate-appraiser-chicago": "/inherited-property-sales-chicago/",
     };
     // 2026-07-31, Karen's request: every service/situation page URL carries
     // the city. These are her original Carrot slugs, all indexed by Google,
@@ -66,7 +70,7 @@ const nextConfig = {
       "/code-violation-property-buying": "/code-violation-property-buying-chicago/",
       "/damaged-house-purchase": "/damaged-house-purchase-chicago/",
       "/divorce-property-sale": "/divorce-property-sale-chicago/",
-      "/estate-appraiser": "/estate-appraiser-chicago/",
+      "/estate-appraiser": "/inherited-property-sales-chicago/",
       "/foreclosure-service": "/foreclosure-service-chicago/",
       "/foundation-issue-home-buyer": "/foundation-issue-home-buyer-chicago/",
       "/free-home-valuation": "/free-home-valuation-chicago/",

@@ -61,7 +61,7 @@ export const en: SiteDict = {
   categoryLinks: {
     title: "Whatever the situation, there's a path forward.",
     bodyHtml:
-      'We help Chicago homeowners through <a href="/foreclosure-service-chicago/">foreclosure help in Chicago</a>, <a href="/estate-appraiser-chicago/">inherited and probate property</a>, and every kind of problem property as a licensed <a href="/property-investment-company-chicago/">Chicago property investment company</a>.',
+      'We help Chicago homeowners through <a href="/foreclosure-service-chicago/">foreclosure help in Chicago</a>, <a href="/inherited-property-sales-chicago/">inherited and probate property</a>, and every kind of problem property as a licensed <a href="/property-investment-company-chicago/">Chicago property investment company</a>.',
     seeAllLabel: "See all the situations we handle →",
   },
   positioning: {
