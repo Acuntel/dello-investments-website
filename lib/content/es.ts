@@ -28,6 +28,7 @@ export const es: SiteDict = {
     ctaSecondary: "Ver Cómo Funciona",
     trustLine:
       "★★★★★ 5.0 en Google · A+ BBB · Agente de bienes raíces con licencia de Illinois · Contratista general de Chicago",
+    imageAlt: "",
   },
   stats: [
     { value: 77, suffix: "", label: "vecindarios de Chicago atendidos" },
@@ -181,6 +182,7 @@ export const es: SiteDict = {
         body: "De propiedad latina, y certificada por la Ciudad de Chicago: WBE, VBE y BEPD.",
       },
     ],
+    imageAlt: "",
   },
   neighborhoods: {
     label: "Dónde Compramos",
