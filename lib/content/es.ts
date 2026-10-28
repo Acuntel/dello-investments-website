@@ -28,7 +28,7 @@ export const es: SiteDict = {
     ctaSecondary: "Ver Cómo Funciona",
     trustLine:
       "★★★★★ 5.0 en Google · A+ BBB · Agente de bienes raíces con licencia de Illinois · Contratista general de Chicago",
-    imageAlt: "",
+    imageAlt: "Hilera de bungalós de ladrillo en una calle residencial de Chicago",
   },
   stats: [
     { value: 77, suffix: "", label: "vecindarios de Chicago atendidos" },
@@ -182,7 +182,8 @@ export const es: SiteDict = {
         body: "De propiedad latina, y certificada por la Ciudad de Chicago: WBE, VBE y BEPD.",
       },
     ],
-    imageAlt: "",
+    imageAlt:
+      "Calle de Humboldt Park en Chicago con edificios de dos pisos y el centro de la ciudad al fondo",
   },
   neighborhoods: {
     label: "Dónde Compramos",
@@ -208,7 +209,7 @@ export const es: SiteDict = {
       "+ todo el condado de Cook",
     ],
     imageAlt:
-      "Mapa de los 77 vecindarios de Chicago que atiende Dello Investments",
+      "El río Chicago entre los rascacielos del centro de la ciudad",
   },
   faq: {
     label: "Preguntas Frecuentes",

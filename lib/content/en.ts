@@ -101,7 +101,7 @@ export const en: SiteDict = {
       "Se habla español",
     ],
     imageAlt:
-      "Karen Rodriguez and Alexa Cardello of Dello Investments on the front steps of a Chicago home",
+      "Karen Rodriguez and Alexa Cardello of Dello Investments in front of the Chicago skyline",
   },
   process: {
     label: "How It Works",
