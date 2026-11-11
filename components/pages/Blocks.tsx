@@ -78,6 +78,10 @@ function Cards({ items }: { items: { title: string; body: string[] }[] }) {
 
 // Cost tables in blog posts. Fits a phone screen: the label column wraps,
 // the price columns never break mid-number. Navy header like the hero bands.
+// Only short value cells stay on one line; sentence-length answers wrap.
+const isShortCell = (cell: string) =>
+  cell.replace(/<[^>]+>/g, "").length <= 24;
+
 function Table({
   head,
   rows,
@@ -107,7 +111,7 @@ function Table({
                 <td
                   key={j}
                   className={`rich px-3 py-3 leading-snug text-ink sm:px-5 ${
-                    j > 0 ? "whitespace-nowrap" : ""
+                    j > 0 && isShortCell(cell) ? "whitespace-nowrap" : ""
                   }`}
                   dangerouslySetInnerHTML={{ __html: cell }}
                 />
@@ -126,12 +130,18 @@ function Table({
 export function Figure({
   block,
   reveal = "fade-up",
+  wide = false,
 }: {
   block: Extract<PageBlock, { t: "image" }>;
   reveal?: "fade-up" | "fade-left" | "fade-right";
+  /** Full text-column width, left-aligned with the prose (blog posts). */
+  wide?: boolean;
 }) {
   return (
-    <Reveal variant={reveal} className="relative mx-auto w-full max-w-md">
+    <Reveal
+      variant={reveal}
+      className={`relative w-full ${wide ? "max-w-3xl" : "mx-auto max-w-md"}`}
+    >
       {/* The offset mist frame from the home page's Story section. */}
       <div
         className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border border-mist"
@@ -142,7 +152,7 @@ export function Figure({
         alt={block.alt}
         width={block.width}
         height={block.height}
-        sizes="(max-width: 768px) 90vw, 448px"
+        sizes={wide ? "(max-width: 768px) 90vw, 768px" : "(max-width: 768px) 90vw, 448px"}
         className="relative rounded-2xl object-cover shadow-card"
       />
       {block.caption ? (
@@ -227,7 +237,13 @@ function Badges({
   );
 }
 
-export default function Block({ block }: { block: PageBlock }) {
+export default function Block({
+  block,
+  wideImage = false,
+}: {
+  block: PageBlock;
+  wideImage?: boolean;
+}) {
   switch (block.t) {
     case "h2":
       return (
@@ -272,7 +288,7 @@ export default function Block({ block }: { block: PageBlock }) {
         </Reveal>
       );
     case "image":
-      return <Figure block={block} />;
+      return <Figure block={block} wide={wideImage} />;
     case "team":
       return <Team items={block.items} />;
     case "badges":

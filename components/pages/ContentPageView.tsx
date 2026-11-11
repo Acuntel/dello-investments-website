@@ -11,6 +11,8 @@ import {
   pairMedia,
   sectionise,
   type ContentPage,
+  type PageBlock,
+  type SectionRow,
 } from "@/lib/pages";
 import SectionRows from "@/components/pages/SectionRows";
 import FAQAccordion from "@/components/ui/FAQAccordion";
@@ -28,8 +30,16 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
   // Blog posts: the "By Karen…" line moves up under the title, next to the
   // date, instead of sitting alone at the top of the first section.
   const { byline, blocks } = bylineFor(page, withoutHero);
-  const sections = sectionise(blocks);
   const isBlog = page.kind === "blog";
+  // Blog posts show their opening photograph in full at the top of the body
+  // rather than faded behind the title, and every photo stacks above its text.
+  const openingPhoto: PageBlock | null =
+    isBlog && hero ? { t: "image", ...hero } : null;
+  const sections = sectionise(openingPhoto ? [openingPhoto, ...blocks] : blocks);
+  const rowsFor = (section: PageBlock[]): SectionRow[] =>
+    isBlog
+      ? section.map((block) => ({ kind: "block", block }))
+      : pairMedia(section);
   const dateLabel = page.updated
     ? `Updated ${formatDate(page.updated)}`
     : page.published
@@ -77,7 +87,7 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
       ) : null}
 
       <section className="relative overflow-hidden bg-navy pb-24 pt-40">
-        {hero ? (
+        {hero && !isBlog ? (
           <>
             <Image
               src={hero.src}
@@ -132,7 +142,7 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
           className={`section-padding ${i % 2 === 1 ? "bg-mist-faint" : ""}`}
         >
           <div className="container-custom flex flex-col gap-8">
-            <SectionRows rows={pairMedia(section)} />
+            <SectionRows rows={rowsFor(section)} wideImages={isBlog} />
           </div>
         </section>
       ))}
