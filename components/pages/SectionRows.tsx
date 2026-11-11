@@ -7,11 +7,19 @@ import Block, { Figure } from "@/components/pages/Blocks";
 // Below that breakpoint the grid collapses to one column and the pair stacks in
 // the order Karen wrote it, so nothing about the reading order changes on a
 // phone.
-export default function SectionRows({ rows }: { rows: SectionRow[] }) {
+// wideImages: blog posts stack each photo at the width of the text column.
+export default function SectionRows({
+  rows,
+  wideImages = false,
+}: {
+  rows: SectionRow[];
+  wideImages?: boolean;
+}) {
   return (
     <>
       {rows.map((row, i) => {
-        if (row.kind === "block") return <Block key={i} block={row.block} />;
+        if (row.kind === "block")
+          return <Block key={i} block={row.block} wideImage={wideImages} />;
 
         const image = (
           <Figure

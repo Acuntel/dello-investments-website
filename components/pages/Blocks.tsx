@@ -130,12 +130,18 @@ function Table({
 export function Figure({
   block,
   reveal = "fade-up",
+  wide = false,
 }: {
   block: Extract<PageBlock, { t: "image" }>;
   reveal?: "fade-up" | "fade-left" | "fade-right";
+  /** Full text-column width, left-aligned with the prose (blog posts). */
+  wide?: boolean;
 }) {
   return (
-    <Reveal variant={reveal} className="relative mx-auto w-full max-w-md">
+    <Reveal
+      variant={reveal}
+      className={`relative w-full ${wide ? "max-w-3xl" : "mx-auto max-w-md"}`}
+    >
       {/* The offset mist frame from the home page's Story section. */}
       <div
         className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border border-mist"
@@ -146,7 +152,7 @@ export function Figure({
         alt={block.alt}
         width={block.width}
         height={block.height}
-        sizes="(max-width: 768px) 90vw, 448px"
+        sizes={wide ? "(max-width: 768px) 90vw, 768px" : "(max-width: 768px) 90vw, 448px"}
         className="relative rounded-2xl object-cover shadow-card"
       />
       {block.caption ? (
@@ -231,7 +237,13 @@ function Badges({
   );
 }
 
-export default function Block({ block }: { block: PageBlock }) {
+export default function Block({
+  block,
+  wideImage = false,
+}: {
+  block: PageBlock;
+  wideImage?: boolean;
+}) {
   switch (block.t) {
     case "h2":
       return (
@@ -276,7 +288,7 @@ export default function Block({ block }: { block: PageBlock }) {
         </Reveal>
       );
     case "image":
-      return <Figure block={block} />;
+      return <Figure block={block} wide={wideImage} />;
     case "team":
       return <Team items={block.items} />;
     case "badges":
