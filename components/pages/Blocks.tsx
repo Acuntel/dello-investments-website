@@ -78,6 +78,10 @@ function Cards({ items }: { items: { title: string; body: string[] }[] }) {
 
 // Cost tables in blog posts. Fits a phone screen: the label column wraps,
 // the price columns never break mid-number. Navy header like the hero bands.
+// Only short value cells stay on one line; sentence-length answers wrap.
+const isShortCell = (cell: string) =>
+  cell.replace(/<[^>]+>/g, "").length <= 24;
+
 function Table({
   head,
   rows,
@@ -107,7 +111,7 @@ function Table({
                 <td
                   key={j}
                   className={`rich px-3 py-3 leading-snug text-ink sm:px-5 ${
-                    j > 0 ? "whitespace-nowrap" : ""
+                    j > 0 && isShortCell(cell) ? "whitespace-nowrap" : ""
                   }`}
                   dangerouslySetInnerHTML={{ __html: cell }}
                 />
