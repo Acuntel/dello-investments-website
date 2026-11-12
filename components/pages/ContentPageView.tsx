@@ -4,6 +4,7 @@ import {
   generateBlogPostingSchema,
   generateBreadcrumbSchema,
   generateFAQSchema,
+  generateServiceSchema,
 } from "@/lib/schema";
 import {
   bylineFor,
@@ -80,6 +81,20 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(generateFAQSchema(page.faq)),
+          }}
+        />
+      ) : null}
+      {page.service ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateServiceSchema({
+                url: `/${page.slug}/`,
+                description: page.description,
+                ...page.service,
+              }),
+            ),
           }}
         />
       ) : null}

@@ -142,6 +142,27 @@ export function generateBreadcrumbSchema(
   };
 }
 
+// One money page's service. The provider points at the LocalBusiness node by
+// @id, so the site-wide business details (and its areaServed) stay untouched.
+export function generateServiceSchema(service: {
+  url: string;
+  name: string;
+  serviceType: string;
+  description: string;
+  areaServed: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    serviceType: service.serviceType,
+    description: service.description,
+    url: `${SITE_URL}${service.url}`,
+    provider: { "@id": SITE_URL },
+    areaServed: service.areaServed.map((name) => ({ "@type": "Place", name })),
+  };
+}
+
 export function generateFAQSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

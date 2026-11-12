@@ -67,6 +67,9 @@ export interface ContentPage {
   // link: turns a phrase already in the answer into a link. The answer text
   // itself stays plain so the FAQ schema is unchanged.
   faq: { q: string; a: string; link?: { text: string; href: string } }[];
+  /** Money pages only. Adds page-level Service schema, with the site-wide
+   *  LocalBusiness as provider. areaServed names places as written. */
+  service?: { name: string; serviceType: string; areaServed: string[] };
   /** Blog only. ISO date (YYYY-MM-DD) the post first went up, if known. */
   published?: string;
   /** Blog only. ISO date of the last real content update. Shown as
