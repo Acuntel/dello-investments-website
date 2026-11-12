@@ -134,7 +134,7 @@ export function Figure({
 }: {
   block: Extract<PageBlock, { t: "image" }>;
   reveal?: "fade-up" | "fade-left" | "fade-right";
-  /** Full text-column width, left-aligned with the prose (blog posts). */
+  /** Full text-column width, left-aligned with the prose (stacked layout). */
   wide?: boolean;
 }) {
   return (
@@ -153,7 +153,11 @@ export function Figure({
         width={block.width}
         height={block.height}
         sizes={wide ? "(max-width: 768px) 90vw, 768px" : "(max-width: 768px) 90vw, 448px"}
-        className="relative rounded-2xl object-cover shadow-card"
+        className={`relative rounded-2xl object-cover shadow-card ${
+          // Stacked photos stay landscape-height: a tall phone shot is
+          // cropped to the middle instead of filling the whole screen.
+          wide ? "max-h-[30rem] w-full" : ""
+        }`}
       />
       {block.caption ? (
         <figcaption className="relative mt-3 text-center text-xs text-muted">

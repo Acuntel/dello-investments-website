@@ -8,7 +8,6 @@ import {
 import {
   bylineFor,
   heroFor,
-  pairMedia,
   sectionise,
   type ContentPage,
   type PageBlock,
@@ -32,14 +31,13 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
   const { byline, blocks } = bylineFor(page, withoutHero);
   const isBlog = page.kind === "blog";
   // Blog posts show their opening photograph in full at the top of the body
-  // rather than faded behind the title, and every photo stacks above its text.
+  // rather than faded behind the title. On every page, each photo stacks on
+  // its own row at the width of the text (Karen's call, never side by side).
   const openingPhoto: PageBlock | null =
     isBlog && hero ? { t: "image", ...hero } : null;
   const sections = sectionise(openingPhoto ? [openingPhoto, ...blocks] : blocks);
   const rowsFor = (section: PageBlock[]): SectionRow[] =>
-    isBlog
-      ? section.map((block) => ({ kind: "block", block }))
-      : pairMedia(section);
+    section.map((block) => ({ kind: "block", block }));
   const dateLabel = page.updated
     ? `Updated ${formatDate(page.updated)}`
     : page.published
@@ -142,7 +140,7 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
           className={`section-padding ${i % 2 === 1 ? "bg-mist-faint" : ""}`}
         >
           <div className="container-custom flex flex-col gap-8">
-            <SectionRows rows={rowsFor(section)} wideImages={isBlog} />
+            <SectionRows rows={rowsFor(section)} wideImages />
           </div>
         </section>
       ))}
