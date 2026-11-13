@@ -19,6 +19,9 @@ export type PageBlock =
       width: number;
       height: number;
       caption?: string;
+      /** Load straight away instead of lazily. Set on a blog post's opening
+       *  photo, which is the largest thing on screen when the page opens. */
+      priority?: boolean;
     }
   | {
       // A row of people, each with a photo, a name, an optional role and an
@@ -70,6 +73,8 @@ export interface ContentPage {
   /** Money pages only. Adds page-level Service schema, with the site-wide
    *  LocalBusiness as provider. areaServed names places as written. */
   service?: { name: string; serviceType: string; areaServed: string[] };
+  /** Link-preview image, 1200 by 630. Defaults to the opening photo. */
+  share?: { src: string; alt: string };
   /** Blog only. ISO date (YYYY-MM-DD) the post first went up, if known. */
   published?: string;
   /** Blog only. ISO date of the last real content update. Shown as

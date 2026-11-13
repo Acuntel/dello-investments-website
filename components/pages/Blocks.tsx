@@ -152,6 +152,7 @@ export function Figure({
         alt={block.alt}
         width={block.width}
         height={block.height}
+        priority={block.priority}
         sizes={wide ? "(max-width: 768px) 90vw, 768px" : "(max-width: 768px) 90vw, 448px"}
         className={`relative rounded-2xl object-cover shadow-card ${
           // Stacked photos stay landscape-height: a tall phone shot is
