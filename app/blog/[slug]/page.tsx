@@ -18,7 +18,11 @@ export async function generateMetadata({
 }) {
   const page = getContentPage(`blog/${params.slug}`);
   if (!page) return {};
-  return pageMetadata(portedKey(page.slug), "en", heroFor(page).hero?.src);
+  const share = page.share ?? heroFor(page).hero;
+  return pageMetadata(portedKey(page.slug), "en", share?.src, {
+    imageAlt: share?.alt,
+    article: { published: page.published, updated: page.updated },
+  });
 }
 
 export default function Page({ params }: { params: { slug: string } }) {

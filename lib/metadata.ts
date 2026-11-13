@@ -20,6 +20,15 @@ interface PageMetadataParams {
   image?: string;
   /** An explicit en/es pair (see LANGUAGE_PAIRS). */
   pair?: { en: string; es: string };
+  /** Describes `image`. Without one the default card's alt is used. */
+  imageAlt?: string;
+  /** Blog posts: shared as an article, with their dates. */
+  article?: { published?: string; updated?: string };
+}
+
+interface ShareOptions {
+  imageAlt?: string;
+  article?: { published?: string; updated?: string };
 }
 
 // What every page actually calls. Reads the title and description Karen last
@@ -29,6 +38,7 @@ export async function pageMetadata(
   pageKey: string,
   locale: Locale,
   image?: string,
+  share: ShareOptions = {},
 ): Promise<Metadata> {
   const overrides = await loadOverrides();
   const { title, description } = resolveSeo(overrides, pageKey, locale);
@@ -40,6 +50,7 @@ export async function pageMetadata(
     locale,
     locales: def?.locales,
     image,
+    ...share,
     pair: LANGUAGE_PAIRS.find(
       (p) => p.en === def?.path || p.es === def?.path,
     ),
@@ -55,6 +66,8 @@ export function generatePageMetadata({
   locales = ["en", "es"],
   image,
   pair,
+  imageAlt,
+  article,
 }: PageMetadataParams): Metadata {
   const prefix = locale === "en" ? "" : `/${locale}`;
   // next.config sets trailingSlash:true, so canonicals and hreflang must use the
@@ -94,7 +107,13 @@ export function generatePageMetadata({
       title,
       description,
       url,
-      type: "website",
+      ...(article
+        ? {
+            type: "article",
+            ...(article.published && { publishedTime: article.published }),
+            ...(article.updated && { modifiedTime: article.updated }),
+          }
+        : { type: "website" }),
       locale:
         locale === "es" || (pair && path === pair.es) ? "es_US" : "en_US",
       images: [
@@ -102,7 +121,9 @@ export function generatePageMetadata({
           url: card,
           width: 1200,
           height: 630,
-          alt: "Dello Investments, Chicago real estate investors, over the Chicago skyline",
+          alt:
+            (image && imageAlt) ||
+            "Dello Investments, Chicago real estate investors, over the Chicago skyline",
         },
       ],
     },

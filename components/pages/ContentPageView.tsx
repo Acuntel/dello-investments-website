@@ -35,7 +35,7 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
   // rather than faded behind the title. On every page, each photo stacks on
   // its own row at the width of the text (Karen's call, never side by side).
   const openingPhoto: PageBlock | null =
-    isBlog && hero ? { t: "image", ...hero } : null;
+    isBlog && hero ? { t: "image", ...hero, priority: true } : null;
   const sections = sectionise(openingPhoto ? [openingPhoto, ...blocks] : blocks);
   const rowsFor = (section: PageBlock[]): SectionRow[] =>
     section.map((block) => ({ kind: "block", block }));
