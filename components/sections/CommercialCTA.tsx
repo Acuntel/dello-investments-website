@@ -22,7 +22,7 @@ export default function CommercialCTA() {
               Tell us about your property.
             </h2>
             <p className="mt-5 text-white/75">
-              Call or text Karen at{" "}
+              Call or text us at{" "}
               <a
                 href={CONTACT.phoneHref}
                 className="font-semibold text-white underline decoration-mist underline-offset-4"

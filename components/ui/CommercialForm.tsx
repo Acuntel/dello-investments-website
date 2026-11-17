@@ -89,7 +89,7 @@ export default function CommercialForm() {
       <div className="rounded-2xl bg-white p-10 text-center shadow-card">
         <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-mist" />
         <p className="text-ink">
-          Thanks. Karen will look this over and get back to you within one
+          Thanks. Alexa will look this over and get back to you within one
           business day. If it&apos;s urgent, call or text (312) 975-5557.
         </p>
       </div>

@@ -80,7 +80,7 @@ export async function POST(req: NextRequest) {
       loanDue,
     } = body;
     // The commercial form asks "Where is it?" (city and state) in place of a
-    // street address, and is answered by Karen, not the cash-offer team.
+    // street address, and its email never says "cash".
     const commercial = kind === "commercial";
 
     // Honeypot: "company" is invisible to humans. Bots that fill it get a

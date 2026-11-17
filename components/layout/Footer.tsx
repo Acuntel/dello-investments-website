@@ -38,7 +38,13 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
             height={67}
             className="mb-5 h-12 w-auto"
           />
-          <p className="max-w-xs text-sm leading-relaxed">{t.footer.tagline}</p>
+          {/* The tagline says "cash home buyer", which the commercial page
+              never says (financing is sometimes involved). */}
+          {pathname.startsWith("/sell-commercial-property") ? null : (
+            <p className="max-w-xs text-sm leading-relaxed">
+              {t.footer.tagline}
+            </p>
+          )}
           <div className="mt-5 flex gap-4 text-sm">
             <a
               href={SOCIAL.facebook}
