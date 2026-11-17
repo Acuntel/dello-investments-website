@@ -38,6 +38,9 @@ const CAPS: Record<string, number> = {
   phone: 50,
   address: 300,
   message: 5000,
+  propertyType: 100,
+  occupancy: 100,
+  loanDue: 100,
 };
 
 export async function POST(req: NextRequest) {
@@ -71,7 +74,14 @@ export async function POST(req: NextRequest) {
       landingPage,
       submitPage,
       referrer,
+      kind,
+      propertyType,
+      occupancy,
+      loanDue,
     } = body;
+    // The commercial form asks "Where is it?" (city and state) in place of a
+    // street address, and its email never says "cash".
+    const commercial = kind === "commercial";
 
     // Honeypot: "company" is invisible to humans. Bots that fill it get a
     // fake success so they don't adapt.
@@ -93,7 +103,11 @@ export async function POST(req: NextRequest) {
 
     if (!name?.trim() || !phone?.trim() || !address?.trim()) {
       return NextResponse.json(
-        { error: "Name, phone, and property address are required." },
+        {
+          error: commercial
+            ? "Name, phone, and where the property is are required."
+            : "Name, phone, and property address are required.",
+        },
         { status: 400 },
       );
     }
@@ -125,12 +139,30 @@ export async function POST(req: NextRequest) {
       landingPage,
       submitPage,
       referrer,
+      ...(commercial && {
+        tag: "commercial" as const,
+        propertyType,
+        occupancy,
+        loanDue,
+      }),
     });
     // Started now and awaited after the email, so the two overlap. Never
     // throws; capped at 5s; a no-op until GHL_WEBHOOK_URL is set.
     const ghl = forwardLeadToGhl(lead);
 
-    const html = `
+    const html = commercial
+      ? `
+      <h2>New commercial property lead from delloinvestments.com</h2>
+      <p><strong>Name:</strong> ${esc(name)}</p>
+      <p><strong>Phone:</strong> ${esc(phone)}</p>
+      ${email ? `<p><strong>Email:</strong> ${esc(email)}</p>` : ""}
+      <p><strong>Property type:</strong> ${esc(lead.propertyType || "Not given")}</p>
+      <p><strong>Where:</strong> ${esc(address)}</p>
+      <p><strong>How full:</strong> ${esc(lead.occupancy || "Not given")}</p>
+      <p><strong>Loan coming due:</strong> ${esc(lead.loanDue || "Not given")}</p>
+      ${message ? `<p><strong>Message:</strong></p><pre style="font-family:inherit;white-space:pre-wrap">${esc(message)}</pre>` : ""}
+    `
+      : `
       <h2>New cash-offer request from delloinvestments.com</h2>
       <p><strong>Name:</strong> ${esc(name)}</p>
       <p><strong>Phone:</strong> ${esc(phone)}</p>
@@ -140,7 +172,9 @@ export async function POST(req: NextRequest) {
     `;
 
     await sendLeadEmail({
-      subject: `Cash offer request, ${name} (${address})`,
+      subject: commercial
+        ? `Commercial property, ${name} (${address})`
+        : `Cash offer request, ${name} (${address})`,
       html,
       ...(email && { replyTo: email }),
     });

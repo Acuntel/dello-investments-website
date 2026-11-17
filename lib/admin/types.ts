@@ -77,4 +77,10 @@ export interface Lead {
   landingPage?: string;
   submitPage?: string;
   referrer?: string;
+  // Leads from the commercial property form (/sell-commercial-property/).
+  // Counted apart from the residential ones, and sent to GHL as they are.
+  tag?: "commercial";
+  propertyType?: string;
+  occupancy?: string;
+  loanDue?: string;
 }

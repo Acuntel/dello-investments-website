@@ -15,7 +15,7 @@ import {
 } from "@/lib/content";
 import { CONTACT } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
-import { mainNav } from "@/lib/nav";
+import { mainNav, offerButton } from "@/lib/nav";
 import type { Locale } from "@/lib/content";
 import type { ImageMeta } from "@/lib/admin/types";
 
@@ -26,6 +26,7 @@ export default function Header({ logo }: { logo: Record<Locale, ImageMeta> }) {
   const locale = detectLocaleFromPath(pathname);
   const t = getDict(locale);
   const prefix = localePrefix(locale);
+  const offer = offerButton(t, pathname, prefix);
 
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -127,10 +128,10 @@ export default function Header({ logo }: { logo: Record<Locale, ImageMeta> }) {
             </a>
 
             <Link
-              href={`${prefix}/contact`}
+              href={offer.href}
               className="hidden rounded-full bg-mist px-5 py-2.5 text-sm font-semibold text-navy transition-all duration-300 ease-smooth hover:bg-mist-strong lg:block"
             >
-              {t.nav.getOffer}
+              {offer.label}
             </Link>
 
             <button

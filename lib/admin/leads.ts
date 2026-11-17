@@ -57,6 +57,12 @@ export async function recordLead(
     landingPage: clip(input.landingPage, 500),
     submitPage: clip(input.submitPage, 500),
     referrer: clip(input.referrer, 500),
+    ...(input.tag === "commercial" && {
+      tag: "commercial" as const,
+      propertyType: clip(input.propertyType, 100),
+      occupancy: clip(input.occupancy, 100),
+      loanDue: clip(input.loanDue, 100),
+    }),
   };
   if (!configured()) return lead;
   try {
