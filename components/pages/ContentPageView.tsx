@@ -17,6 +17,7 @@ import {
 import SectionRows from "@/components/pages/SectionRows";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import CTASection from "@/components/sections/CTASection";
+import CommercialCTA from "@/components/sections/CommercialCTA";
 import MapCard from "@/components/sections/MapCard";
 import Reveal from "@/components/ui/Reveal";
 
@@ -169,7 +170,9 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
               <p className="section-label justify-center before:hidden">
                 {t.faq.label}
               </p>
-              <h2 className="text-3xl sm:text-4xl">{t.faq.title}</h2>
+              <h2 className="text-3xl sm:text-4xl">
+                {page.faqTitle ?? t.faq.title}
+              </h2>
             </Reveal>
             <Reveal variant="fade-up" delay={120} className="mt-12">
               <FAQAccordion items={page.faq} />
@@ -180,7 +183,11 @@ export default function ContentPageView({ page }: { page: ContentPage }) {
 
       {page.slug === "about-us" ? <MapCard /> : null}
 
-      <CTASection t={t} locale="en" />
+      {page.form === "commercial" ? (
+        <CommercialCTA />
+      ) : (
+        <CTASection t={t} locale="en" />
+      )}
     </>
   );
 }

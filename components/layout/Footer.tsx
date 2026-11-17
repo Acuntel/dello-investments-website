@@ -16,7 +16,15 @@ export default function Footer({ logo }: { logo: Record<Locale, ImageMeta> }) {
   const t = getDict(locale);
   const prefix = localePrefix(locale);
 
-  const links = footerNav(t, locale);
+  // The commercial page is linked from the footer only, never the menus, so
+  // the site's main identity stays residential. English only for now.
+  const links =
+    locale === "en"
+      ? [
+          ...footerNav(t, locale),
+          { href: "/sell-commercial-property", label: "Commercial Property" },
+        ]
+      : footerNav(t, locale);
 
   return (
     <footer className="bg-navy text-white/80">

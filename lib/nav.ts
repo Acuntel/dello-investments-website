@@ -43,3 +43,16 @@ export function footerNav(t: SiteDict, locale: Locale): NavLink[] {
     ];
   return [...links, { href: "/contact", label: t.nav.contact }];
 }
+
+// The header's main button. On the commercial page it points at that page's
+// own form instead of the residential cash-offer form (that page never says
+// "cash": financing is sometimes involved).
+export function offerButton(
+  t: SiteDict,
+  pathname: string,
+  prefix: string,
+): NavLink {
+  if (pathname.startsWith("/sell-commercial-property"))
+    return { href: "#property-form", label: "Send My Property Details" };
+  return { href: `${prefix}/contact`, label: t.nav.getOffer };
+}

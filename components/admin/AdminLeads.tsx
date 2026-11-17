@@ -39,6 +39,10 @@ function downloadCsv(leads: Lead[]) {
   const header = [
     "Date",
     "Source",
+    "Tag",
+    "Property type",
+    "How full",
+    "Loan due",
     "Name",
     "Phone",
     "Email",
@@ -53,6 +57,10 @@ function downloadCsv(leads: Lead[]) {
     [
       l.at,
       l.source,
+      l.tag,
+      l.propertyType,
+      l.occupancy,
+      l.loanDue,
       l.name,
       l.phone,
       l.email,
@@ -153,7 +161,12 @@ export default function AdminLeads({ passcode }: { passcode: string }) {
                 ) : (
                   <FileText className="h-3.5 w-3.5" />
                 )}
-                {lead.source === "chat" ? "Chat" : "Cash offer form"} ·{" "}
+                {lead.source === "chat"
+                  ? "Chat"
+                  : lead.tag === "commercial"
+                    ? "Commercial form"
+                    : "Cash offer form"}{" "}
+                ·{" "}
                 {when(lead.at)}
               </span>
             </div>
@@ -177,6 +190,13 @@ export default function AdminLeads({ passcode }: { passcode: string }) {
             </div>
             {lead.address ? (
               <p className="mt-2 text-sm text-ink">{lead.address}</p>
+            ) : null}
+            {lead.tag === "commercial" ? (
+              <p className="mt-1 text-sm text-ink">
+                {lead.propertyType || "Type not given"} · About{" "}
+                {lead.occupancy || "?"} full · Loan due:{" "}
+                {lead.loanDue || "not given"}
+              </p>
             ) : null}
             {lead.landingPage || lead.referrer ? (
               <p className="mt-2 text-xs text-muted">

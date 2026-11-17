@@ -73,6 +73,11 @@ export interface ContentPage {
   /** Money pages only. Adds page-level Service schema, with the site-wide
    *  LocalBusiness as provider. areaServed names places as written. */
   service?: { name: string; serviceType: string; areaServed: string[] };
+  /** Heading over the FAQ. Defaults to the site's "FAQs" title. */
+  faqTitle?: string;
+  /** "commercial" swaps the closing call-to-action band for the commercial
+   *  property form, and the header button points at it. */
+  form?: "commercial";
   /** Link-preview image, 1200 by 630. Defaults to the opening photo. */
   share?: { src: string; alt: string };
   /** Blog only. ISO date (YYYY-MM-DD) the post first went up, if known. */

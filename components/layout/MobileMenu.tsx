@@ -11,7 +11,7 @@ import {
   LOCALES,
 } from "@/lib/content";
 import { CONTACT } from "@/lib/constants";
-import { footerNav } from "@/lib/nav";
+import { footerNav, offerButton } from "@/lib/nav";
 
 export default function MobileMenu({
   open,
@@ -27,6 +27,7 @@ export default function MobileMenu({
   const prefix = localePrefix(locale);
 
   const navLinks = footerNav(t, locale);
+  const offer = offerButton(t, pathname, prefix);
 
   return (
     <div
@@ -100,12 +101,8 @@ export default function MobileMenu({
             <Phone className="h-4 w-4" />
             {CONTACT.phone}
           </a>
-          <Link
-            href={`${prefix}/contact`}
-            onClick={onClose}
-            className="btn-mist w-full"
-          >
-            {t.nav.getOffer}
+          <Link href={offer.href} onClick={onClose} className="btn-mist w-full">
+            {offer.label}
           </Link>
         </div>
       </div>
