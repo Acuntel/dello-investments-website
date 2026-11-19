@@ -14,15 +14,15 @@ export const es: SiteDict = {
   hero: {
     eyebrow:
       "Agente de bienes raíces con licencia de Illinois · Contratista general con licencia de Chicago",
-    titleLead: "Compramos Casas",
+    titleLead: "Compramos Casas en",
     titleAccent: "Chicago",
-    titleTail: "— en cualquier condición y situación.",
+    titleTail: "al Contado, en Cualquier Condición y Situación.",
     subtitle:
-      "¿Enfrenta una ejecución hipotecaria, violaciones de código, una casa vacía o heredada, o una propiedad que se volvió difícil de manejar? Compramos casas al contado en Chicago y el condado de Cook — tal como están, sin reparaciones, sin comisiones y sin costos de cierre (usted solo paga a su propio abogado). Oferta justa en 24 horas tras la visita.",
+      "Llame o envíe un mensaje de texto al (312) 975-5557 para recibir una oferta por escrito en 24 horas tras la visita. Sin reparaciones, sin comisiones, sin costos de cierre (usted solo paga a su propio abogado). Cierre en tan solo 7 días.",
     bullets: [
       "Cierre en tan solo 7 días, o elija su plazo",
-      "Contratista general con licencia — calculamos reparaciones con números reales",
-      "Agente de bienes raíces con licencia de Illinois — trabaja con una agente, no un centro de llamadas",
+      "Contratista general con licencia: calculamos reparaciones con números reales",
+      "Agente de bienes raíces con licencia de Illinois: trabaja con una agente, no un centro de llamadas",
     ],
     ctaPrimary: "Obtener Mi Oferta en Efectivo",
     ctaSecondary: "Ver Cómo Funciona",
