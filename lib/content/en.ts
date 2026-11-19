@@ -19,7 +19,6 @@ export const en: SiteDict = {
     subtitle:
       "Call or text (312) 975-5557 for a written offer within 24 hours of a walkthrough. No repairs, no commissions, no closing costs (you only pay your own attorney). Close in as little as 7 days.",
     bullets: [
-      "Close in as little as 7 days, or choose your timeline",
       "Licensed general contractor: we price repairs from real numbers, not guesses",
       "Licensed Illinois broker: you work with a licensed broker, not a call center",
     ],

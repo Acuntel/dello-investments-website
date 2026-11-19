@@ -20,7 +20,6 @@ export const es: SiteDict = {
     subtitle:
       "Llame o envíe un mensaje de texto al (312) 975-5557 para recibir una oferta por escrito en 24 horas tras la visita. Sin reparaciones, sin comisiones, sin costos de cierre (usted solo paga a su propio abogado). Cierre en tan solo 7 días.",
     bullets: [
-      "Cierre en tan solo 7 días, o elija su plazo",
       "Contratista general con licencia: calculamos reparaciones con números reales",
       "Agente de bienes raíces con licencia de Illinois: trabaja con una agente, no un centro de llamadas",
     ],
