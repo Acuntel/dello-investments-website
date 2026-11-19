@@ -74,14 +74,14 @@ export const es: SiteDict = {
     distressed: {
       title: "Propiedades Dañadas o en Dificultades",
       body1:
-        "¿Violaciones de código? ¿Daños por agua o fuego? ¿Cimientos que han visto mejores días, o años de reparaciones pendientes? Compramos casas dañadas y en dificultades en Chicago y el condado de Cook — exactamente como están, sin pedirle que arregle nada.",
+        "¿Violaciones de código? ¿Daños por agua o fuego? ¿Cimientos que han visto mejores días, o años de reparaciones pendientes? Compramos casas dañadas y en dificultades en Chicago y el condado de Cook, exactamente como están, sin pedirle que arregle nada.",
       body2:
-        "Como somos contratistas generales con licencia de la Ciudad de Chicago, sabemos lo que necesita una propiedad con problemas. Eso significa una oferta justa y precisa por el tipo de casa que la mayoría de los compradores mira una vez y deja pasar. Sin ofertas bajas ni conjeturas — solo un número real con el que puede contar.",
+        "Como somos contratistas generales con licencia de la Ciudad de Chicago, sabemos lo que necesita una propiedad con problemas. Eso significa una oferta justa y precisa por el tipo de casa que la mayoría de los compradores mira una vez y deja pasar. Sin ofertas bajas ni conjeturas. Solo un número real con el que puede contar.",
     },
     foreclosure: {
       title: "¿Enfrenta una Ejecución Hipotecaria en Illinois?",
       body1:
-        "Una ejecución hipotecaria en Illinois puede tardar de 12 a 18 meses — pero el golpe a su crédito empieza en el momento en que deja de pagar, no cuando el banco termina.",
+        "Una ejecución hipotecaria en Illinois puede tardar de 12 a 18 meses, pero el golpe a su crédito empieza en el momento en que deja de pagar, no cuando el banco termina.",
       body2Html:
         'Si está atrasado en su hipoteca o ya está en pre-ejecución, todavía tiene opciones. <a href="/foreclosure-service-chicago/">Vender al contado antes de que el banco tome la casa</a> puede proteger su crédito, detener el reloj y poner dinero en su bolsillo en lugar de perderlo en la subasta.',
       body3: "Sin juicios y sin presión. Solo un camino real hacia adelante.",
@@ -129,7 +129,7 @@ export const es: SiteDict = {
   },
   situations: {
     label: "Situaciones Que Resolvemos",
-    title: "Sea cual sea la situación, hay un camino.",
+    title: "Situaciones en las que compramos.",
     subtitle:
       "Hemos ayudado a propietarios de Chicago en casi todas las circunstancias que una propiedad puede enfrentar.",
     items: [
@@ -187,7 +187,7 @@ export const es: SiteDict = {
   neighborhoods: {
     label: "Dónde Compramos",
     title: "Compramos Casas en Todo Chicago y el Condado de Cook",
-    body: "Trabajamos en los lados oeste y suroeste de Chicago — La Villita, North Lawndale, Humboldt Park, Pilsen, Garfield Park, Austin — además de Cicero, Berwyn y los suburbios cercanos del condado de Cook.",
+    body: "Trabajamos en los lados oeste y suroeste de Chicago: La Villita, North Lawndale, Humboldt Park, Pilsen, Garfield Park, Austin, además de Cicero, Berwyn y los suburbios cercanos del condado de Cook.",
     body2:
       "Compramos en los 77 vecindarios de Chicago. ¿No sabe si cubrimos su cuadra? Llame al (312) 975-5557.",
     areas: [
