@@ -13,15 +13,14 @@ export const en: SiteDict = {
   },
   hero: {
     eyebrow: "Licensed Illinois Broker · Licensed Chicago General Contractor",
-    titleLead: "We Buy Houses",
+    titleLead: "We Buy Houses in",
     titleAccent: "Chicago",
-    titleTail: "— any condition, any situation.",
+    titleTail: "for Cash, Any Condition, Any Situation.",
     subtitle:
-      "Facing foreclosure, code violations, a vacant or inherited house, or a property that's become too much to manage? We buy houses for cash across Chicago and Cook County — as-is, no repairs, no commissions, no closing costs (you only pay your own attorney). Fair offer within 24 hours of a walkthrough, close in as little as 7 days.",
+      "Call or text (312) 975-5557 for a written offer within 24 hours of a walkthrough. No repairs, no commissions, no closing costs (you only pay your own attorney). Close in as little as 7 days.",
     bullets: [
-      "Close in as little as 7 days, or choose your timeline",
-      "Licensed general contractor — we price repairs from real numbers, not guesses",
-      "Licensed Illinois broker — you work with a licensed broker, not a call center",
+      "Licensed general contractor: we price repairs from real numbers, not guesses",
+      "Licensed Illinois broker: you work with a licensed broker, not a call center",
     ],
     ctaPrimary: "Get My Cash Offer",
     ctaSecondary: "See How It Works",
