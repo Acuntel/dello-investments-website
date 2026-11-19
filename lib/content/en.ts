@@ -67,20 +67,20 @@ export const en: SiteDict = {
   positioning: {
     gc: {
       title: "Licensed City of Chicago General Contractor",
-      body: "We're not just buyers — we're licensed contractors. We know what every problem property actually costs to fix. That's why our offers are fair and accurate, not lowball guesses. No repairs on you. We handle it.",
+      body: "We're not just buyers. We're licensed contractors. We know what every problem property actually costs to fix. That's why our offers are fair and accurate, not lowball guesses. No repairs on you. We handle it.",
       license: "GC License #TGC137744",
     },
     distressed: {
       title: "Distressed and Damaged Properties",
       body1:
-        "Code violations? Water or fire damage? A foundation that's seen better days, or years of repairs you never got to? We buy distressed and damaged houses across Chicago and Cook County — exactly as they sit, without asking you to fix a single thing.",
+        "Code violations? Water or fire damage? A foundation that's seen better days, or years of repairs you never got to? We buy distressed and damaged houses across Chicago and Cook County, exactly as they sit, without asking you to fix a single thing.",
       body2:
-        "Because we're licensed City of Chicago general contractors, we know what a problem property needs. That means a fair, accurate offer on the kind of house most buyers take one look at and walk away from. No lowballing, no guesswork — just a real number you can count on.",
+        "Because we're licensed City of Chicago general contractors, we know what a problem property needs. That means a fair, accurate offer on the kind of house most buyers take one look at and walk away from. No lowballing, no guesswork. Just a real number you can count on.",
     },
     foreclosure: {
       title: "Facing Foreclosure in Illinois",
       body1:
-        "Foreclosure in Illinois can drag on 12 to 18 months — but the hit to your credit starts the moment you miss a payment, not when the bank finishes.",
+        "Foreclosure in Illinois can drag on 12 to 18 months, but the hit to your credit starts the moment you miss a payment, not when the bank finishes.",
       body2Html:
         'If you\'re behind on your mortgage or already in pre-foreclosure, you still have options. <a href="/foreclosure-service-chicago/">Selling for cash before the bank takes over</a> can protect your credit, stop the clock, and put money back in your pocket instead of losing it at auction.',
       body3: "No judgment, no pressure. Just a real path forward.",
@@ -128,7 +128,7 @@ export const en: SiteDict = {
   },
   situations: {
     label: "Situations We Solve",
-    title: "Whatever the situation, there's a way forward.",
+    title: "Situations we buy in.",
     subtitle:
       "We've helped Chicago homeowners through nearly every circumstance a property can face.",
     items: [
@@ -185,7 +185,7 @@ export const en: SiteDict = {
   neighborhoods: {
     label: "Where We Buy",
     title: "We Buy Houses Across Chicago and Cook County",
-    body: "We work throughout Chicago's West and Southwest Sides — Little Village, North Lawndale, Humboldt Park, Pilsen, Garfield Park, Austin — plus Cicero, Berwyn, and the nearby Cook County suburbs.",
+    body: "We work throughout Chicago's West and Southwest Sides: Little Village, North Lawndale, Humboldt Park, Pilsen, Garfield Park, Austin, plus Cicero, Berwyn, and the nearby Cook County suburbs.",
     body2:
       "We buy across all 77 Chicago neighborhoods. Not sure if we cover your block? Call (312) 975-5557.",
     areas: [
