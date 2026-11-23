@@ -4,7 +4,7 @@ import ReviewForm from "@/components/ui/ReviewForm";
 // The review ask lands here: /review/?name=...&email=...&cid=... from GHL,
 // or bare from the QR code. Kept out of Google's index and the sitemap.
 export const metadata: Metadata = {
-  title: "How did we do? | Dello Investments",
+  title: "How did we do?",
   description: "Tell us how selling your house with Dello Investments went.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/review/" },
