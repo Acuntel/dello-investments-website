@@ -227,7 +227,7 @@ export default function ReviewForm() {
             {happy ? "Opening Google…" : "Sending…"}
           </span>
         ) : happy ? (
-          "Continue to Google"
+          "Continue"
         ) : (
           "Send"
         )}
