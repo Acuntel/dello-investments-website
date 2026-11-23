@@ -130,7 +130,7 @@ export default function ReviewForm() {
       <div>
         {firstName && (
           <p className="mb-2 text-sm font-semibold text-mist-ink">
-            Hi {firstName} &middot; 30 seconds
+            Hi {firstName} &middot; can we grab 30 seconds of your time?
           </p>
         )}
         <h1 className="font-heading text-xl font-bold leading-snug text-navy sm:text-2xl">{QUESTION}</h1>
