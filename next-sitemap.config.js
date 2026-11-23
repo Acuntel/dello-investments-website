@@ -14,7 +14,7 @@ module.exports = {
   generateIndexSitemap: false,
   changefreq: "weekly",
   priority: 0.7,
-  exclude: ["/api/*", "/admin", "/admin/*"],
+  exclude: ["/api/*", "/admin", "/admin/*", "/review"],
   robotsTxtOptions: {
     policies: [
       { userAgent: "*", allow: "/", disallow: ["/admin"] },
