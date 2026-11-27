@@ -8,7 +8,7 @@
 export type InlineHtml = string;
 
 export type PageBlock =
-  | { t: "h2" | "h3" | "h4"; text: string }
+  | { t: "h2" | "h3" | "h4"; text: string; id?: string }
   | { t: "p"; html: InlineHtml }
   | { t: "list"; ordered: boolean; items: InlineHtml[] }
   | { t: "cards"; items: { title: string; body: InlineHtml[] }[] }
