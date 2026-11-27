@@ -253,7 +253,12 @@ export default function Block({
     case "h2":
       return (
         <Reveal variant="fade-up">
-          <h2 className="max-w-3xl text-3xl sm:text-4xl">{block.text}</h2>
+          <h2
+            id={block.id}
+            className="max-w-3xl scroll-mt-28 text-3xl sm:text-4xl"
+          >
+            {block.text}
+          </h2>
         </Reveal>
       );
     case "h3":
